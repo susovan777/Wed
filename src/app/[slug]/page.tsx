@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import InvitationShell from "@/components/invitation/InvitationShell";
 import { getAllSlugs, getInvitation } from "@/content/invitations";
+import InvitationSections from "@/components/invitation/InvitationSections";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -26,5 +27,9 @@ export default async function InvitationPage({ params }: Props) {
   const invitation = getInvitation(slug);
   if (!invitation) notFound();
 
-  return <InvitationShell invitation={invitation} />;
+  return (
+    <InvitationShell invitation={invitation}>
+      <InvitationSections invitation={invitation} />
+    </InvitationShell>
+  );
 }

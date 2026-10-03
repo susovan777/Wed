@@ -5,10 +5,24 @@ export const sampleWedding: Invitation = {
   slug: "sample-wedding",
 
   opening: {
-    background: "/invitations/bg.png",
-    envelope: "/invitations/envelop.png",
-    flowerBorder: "/invitations/flower-border.png",
-    subhoBibaha: "/invitations/subho-bibaha.png",
+    background: "/opening/bg.png",
+    envelope: "/opening/envelop.png",
+    flowerBorder: "/opening/flower-border.png",
+    subhoBibaha: "/opening/subho-bibaha.png",
+  },
+
+  hero: {
+    background: "/invitations/hero-bg.webp",
+    couple: "/invitations/hero-couple.webp",
+    ganesha: "/invitations/ganesha.svg",
+    invocation: "|| Shri Ganeshay Namah ||",
+    tagline: "Are getting married",
+    corners: {
+      topLeft: "/invitations/corner-top-left.webp",
+      topRight: "/invitations/corner-top-right.webp",
+      bottomLeft: "/invitations/corner-bottom-left.webp",
+      bottomRight: "/invitations/corner-bottom-right.webp",
+    },
   },
 
   couple: {

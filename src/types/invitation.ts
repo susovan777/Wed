@@ -39,6 +39,7 @@ export type StoryStep = {
 /** Sections the main page can render, in the order they appear. */
 export type SectionKey =
   | "hero"
+  | "countdown"
   | "details"
   | "celebrations"
   | "story"
@@ -66,9 +67,24 @@ export type Invitation = {
     city: string;
   };
 
-  hero?: {
-    image?: string;
-    tagline?: string;
+  hero: {
+    /** Full-bleed background (desktop, and mobile unless backgroundMobile is set). */
+    background: string;
+    backgroundMobile?: string;
+    /** Couple illustration: right side on desktop, bottom on mobile. */
+    couple: string;
+    /** Ganesha mark at the top. */
+    ganesha: string;
+    /** Line under the mark, e.g. "|| Shri Ganeshay Namah ||". */
+    invocation: string;
+    /** e.g. "Are getting married". */
+    tagline: string;
+    corners?: {
+      topLeft?: string;
+      topRight?: string;
+      bottomLeft?: string;
+      bottomRight?: string;
+    };
   };
 
   invite: {
