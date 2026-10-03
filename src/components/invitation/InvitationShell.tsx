@@ -2,22 +2,20 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
-import OpeningGate, { OpeningAssets } from "../opening/OpeningGate";
+import type { CSSProperties } from "react";
+import OpeningGate from "@/components/opening/OpeningGate";
+import type { Invitation } from "@/types/invitation";
 
-// Temporary: these will come from the invitation content file later.
-const assets: OpeningAssets = {
-  background: "/invitations/bg.png",
-  envelope: "/invitations/envelop.png",
-  flowerBorder: "/invitations/flower-border.png",
-  subhoBibaha: "/invitations/subho-bibaha.png",
-};
-
-export default function InvitationShell() {
+export default function InvitationShell({
+  invitation,
+}: {
+  invitation: Invitation;
+}) {
   const [opened, setOpened] = useState(false);
   const [gateGone, setGateGone] = useState(false);
 
   return (
-    <>
+    <div style={invitation.theme as CSSProperties}>
       {/* Main invitation page sits underneath and fades in as the gate opens */}
       <motion.main
         className="flex min-h-dvh items-center justify-center bg-[#f6ecd9] text-[#7a0c12]"
@@ -27,16 +25,18 @@ export default function InvitationShell() {
         }
         transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
       >
-        <p className="font-serif text-2xl">Main invitation page</p>
+        <p className="font-serif text-2xl">
+          {invitation.couple.bride.name} & {invitation.couple.groom.name}
+        </p>
       </motion.main>
 
       {!gateGone && (
         <OpeningGate
-          assets={assets}
+          assets={invitation.opening}
           onOpen={() => setOpened(true)}
           onOpened={() => setGateGone(true)}
         />
       )}
-    </>
+    </div>
   );
 }
