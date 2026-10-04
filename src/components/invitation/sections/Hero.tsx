@@ -4,6 +4,7 @@ import Reveal from "@/components/motion/Reveal";
 import OrnamentDivider from "@/components/ui/OrnamentDivider";
 import { formatWeddingDate } from "@/lib/date";
 import type { Invitation } from "@/types/invitation";
+import BlurText from "@/components/motion/BlurText";
 
 const NAME_SIZE =
   "text-[clamp(3.25rem,15vw,5rem)] lg:text-[clamp(3.5rem,6.2vw,6.25rem)]";
@@ -89,12 +90,12 @@ export default function Hero({ invitation }: { invitation: Invitation }) {
       <Corner
         src={corners.bottomLeft}
         y={30}
-        className="bottom-0 left-0 z-20 hidden w-[22%] max-w-90 lg:block"
+        className="bottom-0 left-0 z-20 w-[22%] max-w-90 lg:block"
       />
       <Corner
         src={corners.bottomRight}
         y={30}
-        className="bottom-0 right-0 z-20 hidden w-[20%] max-w-85 lg:block"
+        className="bottom-0 right-0 z-20 w-[20%] max-w-85 lg:block"
       />
 
       {/* Ganesha mark */}
@@ -129,7 +130,7 @@ export default function Hero({ invitation }: { invitation: Invitation }) {
             <OrnamentDivider />
           </Reveal>
 
-          <Reveal
+          {/* <Reveal
             trigger="open"
             y={20}
             delay={0.75}
@@ -140,7 +141,19 @@ export default function Hero({ invitation }: { invitation: Invitation }) {
             <span className="hidden lg:inline">
               {bride.fullName ?? bride.name}
             </span>
-          </Reveal>
+          </Reveal> */}
+
+          <div
+            aria-hidden
+            className={`mt-3 font-script leading-[1.1] text-primary lg:mt-8 ${NAME_SIZE} ${NAME_SHADOW}`}
+          >
+            <BlurText text={bride.name} delay={0.75} className="lg:hidden" />
+            <BlurText
+              text={bride.fullName ?? bride.name}
+              delay={0.75}
+              className="hidden lg:inline"
+            />
+          </div>
 
           <Reveal
             trigger="open"
@@ -152,7 +165,7 @@ export default function Hero({ invitation }: { invitation: Invitation }) {
             &amp;
           </Reveal>
 
-          <Reveal
+          {/* <Reveal
             trigger="open"
             y={20}
             delay={1}
@@ -163,7 +176,19 @@ export default function Hero({ invitation }: { invitation: Invitation }) {
             <span className="hidden lg:inline">
               {groom.fullName ?? groom.name}
             </span>
-          </Reveal>
+          </Reveal> */}
+
+          <div
+            aria-hidden
+            className={`font-script leading-[1.1] text-gold ${NAME_SIZE} ${NAME_SHADOW}`}
+          >
+            <BlurText text={groom.name} delay={1.15} className="lg:hidden" />
+            <BlurText
+              text={groom.fullName ?? groom.name}
+              delay={1.15}
+              className="hidden lg:inline"
+            />
+          </div>
 
           <Reveal
             trigger="open"
@@ -172,16 +197,6 @@ export default function Hero({ invitation }: { invitation: Invitation }) {
           >
             {hero.tagline}
           </Reveal>
-
-          {couple.hashtag && (
-            <Reveal
-              trigger="open"
-              delay={1.25}
-              className="mt-4 font-sans text-base font-medium text-primary lg:mt-5 lg:text-lg"
-            >
-              {couple.hashtag}
-            </Reveal>
-          )}
 
           <Reveal trigger="open" delay={1.35} className="mt-6 lg:mt-8">
             <OrnamentDivider />

@@ -6,6 +6,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { OpenProvider } from "./OpenContext";
 import OpeningGate from "@/components/opening/OpeningGate";
 import type { Invitation } from "@/types/invitation";
+import PetalFall from "./PetalFall";
 
 export default function InvitationShell({
   invitation,
@@ -31,6 +32,9 @@ export default function InvitationShell({
         >
           {children}
         </motion.main>
+
+        {/* Falling petals animation */}
+        <PetalFall />
       </OpenProvider>
 
       {!gateGone && (

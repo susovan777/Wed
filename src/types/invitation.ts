@@ -3,6 +3,7 @@ import type { OpeningAssets } from "@/components/opening/OpeningGate";
 export type Person = {
   /** Name shown on the page, e.g. "Ananya". */
   name: string;
+  banglaName?: string;
   /** Optional full name, used in details and meta text. */
   fullName?: string;
   /** e.g. "Mr. Subir Sen & Mrs. Mala Sen". */

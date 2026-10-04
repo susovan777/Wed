@@ -27,14 +27,16 @@ export const sampleWedding: Invitation = {
 
   couple: {
     bride: {
-      name: "Ananya",
-      fullName: "Ananya Sen",
-      parents: "Mr. Subir Sen & Mrs. Mala Sen",
+      name: "Puspalata",
+      banglaName: "পুষ্পলতা",
+      fullName: "Puspalata Sahoo",
+      parents: "Mr. Subir Sahoo & Mrs. Mala Sahoo",
     },
     groom: {
-      name: "Rishav",
-      fullName: "Rishav Banerjee",
-      parents: "Mr. Amit Banerjee & Mrs. Rina Banerjee",
+      name: "Susovan",
+      banglaName: "সুশোভন",
+      fullName: "Susovan Sahoo",
+      parents: "Mr. Amit Sahoo & Mrs. Rina Sahoo",
     },
     hashtag: "#AnanyaWedsRishav",
   },

@@ -1,7 +1,17 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import {
+  Great_Vibes,
+  MonteCarlo,
+  Cormorant_Garamond,
+  Inter,
+} from "next/font/google";
 
-import { Great_Vibes, Cormorant_Garamond, Inter } from "next/font/google";
+const fancy = MonteCarlo({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--nf-script",
+});
 
 const script = Great_Vibes({
   weight: "400",
