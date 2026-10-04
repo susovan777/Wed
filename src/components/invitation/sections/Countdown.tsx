@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Reveal from "@/components/motion/Reveal";
 import CornerImage from "@/components/ui/CornerImage";
 import CountdownCards from "@/components/ui/CountdownCards";
@@ -25,9 +24,8 @@ export default function Countdown({ invitation }: { invitation: Invitation }) {
     <section
       id="countdown"
       aria-labelledby="countdown-title"
-      className="relative isolate overflow-hidden bg-paper"
+      className="relative isolate overflow-hidden "
     >
-
       {/* Corner line art */}
       <CornerImage
         src={corners.topLeft}
@@ -42,12 +40,12 @@ export default function Countdown({ invitation }: { invitation: Invitation }) {
       <CornerImage
         src={corners.bottomLeft}
         y={20}
-        className={`bottom-0 left-0 z-1 ${CORNER_SIZE}`}
+        className={`bottom-0 left-0 hidden md:block z-1 ${CORNER_SIZE}`}
       />
       <CornerImage
         src={corners.bottomRight}
         y={20}
-        className={`bottom-0 right-0 z-1 ${CORNER_SIZE}`}
+        className={`bottom-0 right-0 hidden md:block z-1 ${CORNER_SIZE}`}
       />
 
       <div className="relative z-2 mx-auto max-w-295 px-4 pb-8 pt-10 lg:px-8 lg:pb-10 lg:pt-12">
@@ -64,7 +62,7 @@ export default function Countdown({ invitation }: { invitation: Invitation }) {
 
           <OrnamentDivider className="mt-3 lg:mt-4" />
 
-          <p className="mt-3 font-serif text-[0.62rem] font-medium uppercase tracking-[0.22em] text-[#6b5b4e] lg:text-sm">
+          <p className="mt-3 font-serif text-[0.62rem] font-medium uppercase tracking-[0.22em] text-[#6b5b4e] lg:text-lg">
             {subtitle}
           </p>
         </Reveal>

@@ -71,7 +71,7 @@ export default function Hero({ invitation }: { invitation: Invitation }) {
         className={`${backgroundClass} ${hero.backgroundMobile ? "hidden lg:block" : ""}`}
       />
       <div
-        className={`absolute inset-0 -z-10 lg:bg-linear-to-t from-white via-white/40 to-transparent ${
+        className={`absolute inset-0 -z-10 lg:bg-linear-to-t from-white/40 via-white/40 to-transparent ${
           hero.backgroundMobile ? "hidden lg:block" : ""
         }`}
         aria-hidden="true"

@@ -1,5 +1,11 @@
 import type { Invitation } from "@/types/invitation";
 
+const venue = {
+  name: "Venue name",
+  address: "Address line, Kolkata",
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=Kolkata",
+};
+
 // Placeholder content. Replace with your own details.
 export const sampleWedding: Invitation = {
   slug: "sample-wedding",
@@ -38,6 +44,18 @@ export const sampleWedding: Invitation = {
     flourish: "/invitations/countdown-flourish.png",
   },
 
+  celebrations: {
+    subtitle:
+      "Join us for a celebration filled with love, laughter and Bengali traditions.",
+    lotus: "/invitations/events-lotus.png",
+    corners: {
+      topLeft: "/invitations/events-tl.png",
+      topRight: "/invitations/events-tr.png",
+      bottomLeft: "/invitations/events-bl.png",
+      bottomRight: "/invitations/events-br.png",
+    },
+  },
+
   couple: {
     bride: {
       name: "Puspalata",
@@ -55,7 +73,7 @@ export const sampleWedding: Invitation = {
   },
 
   wedding: {
-    date: "2027-01-24T19:00:00+05:30",
+    date: "2026-11-24T19:00:00+05:30",
     city: "Kolkata",
   },
 
@@ -65,39 +83,74 @@ export const sampleWedding: Invitation = {
       "Together with our families, we invite you to celebrate our wedding and share in our joy.",
   },
 
+  // events: [
+  //   {
+  //     id: "gaye-holud",
+  //     title: "Gaye Holud",
+  //     startsAt: "2027-01-23T11:00:00+05:30",
+  //     endsAt: "2027-01-23T14:00:00+05:30",
+  //     venue: {
+  //       name: "Venue name",
+  //       address: "Address line, Kolkata",
+  //       mapUrl: "https://www.google.com/maps/search/?api=1&query=Kolkata",
+  //     },
+  //   },
+  //   {
+  //     id: "shubho-bibaha",
+  //     title: "Shubho Bibaha",
+  //     startsAt: "2027-01-24T19:00:00+05:30",
+  //     endsAt: "2027-01-24T23:30:00+05:30",
+  //     venue: {
+  //       name: "Venue name",
+  //       address: "Address line, Kolkata",
+  //       mapUrl: "https://www.google.com/maps/search/?api=1&query=Kolkata",
+  //     },
+  //   },
+  //   {
+  //     id: "bou-bhaat",
+  //     title: "Bou Bhaat",
+  //     startsAt: "2027-01-25T19:30:00+05:30",
+  //     endsAt: "2027-01-25T22:30:00+05:30",
+  //     venue: {
+  //       name: "Venue name",
+  //       address: "Address line, Kolkata",
+  //       mapUrl: "https://www.google.com/maps/search/?api=1&query=Kolkata",
+  //     },
+  //   },
+  // ],
+
   events: [
     {
       id: "gaye-holud",
       title: "Gaye Holud",
-      startsAt: "2027-01-23T11:00:00+05:30",
-      endsAt: "2027-01-23T14:00:00+05:30",
-      venue: {
-        name: "Venue name",
-        address: "Address line, Kolkata",
-        mapUrl: "https://www.google.com/maps/search/?api=1&query=Kolkata",
-      },
+      startsAt: "2026-11-22T16:00:00+05:30",
+      venue,
+      description: "A splash of colors,\ntraditions and happiness!",
+      image: "/invitations/gaye-holud.png",
     },
     {
-      id: "shubho-bibaha",
-      title: "Shubho Bibaha",
-      startsAt: "2027-01-24T19:00:00+05:30",
-      endsAt: "2027-01-24T23:30:00+05:30",
-      venue: {
-        name: "Venue name",
-        address: "Address line, Kolkata",
-        mapUrl: "https://www.google.com/maps/search/?api=1&query=Kolkata",
-      },
+      id: "aashirbaad",
+      title: "Aashirbaad",
+      startsAt: "2026-11-23T10:00:00+05:30",
+      venue,
+      description: "Blessings for\na beautiful future",
+      image: "/invitations/aashirbaad.png",
     },
     {
-      id: "bou-bhaat",
-      title: "Bou Bhaat",
-      startsAt: "2027-01-25T19:30:00+05:30",
-      endsAt: "2027-01-25T22:30:00+05:30",
-      venue: {
-        name: "Venue name",
-        address: "Address line, Kolkata",
-        mapUrl: "https://www.google.com/maps/search/?api=1&query=Kolkata",
-      },
+      id: "wedding",
+      title: "Wedding",
+      startsAt: "2026-11-24T19:00:00+05:30",
+      venue,
+      description: "Two hearts, one promise\nfor a lifetime!",
+      image: "/invitations/wedding.png",
+    },
+    {
+      id: "reception",
+      title: "Reception",
+      startsAt: "2026-11-25T19:00:00+05:30",
+      venue,
+      description: "An evening of\ncelebration and togetherness!",
+      image: "/invitations/reception.png",
     },
   ],
 

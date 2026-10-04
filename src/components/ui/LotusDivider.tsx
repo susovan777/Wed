@@ -12,9 +12,9 @@ export default function LotusDivider({
   return (
     <div
       aria-hidden
-      className={`flex w-full items-center gap-3 lg:gap-5 ${className}`}
+      className={`flex w-full justify-center items-center gap-3 lg:gap-5 ${className}`}
     >
-      <span className="h-px flex-1 bg-[linear-gradient(to_right,transparent,var(--color-crimson))]" />
+      {/* <span className="h-px flex-1 bg-[linear-gradient(to_right,transparent,var(--color-crimson))]" /> */}
       {src ? (
         <Image
           src={src}
@@ -27,7 +27,7 @@ export default function LotusDivider({
       ) : (
         <span className="size-2 rotate-45 bg-crimson" />
       )}
-      <span className="h-px flex-1 bg-[linear-gradient(to_left,transparent,var(--color-crimson))]" />
+      {/* <span className="h-px flex-1 bg-[linear-gradient(to_left,transparent,var(--color-crimson))]" /> */}
     </div>
   );
 }

@@ -107,6 +107,23 @@ export type Invitation = {
     flourish?: string;
   };
 
+  celebrations?: {
+    /** Defaults to "The Wedding Events". */
+    title?: string;
+    subtitle?: string;
+    /** Shown after the time when an event has no end time. Defaults to "Onwards". */
+    onwardsLabel?: string;
+    /** Small lotus under the heading. */
+    lotus?: string;
+    background?: string;
+    corners?: {
+      topLeft?: string;
+      topRight?: string;
+      bottomLeft?: string;
+      bottomRight?: string;
+    };
+  };
+
   invite: {
     blessing?: string;
     message: string;
