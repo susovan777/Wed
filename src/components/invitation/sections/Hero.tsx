@@ -121,7 +121,7 @@ export default function Hero({ invitation }: { invitation: Invitation }) {
 
       <div className="relative z-10 flex flex-1 flex-col lg:grid lg:grid-cols-2">
         {/* Text column */}
-        <div className="flex flex-col items-center px-6 pt-4 text-center lg:self-center lg:pb-12 lg:pl-12 lg:pr-4 lg:pt-0">
+        <div className="flex flex-col items-center px-6 pt-4 text-center lg:self-center lg:pb-12 xl:pl-40 lg:pr-0 lg:pt-0">
           <h1 className="sr-only">
             {bride.fullName ?? bride.name} and {groom.fullName ?? groom.name}
           </h1>
@@ -129,19 +129,6 @@ export default function Hero({ invitation }: { invitation: Invitation }) {
           <Reveal trigger="open" delay={0.6}>
             <OrnamentDivider />
           </Reveal>
-
-          {/* <Reveal
-            trigger="open"
-            y={20}
-            delay={0.75}
-            aria-hidden
-            className={`mt-3 font-script leading-[1.1] text-primary lg:mt-8 ${NAME_SIZE} ${NAME_SHADOW}`}
-          >
-            <span className="lg:hidden">{bride.name}</span>
-            <span className="hidden lg:inline">
-              {bride.fullName ?? bride.name}
-            </span>
-          </Reveal> */}
 
           <div
             aria-hidden
@@ -164,19 +151,6 @@ export default function Hero({ invitation }: { invitation: Invitation }) {
           >
             &amp;
           </Reveal>
-
-          {/* <Reveal
-            trigger="open"
-            y={20}
-            delay={1}
-            aria-hidden
-            className={`font-script leading-[1.1] text-gold ${NAME_SIZE} ${NAME_SHADOW}`}
-          >
-            <span className="lg:hidden">{groom.name}</span>
-            <span className="hidden lg:inline">
-              {groom.fullName ?? groom.name}
-            </span>
-          </Reveal> */}
 
           <div
             aria-hidden
@@ -228,7 +202,7 @@ export default function Hero({ invitation }: { invitation: Invitation }) {
         </div>
 
         {/* Couple illustration: bottom on mobile, bottom-right on desktop */}
-        <div className="mt-auto flex justify-center pt-8 lg:justify-end lg:self-end lg:pr-8 lg:pt-0">
+        <div className="mt-auto flex justify-center pt-8 lg:justify-end lg:self-end xl:pr-25 lg:pt-0">
           <Reveal
             trigger="open"
             y={90}

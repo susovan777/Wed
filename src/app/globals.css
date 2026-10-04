@@ -19,6 +19,9 @@
   --color-maroon: #7a0f22;
   --color-ink: #3b3b3b;
   --color-cream: #fbeee3;
+  --color-crimson: #a50f1d;
+  --color-gilt: #e9c985;
+  --color-paper: #f5e6c8;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -81,7 +81,7 @@ export default function OpeningGate({
         alt=""
         aria-hidden
         fill
-        sizes="100vw"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         quality={90}
         className="hidden scale-110 object-cover opacity-50 blur-2xl md:block"
       />
@@ -104,7 +104,7 @@ export default function OpeningGate({
             fill
             priority
             quality={90}
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="select-none object-cover"
             draggable={false}
           />
@@ -213,6 +213,7 @@ export default function OpeningGate({
                           src={assets.subhoBibaha}
                           alt=""
                           fill
+                          loading="eager"
                           sizes="(min-width: 768px) 120px, 22vw"
                           className="select-none object-contain"
                           draggable={false}

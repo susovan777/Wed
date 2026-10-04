@@ -1,12 +1,14 @@
 import type { ComponentType } from "react";
 import type { Invitation, SectionKey } from "@/types/invitation";
 import Hero from "./sections/Hero";
+import Countdown from "./sections/Countdown";
 
 type SectionProps = { invitation: Invitation };
 
 // Add each new section here as it gets built.
 const registry: Partial<Record<SectionKey, ComponentType<SectionProps>>> = {
   hero: Hero,
+  countdown: Countdown,
 };
 
 const defaultOrder: SectionKey[] = [

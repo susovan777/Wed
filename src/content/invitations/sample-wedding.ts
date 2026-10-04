@@ -25,6 +25,19 @@ export const sampleWedding: Invitation = {
     },
   },
 
+  countdown: {
+    background: "/invitations/countdown-bg.png",
+    divider: "/invitations/c-divider.png",
+    corners: {
+      topLeft: "/invitations/c-top-left.png",
+      topRight: "/invitations/c-top-right.png",
+      bottomLeft: "/invitations/c-bottom-left.png",
+      bottomRight: "/invitations/c-bottom-right.png",
+    },
+    lotus: "/invitations/lotus.png",
+    flourish: "/invitations/countdown-flourish.png",
+  },
+
   couple: {
     bride: {
       name: "Puspalata",

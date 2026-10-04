@@ -88,6 +88,25 @@ export type Invitation = {
     };
   };
 
+  countdown?: {
+    /** Defaults to "Countdown". */
+    title?: string;
+    /** Defaults to "Counting down to our special day". */
+    subtitle?: string;
+    /** Defaults to Days / Hours / Minutes / Seconds. */
+    labels?: { days: string; hours: string; minutes: string; seconds: string };
+    background?: string;
+    divider?: string;
+    corners?: {
+      topLeft?: string;
+      topRight?: string;
+      bottomLeft?: string;
+      bottomRight?: string;
+    };
+    lotus?: string;
+    flourish?: string;
+  };
+
   invite: {
     blessing?: string;
     message: string;
