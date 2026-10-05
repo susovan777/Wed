@@ -83,42 +83,6 @@ export const sampleWedding: Invitation = {
       "Together with our families, we invite you to celebrate our wedding and share in our joy.",
   },
 
-  // events: [
-  //   {
-  //     id: "gaye-holud",
-  //     title: "Gaye Holud",
-  //     startsAt: "2027-01-23T11:00:00+05:30",
-  //     endsAt: "2027-01-23T14:00:00+05:30",
-  //     venue: {
-  //       name: "Venue name",
-  //       address: "Address line, Kolkata",
-  //       mapUrl: "https://www.google.com/maps/search/?api=1&query=Kolkata",
-  //     },
-  //   },
-  //   {
-  //     id: "shubho-bibaha",
-  //     title: "Shubho Bibaha",
-  //     startsAt: "2027-01-24T19:00:00+05:30",
-  //     endsAt: "2027-01-24T23:30:00+05:30",
-  //     venue: {
-  //       name: "Venue name",
-  //       address: "Address line, Kolkata",
-  //       mapUrl: "https://www.google.com/maps/search/?api=1&query=Kolkata",
-  //     },
-  //   },
-  //   {
-  //     id: "bou-bhaat",
-  //     title: "Bou Bhaat",
-  //     startsAt: "2027-01-25T19:30:00+05:30",
-  //     endsAt: "2027-01-25T22:30:00+05:30",
-  //     venue: {
-  //       name: "Venue name",
-  //       address: "Address line, Kolkata",
-  //       mapUrl: "https://www.google.com/maps/search/?api=1&query=Kolkata",
-  //     },
-  //   },
-  // ],
-
   events: [
     {
       id: "gaye-holud",
@@ -153,6 +117,47 @@ export const sampleWedding: Invitation = {
       image: "/invitations/reception.png",
     },
   ],
+
+  story: {
+    eyebrow: "Our Story",
+    title: "Different paths,\none beautiful\nbeginning.",
+    intro:
+      "From our first conversation to the plans we are making now, it has been the everyday moments that made this feel like us.",
+    image: "/invitations/story-couple.webp",
+    closing: "Two stories, and so much still to write together.",
+    corners: {
+      topLeft: "/invitations/story-tl.webp",
+      topRight: "/invitations/story-tr.webp",
+      bottomLeft: "/invitations/story-bl.webp",
+      bottomRight: "/invitations/story-br.webp",
+    },
+    steps: [
+      {
+        title: "We Met",
+        icon: "cap",
+        image: "/invitations/story-we-met.png",
+        text: "A college event brought us together. We stayed long after it ended, talking about everything except the reason we had come.",
+      },
+      {
+        title: "We Grew",
+        icon: "heart",
+        image: "/invitations/story-we-grew.png",
+        text: "There were shared playlists, long calls and plenty of coffee. Little by little, we became the first person the other wanted to tell.",
+      },
+      {
+        title: "We Explored",
+        icon: "plane",
+        image: "/invitations/story-we-explored.png",
+        text: "From quiet hill stations to busy city streets, we found new places and new reasons to enjoy doing life together.",
+      },
+      {
+        title: "Now, Forever",
+        icon: "rings",
+        image: "/invitations/story-now-forever.png",
+        text: "One very happy yes, and here we are. Our next adventure begins with our favourite people beside us, and that includes you.",
+      },
+    ],
+  },
 
   note: "Your presence and blessings are the greatest gift we could ask for.",
 

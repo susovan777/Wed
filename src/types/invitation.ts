@@ -31,10 +31,14 @@ export type InvitationEvent = {
   image?: string;
 };
 
+export type StoryIcon = "cap" | "heart" | "plane" | "rings";
+
 export type StoryStep = {
   title: string;
   text: string;
+  /** Round photo for this chapter. */
   image?: string;
+  icon?: StoryIcon;
 };
 
 /** Sections the main page can render, in the order they appear. */
@@ -130,7 +134,27 @@ export type Invitation = {
   };
 
   events: InvitationEvent[];
-  story?: StoryStep[];
+
+  story?: {
+    /** Small label above the heading. Defaults to "Our Story". */
+    eyebrow?: string;
+    /** Use \n for line breaks. */
+    title: string;
+    intro?: string;
+    /** Couple illustration beside the heading. */
+    image?: string;
+    /** Text on the closing ribbon. */
+    closing?: string;
+    background?: string;
+    corners?: {
+      topLeft?: string;
+      topRight?: string;
+      bottomLeft?: string;
+      bottomRight?: string;
+    };
+    steps: StoryStep[];
+  };
+
   note?: string;
 
   music?: {
