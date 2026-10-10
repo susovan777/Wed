@@ -77,9 +77,9 @@ export default function Countdown({ invitation }: { invitation: Invitation }) {
       </div>
 
       {/* Full-width divider with the lotus at the center, closing the section */}
-      <Reveal y={20} className="relative z-2">
+      {/* <Reveal y={20} className="relative z-2">
         <LotusDivider src={c.lotus} />
-      </Reveal>
+      </Reveal> */}
     </section>
   );
 }

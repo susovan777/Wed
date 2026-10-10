@@ -4,6 +4,7 @@ import Hero from "./sections/Hero";
 import Countdown from "./sections/Countdown";
 import Celebrations from "./sections/Celebrations";
 import Story from "./sections/Story";
+import BrideGroom from "./sections/BrideGroom";
 
 type SectionProps = { invitation: Invitation };
 
@@ -11,6 +12,7 @@ type SectionProps = { invitation: Invitation };
 const registry: Partial<Record<SectionKey, ComponentType<SectionProps>>> = {
   hero: Hero,
   countdown: Countdown,
+  brideGroom: BrideGroom,
   celebrations: Celebrations,
   story: Story,
 };
@@ -18,6 +20,7 @@ const registry: Partial<Record<SectionKey, ComponentType<SectionProps>>> = {
 const defaultOrder: SectionKey[] = [
   "hero",
   "countdown",
+  "brideGroom",
   "details",
   "celebrations",
   "story",

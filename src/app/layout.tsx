@@ -19,6 +19,7 @@ const script = Great_Vibes({
   variable: "--nf-script",
 });
 const serif = Cormorant_Garamond({
+  style: ["normal", "italic"],
   weight: ["500", "600"],
   subsets: ["latin"],
   variable: "--nf-serif",

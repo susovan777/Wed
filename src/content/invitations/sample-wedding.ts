@@ -11,23 +11,23 @@ export const sampleWedding: Invitation = {
   slug: "sample-wedding",
 
   opening: {
-    background: "/opening/bg.png",
-    envelope: "/opening/envelop.png",
-    flowerBorder: "/opening/flower-border.png",
-    subhoBibaha: "/opening/subho-bibaha.png",
+    background: "/opening/bg.webp",
+    envelope: "/opening/envelop.webp",
+    flowerBorder: "/opening/flower-border.webp",
+    subhoBibaha: "/opening/subho-bibaha.webp",
   },
 
   hero: {
-    background: "/invitations/hero-bg.webp",
+    background: "/invitations/hero-bg1.webp",
     couple: "/invitations/hero-couple.webp",
     ganesha: "/invitations/ganesha.svg",
     invocation: "|| Shri Ganeshay Namah ||",
     tagline: "Are getting married",
     corners: {
-      topLeft: "/invitations/corner-top-left.webp",
-      topRight: "/invitations/corner-top-right.webp",
-      bottomLeft: "/invitations/corner-bottom-left.webp",
-      bottomRight: "/invitations/corner-bottom-right.webp",
+      topLeft: "/invitations/hero-tl.webp",
+      topRight: "/invitations/hero-tr.webp",
+      bottomLeft: "/invitations/hero-bl.webp",
+      bottomRight: "/invitations/hero-br.webp",
     },
   },
 
@@ -35,24 +35,24 @@ export const sampleWedding: Invitation = {
     background: "/invitations/countdown-bg.png",
     divider: "/invitations/c-divider.png",
     corners: {
-      topLeft: "/invitations/c-top-left.png",
-      topRight: "/invitations/c-top-right.png",
-      bottomLeft: "/invitations/c-bottom-left.png",
-      bottomRight: "/invitations/c-bottom-right.png",
+      topLeft: "/invitations/countdown-tl.webp",
+      topRight: "/invitations/countdown-tr.webp",
+      bottomLeft: "/invitations/countdown-bl.webp",
+      bottomRight: "/invitations/countdown-br.webp",
     },
-    lotus: "/invitations/lotus.png",
-    flourish: "/invitations/countdown-flourish.png",
+    lotus: "/invitations/lotus.webp",
+    flourish: "/invitations/countdown-flourish.webp",
   },
 
   celebrations: {
     subtitle:
       "Join us for a celebration filled with love, laughter and Bengali traditions.",
-    lotus: "/invitations/events-lotus.png",
+    lotus: "/invitations/events-lotus.webp",
     corners: {
-      topLeft: "/invitations/events-tl.png",
-      topRight: "/invitations/events-tr.png",
-      bottomLeft: "/invitations/events-bl.png",
-      bottomRight: "/invitations/events-br.png",
+      topLeft: "/invitations/events-tl.webp",
+      topRight: "/invitations/events-tr.webp",
+      bottomLeft: "/invitations/events-bl.webp",
+      bottomRight: "/invitations/events-br.webp",
     },
   },
 
@@ -90,7 +90,7 @@ export const sampleWedding: Invitation = {
       startsAt: "2026-11-22T16:00:00+05:30",
       venue,
       description: "A splash of colors,\ntraditions and happiness!",
-      image: "/invitations/gaye-holud.png",
+      image: "/invitations/gaye-holud.webp",
     },
     {
       id: "aashirbaad",
@@ -98,7 +98,7 @@ export const sampleWedding: Invitation = {
       startsAt: "2026-11-23T10:00:00+05:30",
       venue,
       description: "Blessings for\na beautiful future",
-      image: "/invitations/aashirbaad.png",
+      image: "/invitations/aashirbaad.webp",
     },
     {
       id: "wedding",
@@ -106,7 +106,7 @@ export const sampleWedding: Invitation = {
       startsAt: "2026-11-24T19:00:00+05:30",
       venue,
       description: "Two hearts, one promise\nfor a lifetime!",
-      image: "/invitations/wedding.png",
+      image: "/invitations/wedding.webp",
     },
     {
       id: "reception",
@@ -114,7 +114,7 @@ export const sampleWedding: Invitation = {
       startsAt: "2026-11-25T19:00:00+05:30",
       venue,
       description: "An evening of\ncelebration and togetherness!",
-      image: "/invitations/reception.png",
+      image: "/invitations/reception.webp",
     },
   ],
 
@@ -157,6 +157,27 @@ export const sampleWedding: Invitation = {
         text: "One very happy yes, and here we are. Our next adventure begins with our favourite people beside us, and that includes you.",
       },
     ],
+  },
+
+  brideGroom: {
+    title: "Bride & Groom",
+    subtitle:
+      "Two families, one beautiful journey.\nGet to know the Bride and Groom.",
+    ornament: "/invitations/bg-lotus.webp",
+    // background: "/invitations/bg-floral.png",
+    button: "/invitations/role-button.webp",
+    borders: {
+      top: "/invitations/bg-border-t.png",
+      bottom: "/invitations/bg-border-b.webp",
+    },
+    corners: {
+      topLeft: "/invitations/bg-tl.webp",
+      topRight: "/invitations/bg-tr.webp",
+      bottomLeft: "/invitations/bg-bl.webp",
+      bottomRight: "/invitations/bg-br.webp",
+    },
+    bride: { photo: "/invitations/bride.png" },
+    groom: { photo: "/invitations/groom.png" },
   },
 
   note: "Your presence and blessings are the greatest gift we could ask for.",

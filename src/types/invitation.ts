@@ -48,6 +48,7 @@ export type SectionKey =
   | "details"
   | "celebrations"
   | "story"
+  | "brideGroom"
   | "note"
   | "footer";
 
@@ -153,6 +154,30 @@ export type Invitation = {
       bottomRight?: string;
     };
     steps: StoryStep[];
+  };
+
+  brideGroom?: {
+    /** Defaults to "Bride & Groom". */
+    title?: string;
+    /** Use \n for a line break. */
+    subtitle?: string;
+    /** Pink lotus with the gold flourish, shown above the title. */
+    ornament?: string;
+    /** Faint line-art parchment, optional. */
+    background?: string;
+    /** Transparent plate image for the Bride / Groom labels. */
+    button?: string;
+    /** Tile images repeated across the full width, not stretched. */
+    borders?: { top?: string; bottom?: string };
+    corners?: {
+      topLeft?: string;
+      topRight?: string;
+      bottomLeft?: string;
+      bottomRight?: string;
+    };
+    /** `photo` is the round portrait with its frame already included. */
+    bride: { photo: string; label?: string };
+    groom: { photo: string; label?: string };
   };
 
   note?: string;
