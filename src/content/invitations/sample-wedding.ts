@@ -176,8 +176,35 @@ export const sampleWedding: Invitation = {
       bottomLeft: "/invitations/bg-bl.webp",
       bottomRight: "/invitations/bg-br.webp",
     },
-    bride: { photo: "/invitations/bride.png" },
-    groom: { photo: "/invitations/groom.png" },
+
+    bride: {
+      photo: "/invitations/bride.png",
+      details: {
+        subtitle: "Daughter of Mr. Subir Sen & Mrs. Mala Sen",
+        about:
+          "A few warm lines about the bride go here.\n\nA second short paragraph is fine too.",
+        facts: [
+          { label: "Education", value: "Add details" },
+          { label: "Profession", value: "Add details" },
+          { label: "Loves", value: "Add details" },
+          { label: "Hometown", value: "Kolkata" },
+        ],
+      },
+    },
+    groom: {
+      photo: "/invitations/groom.png",
+      details: {
+        subtitle: "Son of Mr. Amit Banerjee & Mrs. Rina Banerjee",
+        about:
+          "A few warm lines about the groom go here.\n\nA second short paragraph is fine too.",
+        facts: [
+          { label: "Education", value: "Add details" },
+          { label: "Profession", value: "Add details" },
+          { label: "Loves", value: "Add details" },
+          { label: "Hometown", value: "Kolkata" },
+        ],
+      },
+    },
   },
 
   note: "Your presence and blessings are the greatest gift we could ask for.",

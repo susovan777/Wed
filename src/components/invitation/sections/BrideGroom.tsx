@@ -1,54 +1,23 @@
 import Image from "next/image";
 import Reveal from "@/components/motion/Reveal";
-import CartoucheLabel from "@/components/ui/CartoucheLabel";
 import CornerImage from "@/components/ui/CornerImage";
 import FleurDivider from "@/components/ui/FleurDivider";
-import type { Invitation } from "@/types/invitation";
 import RepeatBorder from "@/components/ui/RepeatBorder";
+import type { Invitation } from "@/types/invitation";
+import PersonColumn from "@/components/ui/PersonColumn";
 import OrnamentDivider from "@/components/ui/OrnamentDivider";
 
-const TOP_CORNER = "w-[30vw] max-w-[220px] lg:w-[22%] lg:max-w-[190px]";
-const BOTTOM_CORNER = "w-[26vw] max-w-[200px] lg:w-[17%] lg:max-w-[280px]";
-const COLUMN = "w-[38vw] max-w-[390px] lg:w-[26vw]";
+const TOP_CORNER = "w-[30vw] max-w-[180px] lg:w-[11%] lg:max-w-[260px]";
+const BOTTOM_CORNER = "w-[26vw] max-w-[160px] lg:w-[11%] lg:max-w-[280px]";
+
+// Photo width = the smaller of a share of the SECTION WIDTH (first number)
+// and a share of the SECTION HEIGHT (second number). The height share is what
+// keeps everything inside one screen: lower 33cqh to make the photos smaller.
+const COLUMN = "w-[min(40cqw,33cqh)] lg:w-[min(26cqw,33cqh)] lg:max-w-[390px]";
 
 // Heights of the repeating border strips
 const TOP_BORDER = "h-8 lg:h-12";
 const BOTTOM_BORDER = "h-10 lg:h-16";
-
-function Person({
-  photo,
-  label,
-  button,
-  name,
-  delay,
-}: {
-  photo: string;
-  label: string;
-  button?: string;
-  name: string;
-  delay: number;
-}) {
-  return (
-    <Reveal
-      y={30}
-      delay={delay}
-      className={`flex flex-col items-center ${COLUMN}`}
-    >
-      <Image
-        src={photo}
-        alt={`Portrait of ${name}`}
-        width={800}
-        height={800}
-        sizes="(min-width: 1024px) 26vw, 38vw"
-        className="h-auto w-full select-none"
-        draggable={false}
-      />
-      <CartoucheLabel image={button} className="mt-4 w-full lg:mt-7">
-        {label}
-      </CartoucheLabel>
-    </Reveal>
-  );
-}
 
 export default function BrideGroom({ invitation }: { invitation: Invitation }) {
   const section = invitation.brideGroom;
@@ -59,10 +28,13 @@ export default function BrideGroom({ invitation }: { invitation: Invitation }) {
   const borders = section.borders ?? {};
 
   return (
+    // h-dvh: exactly one screen tall. container-type:size lets the contents
+    // size themselves from the section's own width (cqw) and height (cqh).
+    // min-h-[540px] stops it from squashing on very short windows.
     <section
       id="bride-groom"
       aria-labelledby="bride-groom-title"
-      className="relative isolate overflow-hidden"
+      className="relative isolate h-dvh min-h-135 overflow-hidden @container-size"
     >
       {/* Faint line-art parchment (optional) */}
       {section.background && (
@@ -108,17 +80,18 @@ export default function BrideGroom({ invitation }: { invitation: Invitation }) {
         src={corners.bottomLeft}
         y={20}
         className={`bottom-0 left-0 z-2 ${BOTTOM_CORNER}`}
-        sizes="(min-width: 1024px) 15vw, 26vw"
+        sizes="(min-width: 1024px) 17vw, 26vw"
       />
       <CornerImage
         src={corners.bottomRight}
         y={20}
         className={`bottom-0 right-0 z-2 ${BOTTOM_CORNER}`}
-        sizes="(min-width: 1024px) 15vw, 26vw"
+        sizes="(min-width: 1024px) 17vw, 26vw"
       />
 
-      <div className="relative z-3 mx-auto max-w-310 px-4 pb-50 pt-14 lg:px-8 lg:pb-32 lg:pt-20">
-        {/* Heading */}
+      {/* justify-around spreads the heading and the portraits over the full height */}
+      <div className="relative z-3 mx-auto flex h-full max-w-200 flex-col gap-14 justify-center md:justify-around px-4 pb-12 pt-10 lg:px-8 lg:pb-18 lg:pt-14">
+        {/* Heading: every size is capped by both width and height */}
         <Reveal className="flex flex-col items-center text-center">
           {section.ornament && (
             <Image
@@ -126,39 +99,47 @@ export default function BrideGroom({ invitation }: { invitation: Invitation }) {
               alt=""
               width={500}
               height={200}
-              className="h-auto w-[min(45vw,300px)] select-none lg:w-52"
+              className="h-auto w-[min(70cqw,20cqh,340px)] mb-5 select-none"
               draggable={false}
             />
           )}
           <h2
             id="bride-groom-title"
-            className="font-serif text-[clamp(2.1rem,9vw,3.1rem)] font-semibold italic leading-none text-maroon "
+            className="font-serif font-semibold italic leading-none text-maroon text-[clamp(2.1rem,9vw,3.1rem)]"
           >
             {section.title ?? "Bride & Groom"}
           </h2>
           <OrnamentDivider className="mt-3 lg:mt-4" />
           {section.subtitle && (
-            <p className="mt-4 whitespace-pre-line font-serif text-[0.95rem] font-medium leading-snug text-[#4a1f1f] lg:text-[1.15rem]">
+            <p className="mt-[1.5cqh] whitespace-pre-line font-serif font-medium leading-snug text-[#4a1f1f] text-[clamp(0.85rem,min(3.6cqw,2.4cqh),1.15rem)]">
               {section.subtitle}
             </p>
           )}
         </Reveal>
 
         {/* Two framed portraits with a vertical ornament between them */}
-        <div className="mt-8 grid grid-cols-[1fr_auto_1fr] items-center justify-items-center gap-x-3 lg:mt-5">
-          <Person
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center justify-items-center gap-x-3">
+          <PersonColumn
+            className={COLUMN}
             photo={section.bride.photo}
             label={section.bride.label ?? "Bride"}
             button={section.button}
             name={bride.fullName ?? bride.name}
+            parents={bride.parents}
+            details={section.bride.details}
+            butterfly={section.butterfly !== false}
             delay={0.1}
-          />
+            />
           <FleurDivider vertical className="mb-12 self-stretch lg:mb-20" />
-          <Person
+          <PersonColumn
+            className={COLUMN}
             photo={section.groom.photo}
             label={section.groom.label ?? "Groom"}
             button={section.button}
             name={groom.fullName ?? groom.name}
+            parents={groom.parents}
+            details={section.groom.details}
+            // butterfly={section.butterfly !== false}
             delay={0.25}
           />
         </div>

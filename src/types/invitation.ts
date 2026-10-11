@@ -41,6 +41,17 @@ export type StoryStep = {
   icon?: StoryIcon;
 };
 
+export type PersonDetails = {
+  /** Heading in the modal. Defaults to the person's full name. */
+  title?: string;
+  /** Line under the heading. Defaults to the person's `parents`. */
+  subtitle?: string;
+  /** A short paragraph. Use \n\n for a new paragraph. */
+  about?: string;
+  /** Small label and value pairs, shown in two columns. */
+  facts?: { label: string; value: string }[];
+};
+
 /** Sections the main page can render, in the order they appear. */
 export type SectionKey =
   | "hero"
@@ -176,8 +187,10 @@ export type Invitation = {
       bottomRight?: string;
     };
     /** `photo` is the round portrait with its frame already included. */
-    bride: { photo: string; label?: string };
-    groom: { photo: string; label?: string };
+    bride: { photo: string; label?: string; details?: PersonDetails };
+    groom: { photo: string; label?: string; details?: PersonDetails };
+    /** Butterfly that lands on the bride's photo. On by default; set false to turn it off. */
+    butterfly?: boolean;
   };
 
   note?: string;
