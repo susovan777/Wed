@@ -111,7 +111,7 @@ export default function BrideGroom({ invitation }: { invitation: Invitation }) {
           </h2>
           <OrnamentDivider className="mt-3 lg:mt-4" />
           {section.subtitle && (
-            <p className="mt-[1.5cqh] whitespace-pre-line font-serif font-medium leading-snug text-[#4a1f1f] text-[clamp(0.85rem,min(3.6cqw,2.4cqh),1.15rem)]">
+            <p className="mt-[1.5cqh] whitespace-pre-line font-serif font-medium leading-snug text-[#4a1f1f] text-[clamp(0.85rem,min(3.6cqw,3.4cqh),1.15rem)]">
               {section.subtitle}
             </p>
           )}
@@ -124,18 +124,20 @@ export default function BrideGroom({ invitation }: { invitation: Invitation }) {
             photo={section.bride.photo}
             label={section.bride.label ?? "Bride"}
             button={section.button}
+            frame={section.modalFrame}
             name={bride.fullName ?? bride.name}
             parents={bride.parents}
             details={section.bride.details}
             butterfly={section.butterfly !== false}
             delay={0.1}
-            />
+          />
           <FleurDivider vertical className="mb-12 self-stretch lg:mb-20" />
           <PersonColumn
             className={COLUMN}
             photo={section.groom.photo}
             label={section.groom.label ?? "Groom"}
             button={section.button}
+            frame={section.modalFrame}
             name={groom.fullName ?? groom.name}
             parents={groom.parents}
             details={section.groom.details}

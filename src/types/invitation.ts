@@ -168,6 +168,8 @@ export type Invitation = {
   };
 
   brideGroom?: {
+    /** Portrait frame image (2:3) used as the details card. */
+    modalFrame?: string;
     /** Defaults to "Bride & Groom". */
     title?: string;
     /** Use \n for a line break. */

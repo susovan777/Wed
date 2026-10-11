@@ -12,6 +12,7 @@ export default function PersonColumn({
   photo,
   label,
   button,
+  frame,
   name,
   parents,
   details,
@@ -19,6 +20,7 @@ export default function PersonColumn({
   butterfly = false,
   className = "",
 }: {
+  frame?: string;
   /** Round portrait with its frame already included. */
   photo: string;
   /** Text on the button, e.g. "Bride". */
@@ -76,6 +78,7 @@ export default function PersonColumn({
         name={name}
         parents={parents}
         details={details}
+        frame={frame}
       />
     </Reveal>
   );

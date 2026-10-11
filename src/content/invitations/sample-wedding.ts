@@ -160,6 +160,7 @@ export const sampleWedding: Invitation = {
   },
 
   brideGroom: {
+    modalFrame: "/invitations/modal-frame.webp",
     title: "Bride & Groom",
     subtitle:
       "Two families, one beautiful journey.\nGet to know the Bride and Groom.",
@@ -182,12 +183,12 @@ export const sampleWedding: Invitation = {
       details: {
         subtitle: "Daughter of Mr. Subir Sen & Mrs. Mala Sen",
         about:
-          "A few warm lines about the bride go here.\n\nA second short paragraph is fine too.",
+          "A kind hearted, cheerful and ambitious person \n who loves music, travel and fuchka (panipuri)",
         facts: [
-          { label: "Education", value: "Add details" },
-          { label: "Profession", value: "Add details" },
-          { label: "Loves", value: "Add details" },
-          { label: "Hometown", value: "Kolkata" },
+          // { label: "Education", value: "Add details" },
+          // { label: "Profession", value: "Add details" },
+          // { label: "Loves", value: "Add details" },
+          // { label: "Hometown", value: "Kolkata" },
         ],
       },
     },
@@ -196,12 +197,12 @@ export const sampleWedding: Invitation = {
       details: {
         subtitle: "Son of Mr. Amit Banerjee & Mrs. Rina Banerjee",
         about:
-          "A few warm lines about the groom go here.\n\nA second short paragraph is fine too.",
+          "A cool, kind, and ambitious person who believes in lifelong learning, \nmeaningful work and creating beautiful memories together.",
         facts: [
-          { label: "Education", value: "Add details" },
-          { label: "Profession", value: "Add details" },
-          { label: "Loves", value: "Add details" },
-          { label: "Hometown", value: "Kolkata" },
+          // { label: "Education", value: "Add details" },
+          // { label: "Profession", value: "Add details" },
+          // { label: "Loves", value: "Add details" },
+          // { label: "Hometown", value: "Kolkata" },
         ],
       },
     },
