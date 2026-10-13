@@ -31,13 +31,21 @@ export type InvitationEvent = {
   image?: string;
 };
 
-export type StoryIcon = "cap" | "heart" | "plane" | "rings";
+/* OLD Story Types */
+// export type StoryIcon = "cap" | "heart" | "plane" | "rings";
+// export type StoryStep = {
+//   title: string;
+//   text: string;
+//   /** Round photo for this chapter. */
+//   image?: string;
+//   icon?: StoryIcon;
+// };
+
+export type StoryIcon = "chat" | "heart" | "ring" | "hearts";
 
 export type StoryStep = {
   title: string;
   text: string;
-  /** Round photo for this chapter. */
-  image?: string;
   icon?: StoryIcon;
 };
 
@@ -147,23 +155,49 @@ export type Invitation = {
 
   events: InvitationEvent[];
 
+  /* OLD Story */
+  // story?: {
+  //   /** Small label above the heading. Defaults to "Our Story". */
+  //   eyebrow?: string;
+  //   /** Use \n for line breaks. */
+  //   title: string;
+  //   intro?: string;
+  //   /** Couple illustration beside the heading. */
+  //   image?: string;
+  //   /** Text on the closing ribbon. */
+  //   closing?: string;
+  //   background?: string;
+  //   corners?: {
+  //     topLeft?: string;
+  //     topRight?: string;
+  //     bottomLeft?: string;
+  //     bottomRight?: string;
+  //   };
+  //   steps: StoryStep[];
+  // };
+
   story?: {
-    /** Small label above the heading. Defaults to "Our Story". */
-    eyebrow?: string;
-    /** Use \n for line breaks. */
-    title: string;
+    /** Defaults to "Our Story". */
+    title?: string;
+    subtitle?: string;
+    /** The paragraph under the subtitle. */
     intro?: string;
-    /** Couple illustration beside the heading. */
-    image?: string;
-    /** Text on the closing ribbon. */
-    closing?: string;
+    /** Lotus with the gold flourish, shown above the title. */
+    ornament?: string;
+    /** [0] is the left photo, also shown on phones. [1] is the right photo, desktop only. */
+    photos?: { src: string; tilt?: number }[];
     background?: string;
+    /** Gold border around the section. On by default; set false to turn it off. */
+    frame?: boolean;
     corners?: {
       topLeft?: string;
       topRight?: string;
       bottomLeft?: string;
       bottomRight?: string;
     };
+    /** River scene along the bottom (desktop, and phones unless bottomMobile is set). */
+    bottom?: string;
+    bottomMobile?: string;
     steps: StoryStep[];
   };
 

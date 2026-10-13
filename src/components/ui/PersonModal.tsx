@@ -181,7 +181,7 @@ export default function PersonModal({
             role="dialog"
             aria-modal="true"
             aria-labelledby={titleId}
-            className="relative w-[min(92vw,34rem,calc(92dvh*2/3))] @container"
+            className="relative w-[min(92vw,34rem,calc(80dvh*2/3))] @container"
             initial={
               reduce ? { opacity: 0 } : { opacity: 0, y: 24, scale: 0.96 }
             }

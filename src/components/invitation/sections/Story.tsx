@@ -1,48 +1,113 @@
 import Image from "next/image";
-import { Heart } from "lucide-react";
 import Reveal from "@/components/motion/Reveal";
 import CornerImage from "@/components/ui/CornerImage";
-import StoryChapter from "@/components/ui/StoryChapter";
-import type { Invitation } from "@/types/invitation";
+import FleurDivider from "@/components/ui/FleurDivider";
+import StoryIcon from "@/components/ui/StoryIcon";
+import type { Invitation, StoryStep } from "@/types/invitation";
 
-const CORNER_SIZE = "w-[26vw] max-w-[170px] lg:w-[12%] lg:max-w-[210px]";
+const CORNER = "w-[21%] max-w-[110px] lg:w-[15%] lg:max-w-[260px]";
 
-// Small decorative petals: [left %, top %, size px, rotation deg]
+// Desktop photo positions, as a share of the section. Change these if a photo touches the text.
+const PHOTO_LEFT = "left-[3.5%] top-[24%] w-[28%]";
+const PHOTO_RIGHT = "right-[2.5%] top-[24%] w-[26.5%]";
+
+// Fades the top edge of the river scene into the page
+const FADE =
+  "[mask-image:linear-gradient(to_bottom,transparent,black_22%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_22%)]";
+
+// Small pink petals: [left %, top %, size px, rotation deg]
 const PETALS: [number, number, number, number][] = [
-  [46, 3, 12, 30],
-  [3, 23, 10, -20],
-  [2, 54, 10, 40],
-  [60, 12, 10, 15],
-  [88, 30, 9, 10],
-  [30, 64, 9, -40],
-  [96, 66, 9, -30],
-  [97, 88, 10, 20],
-  [8, 88, 9, 60],
-  [78, 97, 10, 50],
+  [30, 17, 14, 25],
+  [33, 31, 12, -30],
+  [71, 18, 16, 40],
+  [72, 28, 11, -15],
+  [3, 43, 14, 60],
+  [98, 42, 12, 20],
+  [8, 65, 18, -40],
+  [37, 77, 14, 35],
+  [61, 76, 13, -20],
+  [85, 58, 13, 50],
+  [94, 61, 15, 10],
 ];
 
-// Dotted paths between the chapters (desktop only), in a 100 x 100 box.
-const ARCS = [
-  "M 26 2 C 40 -3, 52 8, 54 26",
-  "M 62 46 C 56 60, 30 46, 22 54",
-  "M 30 76 C 42 90, 52 84, 52 74",
-];
+function Blossom({ className = "size-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden className={className}>
+      {[0, 72, 144, 216, 288].map((angle) => (
+        <ellipse
+          key={angle}
+          cx="12"
+          cy="6.5"
+          rx="3.6"
+          ry="5"
+          fill="#f291ae"
+          transform={`rotate(${angle} 12 12)`}
+        />
+      ))}
+      <circle cx="12" cy="12" r="2.4" fill="#e0527f" />
+    </svg>
+  );
+}
+
+function StepItem({ step, last }: { step: StoryStep; last: boolean }) {
+  return (
+    // Phone: icon on the left, text on the right. Desktop: icon above, text centered.
+    <div
+      className={`relative grid grid-cols-[var(--d)_1fr] items-start gap-x-4 lg:flex lg:flex-col lg:items-center lg:gap-0 lg:pb-0 lg:text-center ${
+        last ? "" : "pb-10"
+      }`}
+    >
+      <div className="grid size-(--d) shrink-0 place-items-center rounded-full border border-[#e2c27a] bg-[radial-gradient(circle,#fff8e2,#fbe8b6)] text-crimson shadow-[0_0_0_4px_rgba(240,217,160,0.35)]">
+        <StoryIcon name={step.icon} className="size-[46%]" />
+      </div>
+
+      <div className="lg:mt-3">
+        <h3 className="font-serif text-[1.05rem] font-semibold leading-tight text-crimson lg:text-[clamp(1.05rem,1.75vw,1.45rem)]">
+          {step.title}
+        </h3>
+        <p className="mt-1 whitespace-pre-line text-balance font-serif text-[0.8rem] font-medium leading-snug text-[#4a2a22] lg:mx-auto lg:max-w-48 lg:text-[clamp(0.85rem,1.3vw,1.05rem)]">
+          {step.text}
+        </p>
+      </div>
+
+      {!last && (
+        <>
+          {/* Phone: blossom between rows, under the icon */}
+          <Blossom className="absolute bottom-[0.8rem] left-[calc(var(--d)/2)] size-3.5 -translate-x-1/2 lg:hidden" />
+
+          {/* Desktop: dotted line with a blossom, from this icon to the next */}
+          <span
+            aria-hidden
+            className="absolute left-[calc(50%+var(--d)/2+0.5rem)] top-[calc(var(--d)/2)] hidden w-[calc(100%-var(--d)-1rem)] -translate-y-1/2 items-center gap-2 lg:flex"
+          >
+            <span className="h-0 flex-1 border-t-2 border-dotted border-[#d9a35a]" />
+            <Blossom className="size-4 shrink-0" />
+            <span className="h-0 flex-1 border-t-2 border-dotted border-[#d9a35a]" />
+          </span>
+        </>
+      )}
+    </div>
+  );
+}
 
 export default function Story({ invitation }: { invitation: Invitation }) {
-  const story = invitation.story;
-  if (!story) return null;
+  const s = invitation.story;
+  if (!s) return null;
 
-  const corners = story.corners ?? {};
+  const corners = s.corners ?? {};
+  const [photoA, photoB] = s.photos ?? [];
+  const photoClass = "h-auto w-full select-none";
 
   return (
     <section
       id="story"
       aria-labelledby="story-title"
-      className="relative isolate overflow-hidden bg-ivory"
+      className="relative isolate overflow-hidden"
+      // bg-[linear-gradient(180deg,#fdf1cd,#f9e3ae)]
     >
-      {story.background && (
+      {s.background && (
         <Image
-          src={story.background}
+          src={s.background}
           alt=""
           fill
           sizes="100vw"
@@ -50,11 +115,26 @@ export default function Story({ invitation }: { invitation: Invitation }) {
         />
       )}
 
+      {/* Gold frame (set frame: false in the content to turn it off) */}
+      {s.frame !== false && (
+        <>
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-1.5 z-4 rounded-[1.75rem] border-[1.5px] border-[#d6a233] lg:inset-2 lg:rounded-[2.5rem]"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-[0.8rem] z-4 rounded-[1.4rem] border border-[#ecc977]/70 lg:inset-[1.1rem] lg:rounded-[2.1rem]"
+          />
+        </>
+      )}
+
+      {/* Scattered pink petals */}
       {PETALS.map(([left, top, size, rotate], i) => (
         <span
           key={i}
           aria-hidden
-          className="pointer-events-none absolute z-0 rounded-[0_100%_0_100%] bg-[#f2cf58]/80"
+          className="pointer-events-none absolute z-1 rounded-[0_100%_0_100%] bg-[linear-gradient(135deg,#ffc6d6,#f48fb1)] opacity-90"
           style={{
             left: `${left}%`,
             top: `${top}%`,
@@ -65,131 +145,156 @@ export default function Story({ invitation }: { invitation: Invitation }) {
         />
       ))}
 
+      {/* Corner art: flower garlands on top, frame corners below */}
       <CornerImage
         src={corners.topLeft}
         y={-20}
-        className={`left-0 top-0 z-1 ${CORNER_SIZE}`}
+        className={`left-0 top-0 z-2 ${CORNER}`}
       />
       <CornerImage
         src={corners.topRight}
         y={-20}
-        className={`right-0 top-0 z-1 ${CORNER_SIZE}`}
+        className={`right-0 top-0 z-2 ${CORNER}`}
       />
       <CornerImage
         src={corners.bottomLeft}
         y={20}
-        className={`bottom-0 left-0 z-1 ${CORNER_SIZE}`}
+        className={`bottom-0 left-0 z-2 ${CORNER}`}
       />
       <CornerImage
         src={corners.bottomRight}
         y={20}
-        className={`bottom-0 right-0 z-1 ${CORNER_SIZE}`}
+        className={`bottom-0 right-0 z-2 ${CORNER}`}
       />
 
-      <div className="relative z-2 mx-auto max-w-295 px-5 py-14 lg:px-10 lg:py-16">
-        {/* Intro: text on the left, couple illustration on the right */}
-        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
-          <Reveal className="text-center lg:text-left">
-            <p className="font-sans text-[0.65rem] font-medium uppercase tracking-[0.35em] text-[#4d4d3f] lg:text-xs">
-              {story.eyebrow ?? "Our Story"}
-            </p>
-            <h2
-              id="story-title"
-              className="mt-3 whitespace-pre-line font-script text-[clamp(2.6rem,10vw,3.4rem)] leading-[1.15] text-forest lg:text-[clamp(2.8rem,4.6vw,4.2rem)]"
-            >
-              {story.title}
-            </h2>
-            <Heart
-              aria-hidden
-              className="mx-auto mt-3 size-4 fill-current text-leaf lg:mx-0"
-            />
-            {story.intro && (
-              <p className="mx-auto mt-4 max-w-120 font-sans text-sm leading-relaxed text-[#5a5a48] lg:mx-0 lg:text-base">
-                {story.intro}
-              </p>
-            )}
-          </Reveal>
-
-          {story.image && (
-            <Reveal
-              y={40}
-              delay={0.15}
-              className="relative mx-auto w-full max-w-115 lg:ml-auto lg:mr-0"
-            >
-              {/* Faint arch and base line behind the illustration */}
-              <div
-                aria-hidden
-                className="absolute inset-x-[10%] top-[-8%] bottom-[8%] rounded-t-full border border-b-0 border-[#d6dcbc]"
-              />
-              <div
-                aria-hidden
-                className="absolute inset-x-[-8%] bottom-[7%] h-px bg-[#e0e4cc]"
-              />
-              <Image
-                src={story.image}
-                alt=""
-                width={800}
-                height={640}
-                sizes="(min-width: 1024px) 460px, 90vw"
-                className="relative h-auto w-full select-none"
-                draggable={false}
-              />
-            </Reveal>
-          )}
-        </div>
-
-        {/* Chapters */}
-        <div className="relative mt-14 lg:mt-16">
-          <svg
-            aria-hidden
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            fill="none"
-            className="pointer-events-none absolute inset-0 hidden h-full w-full lg:block"
-          >
-            {ARCS.map((d) => (
-              <path
-                key={d}
-                d={d}
-                stroke="#c3cca6"
-                strokeWidth="1.5"
-                strokeDasharray="2 6"
-                strokeLinecap="round"
-                vectorEffect="non-scaling-stroke"
-              />
-            ))}
-          </svg>
-
-          {/* Dotted center line (mobile only) */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute bottom-0 left-1/2 top-0 -translate-x-1/2 border-l border-dashed border-[#bcc79c] lg:hidden"
+      {/* Desktop photos, either side of the text */}
+      {photoA && (
+        <Reveal
+          y={30}
+          delay={0.2}
+          className={`absolute z-2 hidden lg:block ${PHOTO_LEFT}`}
+        >
+          <Image
+            src={photoA.src}
+            alt="The couple"
+            width={800}
+            height={760}
+            sizes="28vw"
+            className={photoClass}
+            style={{ transform: `rotate(${photoA.tilt ?? 0}deg)` }}
+            draggable={false}
           />
+        </Reveal>
+      )}
+      {photoB && (
+        <Reveal
+          y={30}
+          delay={0.35}
+          className={`absolute z-2 hidden lg:block ${PHOTO_RIGHT}`}
+        >
+          <Image
+            src={photoB.src}
+            alt="The couple at sunset"
+            width={800}
+            height={760}
+            sizes="27vw"
+            className={photoClass}
+            style={{ transform: `rotate(${photoB.tilt ?? 0}deg)` }}
+            draggable={false}
+          />
+        </Reveal>
+      )}
 
-          <div className="relative grid gap-y-12 lg:grid-cols-2 lg:gap-x-10 lg:gap-y-16">
-            {story.steps.map((step, i) => (
-              <Reveal key={step.title} y={30} delay={(i % 2) * 0.12}>
-                <StoryChapter step={step} flip={i % 2 === 1} />
-              </Reveal>
-            ))}
-          </div>
-        </div>
+      <div className="relative z-3 px-6 pb-8 pt-10 lg:px-0 lg:pb-12 lg:pt-14">
+        {/* Ornament, title, divider, subtitle, paragraph */}
+        <Reveal className="mx-auto flex max-w-[24rem] flex-col items-center text-center lg:max-w-[min(42vw,40rem)]">
+          {s.ornament && (
+            <Image
+              src={s.ornament}
+              alt=""
+              width={500}
+              height={200}
+              className="h-auto w-[min(46vw,200px)] select-none lg:w-[min(27vw,330px)]"
+              draggable={false}
+            />
+          )}
+          <h2
+            id="story-title"
+            className="-mt-1 font-serif font-semibold italic leading-none text-maroon text-[clamp(2.6rem,11vw,3.4rem)] lg:mt-2 lg:text-[clamp(2.1rem,9vw,3.1rem)]"
+          >
+            {s.title ?? "Our Story"}
+          </h2>
+          <FleurDivider className="mt-3 w-[min(56vw,260px)] lg:mt-4 lg:w-[min(24vw,300px)]" />
+          {s.subtitle && (
+            <p className="mt-3 font-serif text-base font-medium italic text-crimson lg:text-[clamp(1.1rem,2vw,1.7rem)]">
+              {s.subtitle}
+            </p>
+          )}
+          {s.intro && (
+            <p className="mt-4 whitespace-pre-line font-serif text-[0.95rem] font-medium leading-relaxed text-[#4a2a22] lg:mt-5 lg:text-[clamp(0.95rem,1.45vw,1.15rem)]">
+              {s.intro}
+            </p>
+          )}
+        </Reveal>
 
-        {/* Closing ribbon */}
-        {story.closing && (
-          <Reveal y={24} className="mt-14 flex justify-center lg:mt-16">
-            <div className="-rotate-1 bg-sage px-10 py-5 text-center [clip-path:polygon(0_0,100%_0,97%_50%,100%_100%,0_100%,3%_50%)] lg:px-16">
-              <p className="font-script text-[1.35rem] text-forest lg:text-[1.9rem]">
-                {story.closing}
-              </p>
-              <Heart
-                aria-hidden
-                className="mx-auto mt-1 size-3.5 fill-current text-forest/80"
-              />
-            </div>
+        {/* Phone photo, below the text */}
+        {photoA && (
+          <Reveal y={30} className="mx-auto mt-7 w-[82%] max-w-90 lg:hidden">
+            <Image
+              src={photoA.src}
+              alt="The couple"
+              width={800}
+              height={760}
+              sizes="80vw"
+              className={photoClass}
+              style={{ transform: `rotate(${photoA.tilt ?? 0}deg)` }}
+              draggable={false}
+            />
           </Reveal>
         )}
+
+        {/* Timeline */}
+        <div
+          role="list"
+          className="mx-auto mt-8 grid w-full max-w-88 [--d:3.5rem] lg:mt-[7vw] lg:max-w-[min(62%,980px)] lg:grid-cols-4 lg:[--d:clamp(3.6rem,6.2vw,5rem)]"
+        >
+          {s.steps.map((step, i) => (
+            <Reveal key={step.title} role="listitem" y={30} delay={i * 0.12}>
+              <StepItem step={step} last={i === s.steps.length - 1} />
+            </Reveal>
+          ))}
+        </div>
       </div>
+
+      {/* River scene at the bottom, fading into the page above it */}
+      {(s.bottom || s.bottomMobile) && (
+        <div aria-hidden className="relative z-1 -mt-8 lg:mt-[-5vw]">
+          {s.bottomMobile && (
+            <Image
+              src={s.bottomMobile}
+              alt=""
+              width={800}
+              height={520}
+              sizes="100vw"
+              className={`${FADE} block h-auto w-full select-none lg:hidden`}
+              draggable={false}
+            />
+          )}
+          {s.bottom && (
+            <Image
+              src={s.bottom}
+              alt=""
+              width={1600}
+              height={420}
+              sizes="100vw"
+              className={`${FADE} h-auto w-full select-none ${
+                s.bottomMobile ? "hidden lg:block" : "block"
+              }`}
+              draggable={false}
+            />
+          )}
+        </div>
+      )}
     </section>
   );
 }

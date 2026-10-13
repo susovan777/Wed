@@ -118,43 +118,85 @@ export const sampleWedding: Invitation = {
     },
   ],
 
+  // OLD Story section. Replaced by the new Story section below.
+  // story: {
+  //   eyebrow: "Our Story",
+  //   title: "Different paths,\none beautiful\nbeginning.",
+  //   intro:
+  //     "From our first conversation to the plans we are making now, it has been the everyday moments that made this feel like us.",
+  //   image: "/invitations/story-couple.webp",
+  //   closing: "Two stories, and so much still to write together.",
+  //   corners: {
+  //     topLeft: "/invitations/story-tl.webp",
+  //     topRight: "/invitations/story-tr.webp",
+  //     bottomLeft: "/invitations/story-bl.webp",
+  //     bottomRight: "/invitations/story-br.webp",
+  //   },
+  //   steps: [
+  //     {
+  //       title: "We Met",
+  //       icon: "cap",
+  //       image: "/invitations/story-we-met.png",
+  //       text: "A college event brought us together. We stayed long after it ended, talking about everything except the reason we had come.",
+  //     },
+  //     {
+  //       title: "We Grew",
+  //       icon: "heart",
+  //       image: "/invitations/story-we-grew.png",
+  //       text: "There were shared playlists, long calls and plenty of coffee. Little by little, we became the first person the other wanted to tell.",
+  //     },
+  //     {
+  //       title: "We Explored",
+  //       icon: "plane",
+  //       image: "/invitations/story-we-explored.png",
+  //       text: "From quiet hill stations to busy city streets, we found new places and new reasons to enjoy doing life together.",
+  //     },
+  //     {
+  //       title: "Now, Forever",
+  //       icon: "rings",
+  //       image: "/invitations/story-now-forever.png",
+  //       text: "One very happy yes, and here we are. Our next adventure begins with our favourite people beside us, and that includes you.",
+  //     },
+  //   ],
+  // },
+
   story: {
-    eyebrow: "Our Story",
-    title: "Different paths,\none beautiful\nbeginning.",
+    title: "Our Story",
+    subtitle: "Two hearts, one beautiful journey.",
     intro:
-      "From our first conversation to the plans we are making now, it has been the everyday moments that made this feel like us.",
-    image: "/invitations/story-couple.webp",
-    closing: "Two stories, and so much still to write together.",
+      "What started as a simple conversation, turned into endless talks, shared dreams and a bond that only grew stronger with time. Through every moment, big or small, we found a home in each other. Now, we're ready to begin our forever, together.",
+    ornament: "/invitations/story-lotus.webp",
+    photos: [
+      { src: "/invitations/story-photo-1.png" },
+      { src: "/invitations/story-photo-2.png" },
+    ],
     corners: {
       topLeft: "/invitations/story-tl.webp",
       topRight: "/invitations/story-tr.webp",
       bottomLeft: "/invitations/story-bl.webp",
       bottomRight: "/invitations/story-br.webp",
     },
+    bottom: "/invitations/story-bottom.webp",
     steps: [
       {
-        title: "We Met",
-        icon: "cap",
-        image: "/invitations/story-we-met.png",
-        text: "A college event brought us together. We stayed long after it ended, talking about everything except the reason we had come.",
+        title: "First Conversation",
+        icon: "chat",
+        text: "A simple hello sparked a beautiful connection.",
       },
       {
-        title: "We Grew",
+        title: "Growing Together",
         icon: "heart",
-        image: "/invitations/story-we-grew.png",
-        text: "There were shared playlists, long calls and plenty of coffee. Little by little, we became the first person the other wanted to tell.",
+        text: "With every moment, we found more reasons to stay.",
       },
       {
-        title: "We Explored",
-        icon: "plane",
-        image: "/invitations/story-we-explored.png",
-        text: "From quiet hill stations to busy city streets, we found new places and new reasons to enjoy doing life together.",
+        title: "The Proposal",
+        icon: "ring",
+        text: "A special moment that made it all real.",
       },
       {
-        title: "Now, Forever",
-        icon: "rings",
-        image: "/invitations/story-now-forever.png",
-        text: "One very happy yes, and here we are. Our next adventure begins with our favourite people beside us, and that includes you.",
+        title: "Our Forever",
+        icon: "hearts",
+        text: "Now, we begin a new chapter, hand in hand.",
       },
     ],
   },
