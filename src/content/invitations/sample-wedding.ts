@@ -167,8 +167,8 @@ export const sampleWedding: Invitation = {
       "What started as a simple conversation, turned into endless talks, shared dreams and a bond that only grew stronger with time. Through every moment, big or small, we found a home in each other. Now, we're ready to begin our forever, together.",
     ornament: "/invitations/story-lotus.webp",
     photos: [
-      { src: "/invitations/story-photo-1.png" },
-      { src: "/invitations/story-photo-2.png" },
+      { src: "/invitations/couple-l.webp" },
+      { src: "/invitations/couple-r.webp" },
     ],
     corners: {
       topLeft: "/invitations/story-tl.webp",

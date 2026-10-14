@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { CSSProperties } from "react";
 import Reveal from "@/components/motion/Reveal";
 import CornerImage from "@/components/ui/CornerImage";
 import FleurDivider from "@/components/ui/FleurDivider";
@@ -16,19 +17,64 @@ const FADE =
   "[mask-image:linear-gradient(to_bottom,transparent,black_22%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_22%)]";
 
 // Small pink petals: [left %, top %, size px, rotation deg]
-const PETALS: [number, number, number, number][] = [
-  [30, 17, 14, 25],
-  [33, 31, 12, -30],
-  [71, 18, 16, 40],
-  [72, 28, 11, -15],
-  [3, 43, 14, 60],
-  [98, 42, 12, 20],
-  [8, 65, 18, -40],
-  [37, 77, 14, 35],
-  [61, 76, 13, -20],
-  [85, 58, 13, 50],
-  [94, 61, 15, 10],
+// const PETALS: [number, number, number, number][] = [
+//   [30, 17, 14, 25],
+//   [33, 31, 12, -30],
+//   [71, 18, 16, 40],
+//   [72, 28, 11, -15],
+//   [3, 43, 14, 60],
+//   [98, 42, 12, 20],
+//   [8, 65, 18, -40],
+//   [37, 77, 14, 35],
+//   [61, 76, 13, -20],
+//   [85, 58, 13, 50],
+//   [94, 61, 15, 10],
+// ];
+
+// Small flowers: [left %, top %, size px, rotation deg, blur px, opacity]
+// Big, soft ones (blur above 0) look out of focus, like flowers close to the camera.
+const FLOWERS: [number, number, number, number, number, number][] = [
+  [30, 17, 16, 25, 0, 0.95],
+  [72, 28, 14, -15, 0, 0.9],
+  [3, 43, 15, 60, 0, 0.9],
+  [98, 42, 13, 20, 0, 0.85],
+  [37, 77, 16, 35, 0, 0.95],
+  [85, 58, 14, 50, 0, 0.9],
+  [33, 31, 30, -30, 3, 0.6],
+  [71, 18, 34, 40, 4, 0.55],
+  [8, 65, 36, -40, 4, 0.5],
+  [61, 76, 28, -20, 3, 0.6],
+  [94, 61, 32, 10, 3.5, 0.55],
 ];
+
+function Flower({
+  className = "",
+  style,
+}: {
+  className?: string;
+  style?: CSSProperties;
+}) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden className={className} style={style}>
+      {[0, 72, 144, 216, 288].map((angle) => (
+        <ellipse
+          key={angle}
+          cx="12"
+          cy="6.4"
+          rx="3.9"
+          ry="5.3"
+          fill="url(#story-flower-grad)"
+          stroke="#e8a317"
+          strokeOpacity="0.35"
+          strokeWidth="0.4"
+          transform={`rotate(${angle} 12 12)`}
+        />
+      ))}
+      <circle cx="12" cy="12" r="2.3" fill="#e98a0e" />
+      <circle cx="11.3" cy="11.3" r="0.8" fill="#ffd98a" />
+    </svg>
+  );
+}
 
 function Blossom({ className = "size-4" }: { className?: string }) {
   return (
@@ -105,6 +151,23 @@ export default function Story({ invitation }: { invitation: Invitation }) {
       className="relative isolate overflow-hidden"
       // bg-[linear-gradient(180deg,#fdf1cd,#f9e3ae)]
     >
+      {/* Shared yellow gradient used by every flower */}
+      <svg aria-hidden width="0" height="0" className="absolute">
+        <defs>
+          <radialGradient
+            id="story-flower-grad"
+            gradientUnits="userSpaceOnUse"
+            cx="12"
+            cy="12"
+            r="11"
+          >
+            <stop offset="0.15" stopColor="#f6b422" />
+            <stop offset="0.6" stopColor="#fbd95c" />
+            <stop offset="1" stopColor="#fff3b4" />
+          </radialGradient>
+        </defs>
+      </svg>
+
       {s.background && (
         <Image
           src={s.background}
@@ -129,8 +192,25 @@ export default function Story({ invitation }: { invitation: Invitation }) {
         </>
       )}
 
+      {/* Scattered flowers: a few sharp, a few soft */}
+      {FLOWERS.map(([left, top, size, rotate, blur, opacity], i) => (
+        <Flower
+          key={i}
+          className="pointer-events-none absolute z-[1]"
+          style={{
+            left: `${left}%`,
+            top: `${top}%`,
+            width: size,
+            height: size,
+            transform: `rotate(${rotate}deg)`,
+            opacity,
+            filter: blur ? `blur(${blur}px)` : undefined,
+          }}
+        />
+      ))}
+
       {/* Scattered pink petals */}
-      {PETALS.map(([left, top, size, rotate], i) => (
+      {/* {PETALS.map(([left, top, size, rotate], i) => (
         <span
           key={i}
           aria-hidden
@@ -143,28 +223,28 @@ export default function Story({ invitation }: { invitation: Invitation }) {
             transform: `rotate(${rotate}deg)`,
           }}
         />
-      ))}
+      ))} */}
 
       {/* Corner art: flower garlands on top, frame corners below */}
       <CornerImage
         src={corners.topLeft}
         y={-20}
-        className={`left-0 top-0 z-2 ${CORNER}`}
+        className={`left-0 top-0 z-5 ${CORNER}`}
       />
       <CornerImage
         src={corners.topRight}
         y={-20}
-        className={`right-0 top-0 z-2 ${CORNER}`}
+        className={`right-0 top-0 z-5 ${CORNER}`}
       />
       <CornerImage
         src={corners.bottomLeft}
         y={20}
-        className={`bottom-0 left-0 z-2 ${CORNER}`}
+        className={`bottom-0 left-0 z-5 ${CORNER}`}
       />
       <CornerImage
         src={corners.bottomRight}
         y={20}
-        className={`bottom-0 right-0 z-2 ${CORNER}`}
+        className={`bottom-0 right-0 z-5 ${CORNER}`}
       />
 
       {/* Desktop photos, either side of the text */}
@@ -214,7 +294,7 @@ export default function Story({ invitation }: { invitation: Invitation }) {
               alt=""
               width={500}
               height={200}
-              className="h-auto w-[min(46vw,200px)] select-none lg:w-[min(27vw,330px)]"
+              className="h-auto w-[min(46vw,200px)] select-none lg:w-[min(22vw,300px)]"
               draggable={false}
             />
           )}
@@ -276,6 +356,7 @@ export default function Story({ invitation }: { invitation: Invitation }) {
               width={800}
               height={520}
               sizes="100vw"
+              quality={90}
               className={`${FADE} block h-auto w-full select-none lg:hidden`}
               draggable={false}
             />
@@ -287,6 +368,7 @@ export default function Story({ invitation }: { invitation: Invitation }) {
               width={1600}
               height={420}
               sizes="100vw"
+              quality={90}
               className={`${FADE} h-auto w-full select-none ${
                 s.bottomMobile ? "hidden lg:block" : "block"
               }`}
