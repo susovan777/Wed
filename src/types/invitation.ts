@@ -60,6 +60,25 @@ export type PersonDetails = {
   facts?: { label: string; value: string }[];
 };
 
+export type GalleryCaption = {
+  /** tape: a label strip. brush: handwriting on a brush stroke. note: small typewriter text. */
+  style: "tape" | "brush" | "note";
+  text: string;
+  /**
+   * tape: "top" (default) or "bottom"
+   * brush: "tl", "tr", "bl" (default) or "br" (the photo corner it overlaps)
+   * note: "left" (default), "right", "top" or "bottom"
+   */
+  place?: "top" | "bottom" | "left" | "right" | "tl" | "tr" | "bl" | "br";
+};
+
+export type GalleryPhoto = {
+  src: string;
+  /** Describes the photo for screen readers. Optional. */
+  alt?: string;
+  caption?: GalleryCaption;
+};
+
 /** Sections the main page can render, in the order they appear. */
 export type SectionKey =
   | "hero"
@@ -68,6 +87,7 @@ export type SectionKey =
   | "celebrations"
   | "story"
   | "brideGroom"
+  | "gallery"
   | "note"
   | "footer";
 
@@ -199,6 +219,24 @@ export type Invitation = {
     bottom?: string;
     bottomMobile?: string;
     steps: StoryStep[];
+  };
+
+  gallery?: {
+    /** Defaults to "Our Gallery". */
+    title?: string;
+    subtitle?: string;
+    /** Small lotus under the heading. */
+    lotus?: string;
+    background?: string;
+    corners?: {
+      topLeft?: string;
+      topRight?: string;
+      bottomLeft?: string;
+      bottomRight?: string;
+    };
+    photos: GalleryPhoto[];
+    /** Handwritten line under the collage. */
+    footer?: string;
   };
 
   brideGroom?: {

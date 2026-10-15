@@ -11,6 +11,8 @@
   --font-script: var(--nf-script);
   --font-serif: var(--nf-serif);
   --font-sans: var(--nf-sans);
+  --font-hand: var(--nf-hand);
+  --font-mono: var(--nf-mono);
 }
 
 @theme {

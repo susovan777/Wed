@@ -196,7 +196,7 @@ export default function Story({ invitation }: { invitation: Invitation }) {
       {FLOWERS.map(([left, top, size, rotate, blur, opacity], i) => (
         <Flower
           key={i}
-          className="pointer-events-none absolute z-[1]"
+          className="pointer-events-none absolute z-1"
           style={{
             left: `${left}%`,
             top: `${top}%`,

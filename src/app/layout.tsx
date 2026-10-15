@@ -6,6 +6,18 @@ import {
   Cormorant_Garamond,
   Inter,
 } from "next/font/google";
+import { Mrs_Saint_Delafield, Space_Mono } from "next/font/google";
+
+const hand = Mrs_Saint_Delafield({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--nf-hand",
+});
+const mono = Space_Mono({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--nf-mono",
+});
 
 const fancy = MonteCarlo({
   weight: "400",
@@ -40,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${script.variable} ${serif.variable} ${sans.variable} font-sans antialiased`}
+        className={`${script.variable} ${serif.variable} ${sans.variable} ${hand.variable} ${mono.variable} font-sans antialiased`}
       >
         {children}
       </body>

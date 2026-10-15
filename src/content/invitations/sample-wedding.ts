@@ -173,8 +173,8 @@ export const sampleWedding: Invitation = {
     corners: {
       topLeft: "/invitations/story-tl.webp",
       topRight: "/invitations/story-tr.webp",
-      bottomLeft: "/invitations/story-bl.webp",
-      bottomRight: "/invitations/story-br.webp",
+      bottomLeft: "/invitations/countdown-bl.webp",
+      bottomRight: "/invitations/countdown-br.webp",
     },
     bottom: "/invitations/story-bottom.webp",
     steps: [
@@ -197,6 +197,44 @@ export const sampleWedding: Invitation = {
         title: "Our Forever",
         icon: "hearts",
         text: "Now, we begin a new chapter, hand in hand.",
+      },
+    ],
+  },
+
+  gallery: {
+    subtitle: "A few precious moments from our journey...",
+    lotus: "/invitations/events-lotus.png",
+    footer: "Moments of our journey",
+    corners: {
+      topLeft: "/invitations/gallery-tl.webp",
+      topRight: "/invitations/gallery-tr.webp",
+      bottomLeft: "/invitations/gallery-bl.webp",
+      bottomRight: "/invitations/gallery-br.webp",
+    },
+    photos: [
+      {
+        src: "/invitations/gallery/photo-1.jpg",
+        caption: { style: "tape", text: "Where it all began", place: "top" },
+      },
+      {
+        src: "/invitations/gallery/photo-2.jpg",
+        caption: {
+          style: "note",
+          text: "Running hand in hand,\nchasing waves and\ndreams together",
+          place: "top",
+        },
+      },
+      {
+        src: "/invitations/gallery/photo-3.jpg",
+        caption: { style: "brush", text: "the best day", place: "bl" },
+      },
+      {
+        src: "/invitations/gallery/photo-4.jpg",
+        caption: { style: "brush", text: "Favorite moment", place: "br" },
+      },
+      {
+        src: "/invitations/gallery/photo-5.jpg",
+        caption: { style: "tape", text: "Perfect happiness", place: "bottom" },
       },
     ],
   },
