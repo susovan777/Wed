@@ -6,8 +6,8 @@ import type { Invitation } from "@/types/invitation";
 import GalleryCollage from "@/components/ui/GalleryCollage";
 
 // Line-art corners on top, lotus corners at the bottom
-const TOP_CORNER = "w-[24vw] max-w-[110px] lg:w-[14%] lg:max-w-[220px]";
-const BOTTOM_CORNER = "w-[18vw] max-w-[80px] lg:w-[8%] lg:max-w-[130px]";
+const TOP_CORNER = "w-[30vw] max-w-[110px] lg:w-[14%] lg:max-w-[220px]";
+const BOTTOM_CORNER = "w-[30vw] max-w-[130px] lg:w-[8%] lg:max-w-[130px]";
 
 export default function Gallery({ invitation }: { invitation: Invitation }) {
   const g = invitation.gallery;
@@ -65,7 +65,7 @@ export default function Gallery({ invitation }: { invitation: Invitation }) {
         />
 
         <div className="mt-8 lg:mt-10">
-          <GalleryCollage photos={g.photos} />
+          <GalleryCollage photos={g.photos} butterflies={g.butterflies !== false} />
         </div>
 
         {g.footer && (

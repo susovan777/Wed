@@ -2,6 +2,7 @@
 
 import { useCallback, useRef, useState, type CSSProperties } from "react";
 import Image from "next/image";
+import BlueButterfly from "./BlueButterfly";
 import Reveal from "@/components/motion/Reveal";
 import CollageCaption from "./CollageCaption";
 import GalleryLightbox from "./GalleryLightbox";
@@ -46,6 +47,55 @@ const BARS: { m: Box; d: Box; color: string }[] = [
   { m: [8, 141.5, 26, 2.4], d: [24, 65, 12, 1.4], color: "#9b1c1c" },
 ];
 
+// Blue butterflies. `photo` is the photo's position in the list (0 is the first).
+// left / top place its top-left corner on the photo, as a percentage of the photo.
+// `from` is where its flight starts, in percent of its own size.
+const BUTTERFLIES: {
+  photo: number;
+  left: string;
+  top: string;
+  size: string;
+  rotate: number;
+  from: [number, number];
+  delay: number;
+  rest: number;
+  pause: number;
+}[] = [
+  {
+    photo: 0,
+    left: "-10%",
+    top: "-5%",
+    size: "26%",
+    rotate: -28,
+    from: [-700, -900],
+    delay: 1.2,
+    rest: 2.4,
+    pause: 1.2,
+  },
+  {
+    photo: 2,
+    left: "-5%",
+    top: "86%",
+    size: "19%",
+    rotate: -60,
+    from: [-600, 700],
+    delay: 2.2,
+    rest: 2.0,
+    pause: 1.8,
+  },
+  {
+    photo: 3,
+    left: "90%",
+    top: "-10%",
+    size: "15%",
+    rotate: -45,
+    from: [900, -800],
+    delay: 1.6,
+    rest: 1.8,
+    pause: 0.9,
+  },
+];
+
 const pct = (value: number, base: number) =>
   `${((value / base) * 100).toFixed(3)}%`;
 
@@ -63,7 +113,13 @@ function vars(m: Box, d: Box): CSSProperties {
   } as CSSProperties;
 }
 
-export default function GalleryCollage({ photos }: { photos: GalleryPhoto[] }) {
+export default function GalleryCollage({
+  photos,
+  butterflies = true,
+}: {
+  photos: GalleryPhoto[];
+  butterflies?: boolean;
+}) {
   const lastTile = useRef<HTMLElement | null>(null);
   const [open, setOpen] = useState<number | null>(null);
   const closeViewer = useCallback(() => setOpen(null), []);
@@ -93,6 +149,21 @@ export default function GalleryCollage({ photos }: { photos: GalleryPhoto[] }) {
               className="absolute left-[var(--ml)] top-[var(--mt)] z-[1] w-[var(--mw)] lg:left-[var(--dl)] lg:top-[var(--dt)] lg:w-[var(--dw)]"
             >
               <Reveal y={30} delay={i * 0.1} className="relative">
+                {photo.caption && <CollageCaption caption={photo.caption} />}
+                {butterflies &&
+                  BUTTERFLIES.filter((b) => b.photo === i).map((b, k) => (
+                    <BlueButterfly
+                      key={k}
+                      left={b.left}
+                      top={b.top}
+                      size={b.size}
+                      rotate={b.rotate}
+                      from={b.from}
+                      delay={b.delay}
+                      restSeconds={b.rest}
+                      pauseSeconds={b.pause}
+                    />
+                  ))}
                 <button
                   type="button"
                   onClick={(event) => {

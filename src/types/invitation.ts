@@ -235,6 +235,8 @@ export type Invitation = {
       bottomRight?: string;
     };
     photos: GalleryPhoto[];
+    /** Blue butterflies on the photos. On by default; set false to turn them off. */
+    butterflies?: boolean;
     /** Handwritten line under the collage. */
     footer?: string;
   };
