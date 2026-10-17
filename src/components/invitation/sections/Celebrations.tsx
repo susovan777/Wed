@@ -6,9 +6,8 @@ import EventCard from "@/components/ui/EventCard";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { formatEventDate, formatEventTime } from "@/lib/eventDate";
 import type { Invitation } from "@/types/invitation";
-import OrnamentDivider from "@/components/ui/OrnamentDivider";
 
-const CORNER_SIZE = "w-[26vw] max-w-[190px] lg:w-[14%] lg:max-w-[240px]";
+const CORNER_SIZE = "w-[35vw] max-w-[190px] lg:w-[14%] lg:max-w-[240px]";
 
 export default function Celebrations({
   invitation,
@@ -24,7 +23,7 @@ export default function Celebrations({
     <section
       id="celebrations"
       aria-labelledby="celebrations-title"
-      className="relative isolate overflow-hidden "
+      className="relative isolate overflow-hidden"
     >
       {c.background && (
         <Image

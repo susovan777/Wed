@@ -61,18 +61,18 @@ export default function Venue({ invitation }: { invitation: Invitation }) {
       <CornerImage
         src={corners.bottomLeft}
         y={20}
-        className={`bottom-0 left-0 z-[1] ${CORNER}`}
+        className={`bottom-0 -left-5 z-[1] ${CORNER}`}
         sizes="(min-width: 1024px) 8vw, 16vw"
       />
       <CornerImage
         src={corners.bottomRight}
         y={20}
-        className={`bottom-0 right-0 z-[1] ${CORNER}`}
+        className={`bottom-0 -right-5 z-[1] ${CORNER}`}
         sizes="(min-width: 1024px) 8vw, 16vw"
       />
 
       {/* Phone: text, then the photo centered below it. Desktop: text left, photo right. */}
-      <div className="relative z-[2] mx-auto grid max-w-[1240px] items-center gap-8 px-5 py-12 lg:grid-cols-[minmax(0,0.62fr)_minmax(0,1fr)] lg:gap-10 lg:px-10 lg:py-14">
+      <div className="relative z-[2] mx-auto grid max-w-310 items-center gap-8 px-5 py-12 lg:grid-cols-[minmax(0,0.62fr)_minmax(0,1fr)] lg:gap-10 lg:px-50 lg:py-14">
         <div className="flex flex-col items-center text-center">
           <SectionHeading
             id="venue-title"
@@ -112,7 +112,7 @@ export default function Venue({ invitation }: { invitation: Invitation }) {
           <Reveal
             y={30}
             delay={0.2}
-            className="mx-auto w-full max-w-[620px] lg:max-w-none"
+            className="mx-auto w-full max-w-75 "
           >
             <Image
               src={v.image}

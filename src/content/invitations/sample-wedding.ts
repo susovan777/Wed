@@ -24,10 +24,10 @@ export const sampleWedding: Invitation = {
     invocation: "|| Shri Ganeshay Namah ||",
     tagline: "Are getting married",
     corners: {
-      topLeft: "/invitations/hero-tl.webp",
-      topRight: "/invitations/hero-tr.webp",
-      bottomLeft: "/invitations/hero-bl.webp",
-      bottomRight: "/invitations/hero-br.webp",
+      topLeft: "/invitations/corners/hero-tl.webp",
+      topRight: "/invitations/corners/hero-tr.webp",
+      bottomLeft: "/invitations/corners/hero-bl.webp",
+      bottomRight: "/invitations/corners/hero-br.webp",
     },
   },
 
@@ -35,10 +35,10 @@ export const sampleWedding: Invitation = {
     background: "/invitations/countdown-bg.png",
     divider: "/invitations/c-divider.png",
     corners: {
-      topLeft: "/invitations/countdown-tl.webp",
-      topRight: "/invitations/countdown-tr.webp",
-      bottomLeft: "/invitations/countdown-bl.webp",
-      bottomRight: "/invitations/countdown-br.webp",
+      topLeft: "/invitations/corners/countdown-tl.webp",
+      topRight: "/invitations/corners/countdown-tr.webp",
+      bottomLeft: "/invitations/corners/countdown-bl.webp",
+      bottomRight: "/invitations/corners/countdown-br.webp",
     },
     lotus: "/invitations/lotus.webp",
     flourish: "/invitations/countdown-flourish.webp",
@@ -49,10 +49,10 @@ export const sampleWedding: Invitation = {
       "Join us for a celebration filled with love, laughter and Bengali traditions.",
     lotus: "/invitations/events-lotus.webp",
     corners: {
-      topLeft: "/invitations/events-tl.webp",
-      topRight: "/invitations/events-tr.webp",
-      bottomLeft: "/invitations/events-bl.webp",
-      bottomRight: "/invitations/events-br.webp",
+      topLeft: "/invitations/corners/events-tl.webp",
+      topRight: "/invitations/corners/events-tr.webp",
+      bottomLeft: "/invitations/corners/events-bl.webp",
+      bottomRight: "/invitations/corners/events-br.webp",
     },
   },
 
@@ -171,10 +171,10 @@ export const sampleWedding: Invitation = {
       { src: "/invitations/couple-r.webp" },
     ],
     corners: {
-      topLeft: "/invitations/story-tl.webp",
-      topRight: "/invitations/story-tr.webp",
-      bottomLeft: "/invitations/countdown-bl.webp",
-      bottomRight: "/invitations/countdown-br.webp",
+      topLeft: "/invitations/corners/story-tl.webp",
+      topRight: "/invitations/corners/story-tr.webp",
+      bottomLeft: "/invitations/corners/countdown-bl.webp",
+      bottomRight: "/invitations/corners/countdown-br.webp",
     },
     bottom: "/invitations/story-bottom.webp",
     steps: [
@@ -206,10 +206,10 @@ export const sampleWedding: Invitation = {
     lotus: "/invitations/events-lotus.png",
     footer: "Moments of our journey",
     corners: {
-      topLeft: "/invitations/gallery-tl.webp",
-      topRight: "/invitations/gallery-tr.webp",
-      bottomLeft: "/invitations/gallery-bl.webp",
-      bottomRight: "/invitations/gallery-br.webp",
+      topLeft: "/invitations/corners/gallery-tl.webp",
+      topRight: "/invitations/corners/gallery-tr.webp",
+      bottomLeft: "/invitations/corners/gallery-bl.webp",
+      bottomRight: "/invitations/corners/gallery-br.webp",
     },
     photos: [
       {
@@ -252,10 +252,10 @@ export const sampleWedding: Invitation = {
       bottom: "/invitations/bg-border-b.webp",
     },
     corners: {
-      topLeft: "/invitations/bg-tl.webp",
-      topRight: "/invitations/bg-tr.webp",
-      bottomLeft: "/invitations/bg-bl.webp",
-      bottomRight: "/invitations/bg-br.webp",
+      topLeft: "/invitations/corners/bg-tl.webp",
+      topRight: "/invitations/corners/bg-tr.webp",
+      bottomLeft: "/invitations/corners/bg-bl.webp",
+      bottomRight: "/invitations/corners/bg-br.webp",
     },
 
     bride: {
@@ -294,12 +294,34 @@ export const sampleWedding: Invitation = {
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=Shiv+Mahal+Palace+Bengaluru",
     lotus: "/invitations/events-lotus.png",
-    image: "/invitations/venue-photo.png",
+    image: "/invitations/bedi.webp",
     imageAlt: "Shiv Mahal Palace lit up at dusk",
     corners: {
-      topLeft: "/invitations/venue-tl.webp",
-      topRight: "/invitations/venue-tr.webp",
-      bottomLeft: "/invitations/venue-corner-bottom-left.png",
+      topLeft: "/invitations/corners/venue-tl.webp",
+      topRight: "/invitations/corners/venue-tr.webp",
+      bottomLeft: "/invitations/corners/venue-bl.webp",
+      bottomRight: "/invitations/corners/venue-br.webp",
+    },
+  },
+
+  gift: {
+    message:
+      "Your presence and blessings mean more to us than anything. For those who wish to send a gift, we have included a digital gifting option as a token of your love and support.",
+    lotus: "/invitations/lotus-art.webp",
+    payeeName: "Arindam Das",
+    upiId: "arindamdas@okaxis",
+    // qr: "/invitations/gift-qr.png",
+    apps: [
+      { name: "PhonePe", icon: "/invitations/payment/p-pe.png" },
+      { name: "G Pay", icon: "/invitations/payment/g-pay.png" },
+      { name: "Paytm", icon: "/invitations/payment/ptm.png" },
+      { name: "BHIM", icon: "/invitations/payment/bhim.png" },
+    ],
+    corners: {
+      topLeft: "/invitations/corners/gift-tl.webp",
+      topRight: "/invitations/corners/gift-tr.webp",
+      bottomLeft: "/invitations/corners/gift-box.webp",
+      bottomRight: "/invitations/corners/kalash.webp",
     },
   },
 

@@ -6,7 +6,7 @@ import FleurDivider from "@/components/ui/FleurDivider";
 import StoryIcon from "@/components/ui/StoryIcon";
 import type { Invitation, StoryStep } from "@/types/invitation";
 
-const CORNER = "w-[21%] max-w-[110px] lg:w-[15%] lg:max-w-[260px]";
+const CORNER = "w-[30%] max-w-[170px] lg:w-[15%] lg:max-w-[260px]";
 
 // Desktop photo positions, as a share of the section. Change these if a photo touches the text.
 const PHOTO_LEFT = "left-[3.5%] top-[24%] w-[28%]";
@@ -15,21 +15,6 @@ const PHOTO_RIGHT = "right-[2.5%] top-[24%] w-[26.5%]";
 // Fades the top edge of the river scene into the page
 const FADE =
   "[mask-image:linear-gradient(to_bottom,transparent,black_22%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_22%)]";
-
-// Small pink petals: [left %, top %, size px, rotation deg]
-// const PETALS: [number, number, number, number][] = [
-//   [30, 17, 14, 25],
-//   [33, 31, 12, -30],
-//   [71, 18, 16, 40],
-//   [72, 28, 11, -15],
-//   [3, 43, 14, 60],
-//   [98, 42, 12, 20],
-//   [8, 65, 18, -40],
-//   [37, 77, 14, 35],
-//   [61, 76, 13, -20],
-//   [85, 58, 13, 50],
-//   [94, 61, 15, 10],
-// ];
 
 // Small flowers: [left %, top %, size px, rotation deg, blur px, opacity]
 // Big, soft ones (blur above 0) look out of focus, like flowers close to the camera.

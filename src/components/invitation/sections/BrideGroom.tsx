@@ -90,7 +90,7 @@ export default function BrideGroom({ invitation }: { invitation: Invitation }) {
       />
 
       {/* justify-around spreads the heading and the portraits over the full height */}
-      <div className="relative z-3 mx-auto flex h-full max-w-200 flex-col gap-5 justify-center md:justify-around px-4 pb-12 pt-10 lg:px-8 lg:pb-18 lg:pt-14">
+      <div className="relative z-3 mx-auto flex h-full max-w-200 flex-col gap-5 justify-center md:justify-around px-4 pb-35 pt-10 lg:px-8 lg:pb-18 lg:pt-14">
         {/* Heading: every size is capped by both width and height */}
         <Reveal className="flex flex-col items-center text-center">
           {section.ornament && (

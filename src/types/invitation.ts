@@ -89,6 +89,7 @@ export type SectionKey =
   | "brideGroom"
   | "gallery"
   | "venue"
+  | "gift"
   | "note"
   | "footer";
 
@@ -287,6 +288,39 @@ export type Invitation = {
     image?: string;
     imageAlt?: string;
     background?: string;
+    corners?: {
+      topLeft?: string;
+      topRight?: string;
+      bottomLeft?: string;
+      bottomRight?: string;
+    };
+  };
+
+  gift?: {
+    /** Small line above the title. Defaults to "A little gift, a lot of love". */
+    eyebrow?: string;
+    /** Defaults to "Send a Gift". */
+    title?: string;
+    message?: string;
+    /** Small lotus used in the dividers. */
+    lotus?: string;
+    payeeName: string;
+    upiId: string;
+    /** QR code image. A placeholder shows until you add it. */
+    qr?: string;
+    /** Under the QR code. Defaults to "Scan to Pay". */
+    scanTitle?: string;
+    /** Small line under that. Defaults to "UPI · Google Pay · PhonePe · Paytm". */
+    scanNote?: string;
+    /** The two lines at the bottom. Defaults to the wording in your design. */
+    note?: { title: string; text: string };
+    /** Defaults to "Open in UPI App". */
+    buttonLabel?: string;
+    /** Optional. By default the button link is built from upiId and payeeName. */
+    payUrl?: string;
+    /** App tiles under the UPI ID. A tile shows the app's first letter if it has no icon. */
+    apps?: { name: string; icon?: string }[];
+    /** The three points at the bottom. The wording from your design is used if you leave this out. */
     corners?: {
       topLeft?: string;
       topRight?: string;
