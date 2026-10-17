@@ -34,7 +34,7 @@ export default function BrideGroom({ invitation }: { invitation: Invitation }) {
     <section
       id="bride-groom"
       aria-labelledby="bride-groom-title"
-      className="relative isolate h-dvh min-h-135 overflow-hidden @container-size"
+      className="relative isolate h-dvh min-h-200 overflow-hidden @container-size"
     >
       {/* Faint line-art parchment (optional) */}
       {section.background && (
@@ -90,7 +90,7 @@ export default function BrideGroom({ invitation }: { invitation: Invitation }) {
       />
 
       {/* justify-around spreads the heading and the portraits over the full height */}
-      <div className="relative z-3 mx-auto flex h-full max-w-200 flex-col gap-14 justify-center md:justify-around px-4 pb-12 pt-10 lg:px-8 lg:pb-18 lg:pt-14">
+      <div className="relative z-3 mx-auto flex h-full max-w-200 flex-col gap-5 justify-center md:justify-around px-4 pb-12 pt-10 lg:px-8 lg:pb-18 lg:pt-14">
         {/* Heading: every size is capped by both width and height */}
         <Reveal className="flex flex-col items-center text-center">
           {section.ornament && (

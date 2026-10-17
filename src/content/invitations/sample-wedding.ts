@@ -244,7 +244,7 @@ export const sampleWedding: Invitation = {
     title: "Bride & Groom",
     subtitle:
       "Two families, one beautiful journey.\nGet to know the Bride and Groom.",
-    ornament: "/invitations/bg-lotus.webp",
+    ornament: "/invitations/parvati&shiva.webp",
     // background: "/invitations/bg-floral.png",
     button: "/invitations/role-button.webp",
     borders: {
@@ -285,6 +285,21 @@ export const sampleWedding: Invitation = {
           // { label: "Hometown", value: "Kolkata" },
         ],
       },
+    },
+  },
+
+  venue: {
+    name: "Shiv Mahal Palace",
+    address: "23, Old Airport Road,\nBengaluru, Karnataka 560008",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Shiv+Mahal+Palace+Bengaluru",
+    lotus: "/invitations/events-lotus.png",
+    image: "/invitations/venue-photo.png",
+    imageAlt: "Shiv Mahal Palace lit up at dusk",
+    corners: {
+      topLeft: "/invitations/venue-tl.webp",
+      topRight: "/invitations/venue-tr.webp",
+      bottomLeft: "/invitations/venue-corner-bottom-left.png",
     },
   },
 

@@ -88,6 +88,7 @@ export type SectionKey =
   | "story"
   | "brideGroom"
   | "gallery"
+  | "venue"
   | "note"
   | "footer";
 
@@ -267,6 +268,31 @@ export type Invitation = {
     groom: { photo: string; label?: string; details?: PersonDetails };
     /** Butterfly that lands on the bride's photo. On by default; set false to turn it off. */
     butterfly?: boolean;
+  };
+
+  venue?: {
+    /** Defaults to "The Venue". */
+    title?: string;
+    /** Venue name, shown large under the heading. */
+    name: string;
+    /** Use \n for a line break. */
+    address: string;
+    /** Opens when the button is clicked (a Google Maps link). */
+    mapUrl: string;
+    /** Defaults to "View on Map". */
+    buttonLabel?: string;
+    /** Small lotus under the heading. */
+    lotus?: string;
+    /** The venue photo. Transparent PNG/WebP if it has torn paper edges. */
+    image?: string;
+    imageAlt?: string;
+    background?: string;
+    corners?: {
+      topLeft?: string;
+      topRight?: string;
+      bottomLeft?: string;
+      bottomRight?: string;
+    };
   };
 
   note?: string;
