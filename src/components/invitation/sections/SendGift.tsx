@@ -6,7 +6,7 @@ import LotusRule from "@/components/ui/LotusRule";
 import UpiCard from "@/components/ui/UpiCard";
 import type { Invitation } from "@/types/invitation";
 
-const TOP_CORNER = "w-[30vw] max-w-[250px] lg:w-[30%] lg:max-w-[400px]";
+const TOP_CORNER = "w-[30vw] max-w-[250px] lg:w-[20%] lg:max-w-[300px]";
 const BOTTOM_CORNER = "w-[32vw] max-w-[160px] lg:w-[22%] lg:max-w-[360px]";
 
 const DEFAULT_APPS = [

@@ -1,5 +1,20 @@
 import type { OpeningAssets } from "@/components/opening/OpeningGate";
 
+/** Sections the main page can render, in the order they appear. */
+export type SectionKey =
+  | "hero"
+  | "countdown"
+  | "details"
+  | "celebrations"
+  | "story"
+  | "brideGroom"
+  | "gallery"
+  | "venue"
+  | "gift"
+  | "rsvp"
+  | "note"
+  | "footer";
+
 export type Person = {
   /** Name shown on the page, e.g. "Ananya". */
   name: string;
@@ -79,19 +94,21 @@ export type GalleryPhoto = {
   caption?: GalleryCaption;
 };
 
-/** Sections the main page can render, in the order they appear. */
-export type SectionKey =
-  | "hero"
-  | "countdown"
-  | "details"
-  | "celebrations"
-  | "story"
-  | "brideGroom"
-  | "gallery"
-  | "venue"
-  | "gift"
-  | "note"
-  | "footer";
+export type RsvpFormText = {
+  /** Heading inside the form. */
+  title?: string;
+  intro?: string;
+  nameLabel?: string;
+  namePlaceholder?: string;
+  attendLabel?: string;
+  yesLabel?: string;
+  noLabel?: string;
+  messageLabel?: string;
+  messagePlaceholder?: string;
+  submitLabel?: string;
+  thanksYes?: { title: string; text: string };
+  thanksNo?: { title: string; text: string };
+};
 
 export type Invitation = {
   /** Matches the URL: /<slug>. */
@@ -327,6 +344,25 @@ export type Invitation = {
       bottomLeft?: string;
       bottomRight?: string;
     };
+  };
+
+  rsvp?: {
+    /** The banner heading. Defaults to "Kindly RSVP". Change it freely. */
+    title?: string;
+    message?: string;
+    /** Defaults to "Confirm Your Presence". */
+    buttonLabel?: string;
+    /** Small gold lotus in the divider. A drawn one is used if you leave this out. */
+    lotus?: string;
+    /** The drummer and banana-leaf illustrations at each side. */
+    art?: { left?: string; right?: string };
+    background?: string;
+    /** The Google Apps Script web app URL (it ends in /exec). */
+    endpoint: string;
+    /** Optional. Digits with country code, e.g. "919876543210". Adds a WhatsApp backup if sending fails. */
+    whatsapp?: string;
+    /** Wording inside the form. Anything you leave out uses the default. */
+    form?: RsvpFormText;
   };
 
   note?: string;

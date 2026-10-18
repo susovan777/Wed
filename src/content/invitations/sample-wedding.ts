@@ -325,6 +325,18 @@ export const sampleWedding: Invitation = {
     },
   },
 
+  rsvp: {
+    title: "Kindly RSVP",
+    message:
+      "Your presence will make our celebration even more special.\nPlease let us know if you'll be joining us.",
+    endpoint: "PASTE_YOUR_WEB_APP_URL_HERE",
+    // whatsapp: "919876543210",
+    art: {
+      left: "/invitations/women.webp",
+      right: "/invitations/dhaki.webp",
+    },
+  },
+
   note: "Your presence and blessings are the greatest gift we could ask for.",
 
   seo: {
