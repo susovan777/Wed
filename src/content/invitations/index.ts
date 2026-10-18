@@ -1,8 +1,8 @@
 import type { Invitation } from "@/types/invitation";
-import { sampleWedding } from "./sample-wedding";
+import { sahooWedding } from "./sahoo-wedding";
 
 // To add a new invitation: create its content file and add it to this list.
-const all: Invitation[] = [sampleWedding];
+const all: Invitation[] = [sahooWedding];
 
 const bySlug = new Map(all.map((invitation) => [invitation.slug, invitation]));
 

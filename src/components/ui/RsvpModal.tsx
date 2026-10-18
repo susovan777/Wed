@@ -138,7 +138,7 @@ function Thanks({
         initial={reduce ? false : { opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.45, duration: 0.5, ease: EASE }}
-        className="mt-2 max-w-[22rem] font-serif text-[1.05rem] font-medium leading-relaxed text-[#4a1f1f]"
+        className="mt-2 max-w-88 font-serif text-[1.05rem] font-medium leading-relaxed text-[#4a1f1f]"
       >
         {copy.text}
       </motion.p>
@@ -322,7 +322,7 @@ function RsvpForm({
               return (
                 <label
                   key={option.value}
-                  className={`flex cursor-pointer items-center justify-center gap-2 rounded-xl border px-3 py-3 text-center font-serif text-[1rem] font-medium leading-tight transition has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-crimson ${
+                  className={`flex cursor-pointer items-center justify-center gap-2 rounded-xl border px-3 py-3 text-center font-serif text-[1rem] font-medium leading-tight transition has-focus-visible:ring-2 has-focus-visible:ring-crimson ${
                     selected
                       ? "border-crimson bg-[linear-gradient(180deg,#b3121f,#7d0714)] text-white shadow-md"
                       : "border-[#d9bd84] bg-[#fffaf0] text-[#3a1f1a] hover:border-crimson/60"
@@ -385,7 +385,7 @@ function RsvpForm({
           aria-hidden
           value={company}
           onChange={(e) => setCompany(e.target.value)}
-          className="absolute -left-[9999px] h-0 w-0 opacity-0"
+          className="absolute left-[-9999px] h-0 w-0 opacity-0"
         />
 
         {status === "error" && (
@@ -416,7 +416,7 @@ function RsvpForm({
         <button
           type="submit"
           disabled={sending}
-          className="flex w-full items-center justify-center gap-3 rounded-2xl bg-[linear-gradient(180deg,#b3121f,#7d0714)] px-6 py-3 font-serif text-[1.15rem] font-medium text-white shadow-[0_6px_14px_rgba(125,7,20,0.35),inset_0_1px_0_rgba(255,255,255,0.25)] transition duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e9c985] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbf1dd] disabled:translate-y-0 disabled:cursor-wait disabled:opacity-80"
+          className="flex w-full items-center justify-center gap-3 rounded-2xl bg-[linear-gradient(180deg,#b3121f,#7d0714)] px-6 py-3 font-serif text-[1.15rem] font-medium text-white shadow-[0_6px_14px_rgba(125,7,20,0.35),inset_0_1px_0_rgba(255,255,255,0.25)] transition duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gilt focus-visible:ring-offset-2 focus-visible:ring-offset-[#fbf1dd] disabled:translate-y-0 disabled:cursor-wait disabled:opacity-80"
         >
           {sending ? (
             <>
@@ -517,7 +517,7 @@ export default function RsvpModal({
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-[#2a0a0e]/60 p-4 backdrop-blur-[2px]"
+          className="fixed inset-0 z-60 flex items-center justify-center bg-[#2a0a0e]/60 p-4 backdrop-blur-[2px]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -531,7 +531,7 @@ export default function RsvpModal({
             role="dialog"
             aria-modal="true"
             aria-labelledby={titleId}
-            className="relative w-full max-w-[30rem] overflow-hidden rounded-2xl border border-[#d9bd84] bg-[#fbf1dd] shadow-[0_20px_60px_rgba(40,8,12,0.45)] before:pointer-events-none before:absolute before:inset-1.5 before:rounded-xl before:border before:border-[#e8d5a6]"
+            className="relative w-full max-w-120 overflow-hidden rounded-2xl border border-[#d9bd84] bg-[#fbf1dd] shadow-[0_20px_60px_rgba(40,8,12,0.45)] before:pointer-events-none before:absolute before:inset-1.5 before:rounded-xl before:border before:border-[#e8d5a6]"
             initial={
               reduce ? { opacity: 0 } : { opacity: 0, y: 24, scale: 0.96 }
             }

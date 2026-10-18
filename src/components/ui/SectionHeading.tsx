@@ -6,7 +6,6 @@ export default function SectionHeading({
   id,
   title,
   subtitle,
-  lotus,
 }: {
   id?: string;
   title: string;
@@ -26,7 +25,7 @@ export default function SectionHeading({
       <OrnamentDivider className="mt-3 lg:mt-4" />
 
       {subtitle && (
-        <p className="mt-4 max-w-176 font-serif text-base font-medium text-[#5a2b2b] lg:text-xl">
+        <p className="mt-4 max-w-176 font-serif text-[clamp(0.85rem,min(3.6cqw,3.4cqh),1.35rem)] leading-snug font-medium text-[#5a2b2b] lg:text-xl">
           {subtitle}
         </p>
       )}

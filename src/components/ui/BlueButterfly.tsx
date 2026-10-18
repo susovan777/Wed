@@ -161,7 +161,7 @@ export default function BlueButterfly({
     <span
       ref={ref}
       aria-hidden
-      className="pointer-events-none absolute z-[2] aspect-[6/5]"
+      className="pointer-events-none absolute z-2 aspect-6/5"
       style={{ left, top, width: size }}
     >
       <motion.span

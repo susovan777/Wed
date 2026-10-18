@@ -53,7 +53,7 @@ export default function Rsvp({ invitation }: { invitation: Invitation }) {
       {r.art?.left && (
         <Reveal
           y={20}
-          className="pointer-events-none absolute bottom-30 -left-5 z-[1] h-[40vw] w-[34vw] lg:bottom-0 lg:h-full lg:w-[22%]"
+          className="pointer-events-none absolute bottom-30 -left-5 z-1 h-[40vw] w-[34vw] lg:bottom-0 lg:h-full lg:w-[22%]"
         >
           <Image
             src={r.art.left}
@@ -69,7 +69,7 @@ export default function Rsvp({ invitation }: { invitation: Invitation }) {
         <Reveal
           y={20}
           delay={0.1}
-          className="pointer-events-none absolute bottom-30 -right-4 z-[1] h-[40vw] w-[34vw] lg:bottom-0 lg:h-full lg:w-[22%]"
+          className="pointer-events-none absolute bottom-30 -right-4 z-1 h-[40vw] w-[34vw] lg:bottom-0 lg:h-full lg:w-[22%]"
         >
           <Image
             src={r.art.right}
@@ -82,7 +82,7 @@ export default function Rsvp({ invitation }: { invitation: Invitation }) {
         </Reveal>
       )}
 
-      <div className="relative z-[2] mx-auto flex max-w-184 flex-col items-center px-15 pb-12  pt-12 text-center lg:pb-14 lg:pt-14">
+      <div className="relative z-2 mx-auto flex max-w-184 flex-col items-center px-15 pb-12  pt-12 text-center lg:pb-14 lg:pt-14">
         <Reveal className="flex flex-col items-center">
           <h2
             id="rsvp-title"
@@ -113,7 +113,7 @@ export default function Rsvp({ invitation }: { invitation: Invitation }) {
           </div>
 
           {r.message && (
-            <p className="mt-5 max-w-[34rem] text-balance whitespace-pre-line font-serif text-[0.95rem] font-medium leading-relaxed text-[#fbe9c8]/95 lg:max-w-[40rem] lg:text-[1.15rem]">
+            <p className="mt-5 max-w-136 text-balance whitespace-pre-line font-serif text-[0.95rem] font-medium leading-relaxed text-[#fbe9c8]/95 lg:max-w-160 lg:text-[1.15rem]">
               {r.message}
             </p>
           )}

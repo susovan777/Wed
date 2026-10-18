@@ -120,7 +120,7 @@ function GoldOrnament({ id, className }: { id: string; className: string }) {
   return (
     <div
       aria-hidden
-      className={`pointer-events-none absolute inset-x-0 z-[3] flex items-center justify-center gap-2 ${className}`}
+      className={`pointer-events-none absolute inset-x-0 z-3 flex items-center justify-center gap-2 ${className}`}
     >
       <span className="h-px w-[10%] bg-[linear-gradient(to_right,transparent,#e3b85c)]" />
       <div className="w-[15%] max-w-27.5 lg:w-[7.2%] lg:max-w-35">
@@ -141,7 +141,7 @@ export default function GiftFrame({
 }) {
   return (
     <div className="relative bg-[#9a0c1a] bg-[radial-gradient(ellipse_at_50%_0%,rgba(190,24,40,0.55),transparent_65%),repeating-linear-gradient(45deg,rgba(255,255,255,0.03)_0_2px,transparent_2px_16px)] pb-[6%] pt-[6%] lg:pb-[3.2%] lg:pt-[3.2%]">
-      <GoldOrnament id="gift-lotus-top" className="top-1 lg:top-2" />
+      {/* <GoldOrnament id="gift-lotus-top" className="top-1 lg:top-2" /> */}
 
       <PanelCap variant="mobile" className="lg:hidden" />
       <PanelCap variant="desktop" className="hidden lg:block" />
@@ -163,7 +163,7 @@ export default function GiftFrame({
       <PanelCap variant="mobile" flip className="lg:hidden" />
       <PanelCap variant="desktop" flip className="hidden lg:block" />
 
-      <GoldOrnament id="gift-lotus-bottom" className="bottom-1 lg:bottom-2" />
+      {/* <GoldOrnament id="gift-lotus-bottom" className="bottom-1 lg:bottom-2" /> */}
     </div>
   );
 }

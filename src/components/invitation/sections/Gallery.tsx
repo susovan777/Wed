@@ -56,12 +56,11 @@ export default function Gallery({ invitation }: { invitation: Invitation }) {
         sizes="(min-width: 1024px) 8vw, 18vw"
       />
 
-      <div className="relative z-[2] mx-auto max-w-[1400px] px-4 pb-14 pt-10 lg:px-8 lg:pb-16 lg:pt-12">
+      <div className="relative z-2 mx-auto max-w-350 px-4 pb-14 pt-10 lg:px-8 lg:pb-16 lg:pt-12">
         <SectionHeading
           id="gallery-title"
           title={g.title ?? "Our Gallery"}
           subtitle={g.subtitle}
-          lotus={g.lotus}
         />
 
         <div className="mt-8 lg:mt-10">
@@ -70,7 +69,7 @@ export default function Gallery({ invitation }: { invitation: Invitation }) {
 
         {g.footer && (
           <Reveal y={20}>
-            <p className="mt-6 text-center font-hand leading-none text-[#3a2420] [font-size:clamp(2.2rem,7vw,3.6rem)] lg:mt-8">
+            <p className="mt-6 text-center font-hand leading-none text-[#3a2420] text-[clamp(2.2rem,7vw,3.6rem)] lg:mt-8">
               {g.footer}
             </p>
           </Reveal>

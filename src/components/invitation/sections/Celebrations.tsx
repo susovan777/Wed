@@ -62,7 +62,6 @@ export default function Celebrations({
           id="celebrations-title"
           title={c.title ?? "Wedding Events"}
           subtitle={c.subtitle}
-          lotus={c.lotus}
         />
 
         {/* 1 column on phones, 2 on tablets, up to 4 on large screens */}

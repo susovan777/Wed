@@ -5,6 +5,7 @@ import CornerImage from "@/components/ui/CornerImage";
 import FleurDivider from "@/components/ui/FleurDivider";
 import StoryIcon from "@/components/ui/StoryIcon";
 import type { Invitation, StoryStep } from "@/types/invitation";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 const CORNER = "w-[30%] max-w-[170px] lg:w-[15%] lg:max-w-[260px]";
 
@@ -194,22 +195,6 @@ export default function Story({ invitation }: { invitation: Invitation }) {
         />
       ))}
 
-      {/* Scattered pink petals */}
-      {/* {PETALS.map(([left, top, size, rotate], i) => (
-        <span
-          key={i}
-          aria-hidden
-          className="pointer-events-none absolute z-1 rounded-[0_100%_0_100%] bg-[linear-gradient(135deg,#ffc6d6,#f48fb1)] opacity-90"
-          style={{
-            left: `${left}%`,
-            top: `${top}%`,
-            width: size,
-            height: size,
-            transform: `rotate(${rotate}deg)`,
-          }}
-        />
-      ))} */}
-
       {/* Corner art: flower garlands on top, frame corners below */}
       <CornerImage
         src={corners.topLeft}
@@ -283,13 +268,10 @@ export default function Story({ invitation }: { invitation: Invitation }) {
               draggable={false}
             />
           )}
-          <h2
-            id="story-title"
-            className="-mt-1 font-serif font-semibold italic leading-none text-maroon text-[clamp(2.6rem,11vw,3.4rem)] lg:mt-2 lg:text-[clamp(2.1rem,9vw,3.1rem)]"
-          >
-            {s.title ?? "Our Story"}
-          </h2>
-          <FleurDivider className="mt-3 w-[min(56vw,260px)] lg:mt-4 lg:w-[min(24vw,300px)]" />
+          <SectionHeading
+            id="celebrations-title"
+            title={s.title ?? "Our Story"}
+          />
           {s.subtitle && (
             <p className="mt-3 font-serif text-base font-medium italic text-crimson lg:text-[clamp(1.1rem,2vw,1.7rem)]">
               {s.subtitle}

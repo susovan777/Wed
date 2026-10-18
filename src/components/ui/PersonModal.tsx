@@ -237,7 +237,7 @@ export default function PersonModal({
                   />
                 </motion.div>
 
-                <motion.div variants={item} className="w-[40cqw] mt-2">
+                <motion.div variants={item} className="w-[40cqw] mt-5">
                   <CartoucheLabel image={button} className="w-full">
                     {label}
                   </CartoucheLabel>
@@ -246,7 +246,7 @@ export default function PersonModal({
                 <h3
                   id={titleId}
                   aria-label={details?.title ?? name}
-                  className="mt-[3cqw] font-serif font-semibold italic leading-tight text-maroon text-[clamp(1.5rem,5.6cqw,2rem)]"
+                  className="mt-[3cqw] font-serif font-semibold italic leading-tight text-maroon text-[clamp(1.5rem,8cqw,3rem)]"
                 >
                   <span aria-hidden>
                     <BlurText
@@ -260,7 +260,7 @@ export default function PersonModal({
                 {subtitle && (
                   <motion.p
                     variants={item}
-                    className="mt-[1cqw] font-serif font-medium text-[#4a1f1f] text-[clamp(0.85rem,2.9cqw,1.05rem)]"
+                    className="mt-[1cqw] font-serif font-medium text-[#4a1f1f] text-[clamp(0.9rem,5cqw,2.05rem)]"
                   >
                     {subtitle}
                   </motion.p>
@@ -273,7 +273,7 @@ export default function PersonModal({
                 {details?.about && (
                   <motion.p
                     variants={item}
-                    className="mt-[3cqw] whitespace-pre-line font-serif font-medium leading-relaxed text-[#4a1f1f] text-[clamp(0.9rem,3cqw,1.05rem)]"
+                    className="mt-[3cqw] whitespace-pre-line font-serif font-medium leading-relaxed text-[#4a1f1f] text-[clamp(0.9rem,4cqw,2.05rem)]"
                   >
                     {details.about}
                   </motion.p>

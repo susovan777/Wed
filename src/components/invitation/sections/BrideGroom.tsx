@@ -6,6 +6,7 @@ import RepeatBorder from "@/components/ui/RepeatBorder";
 import type { Invitation } from "@/types/invitation";
 import PersonColumn from "@/components/ui/PersonColumn";
 import OrnamentDivider from "@/components/ui/OrnamentDivider";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 const TOP_CORNER = "w-[30vw] max-w-[180px] lg:w-[11%] lg:max-w-[260px]";
 const BOTTOM_CORNER = "w-[26vw] max-w-[160px] lg:w-[11%] lg:max-w-[280px]";
@@ -103,18 +104,11 @@ export default function BrideGroom({ invitation }: { invitation: Invitation }) {
               draggable={false}
             />
           )}
-          <h2
-            id="bride-groom-title"
-            className="font-serif font-semibold italic leading-none text-maroon text-[clamp(2.1rem,9vw,3.1rem)]"
-          >
-            {section.title ?? "Bride & Groom"}
-          </h2>
-          <OrnamentDivider className="mt-3 lg:mt-4" />
-          {section.subtitle && (
-            <p className="mt-[1.5cqh] whitespace-pre-line font-serif font-medium leading-snug text-[#4a1f1f] text-[clamp(0.85rem,min(3.6cqw,3.4cqh),1.15rem)]">
-              {section.subtitle}
-            </p>
-          )}
+          <SectionHeading
+            id="celebrations-title"
+            title={section.title ?? "Bride & Groom"}
+            subtitle={section.subtitle}
+          />
         </Reveal>
 
         {/* Two framed portraits with a vertical ornament between them */}

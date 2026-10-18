@@ -5,6 +5,7 @@ import GiftFrame from "@/components/ui/GiftFrame";
 import LotusRule from "@/components/ui/LotusRule";
 import UpiCard from "@/components/ui/UpiCard";
 import type { Invitation } from "@/types/invitation";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 const TOP_CORNER = "w-[30vw] max-w-[250px] lg:w-[20%] lg:max-w-[300px]";
 const BOTTOM_CORNER = "w-[32vw] max-w-[160px] lg:w-[22%] lg:max-w-[360px]";
@@ -37,23 +38,21 @@ export default function SendGift({ invitation }: { invitation: Invitation }) {
       aria-labelledby="gift-title"
       className="relative isolate overflow-hidden"
     >
-      <GiftFrame bodyClassName="px-[5%] pb-[8vw] pt-8 lg:px-[12%] lg:pb-10 lg:pt-12">
+      <GiftFrame bodyClassName="px-[5%] pb-[8vw] pt-8 lg:px-[12%] lg:pb-0 lg:pt-0">
         {/* Heading and message */}
         <Reveal className="mx-auto flex max-w-136 flex-col items-center text-center lg:max-w-3xl">
-          <p className="font-serif text-[0.7rem] font-medium uppercase tracking-[0.32em] text-[#4a2a22] lg:text-[clamp(0.8rem,1.15vw,1rem)]">
+          <p className="mb-3 font-serif text-[0.7rem] font-medium uppercase tracking-[0.32em] text-[#4a2a22] lg:text-[clamp(0.8rem,1.15vw,1rem)]">
             {g.eyebrow ?? "A little gift, a lot of love"}
           </p>
-          <h2
-            id="gift-title"
-            className="mt-2 font-serif font-semibold italic leading-none text-crimson text-[clamp(3rem,10.5vw,3.8rem)] lg:text-[clamp(3.8rem,6.2vw,6rem)]"
-          >
-            {g.title ?? "Send a Gift"}
-          </h2>
-          <LotusRule
+          <SectionHeading
+            id="celebrations-title"
+            title={g.title ?? "Send a Gift"}
+          />
+          {/* <LotusRule
             lotus={g.lotus}
             className="mt-3 lg:mt-4"
             lineClass="w-14 lg:w-28"
-          />
+          /> */}
           {g.message && (
             <p className="mt-5 text-balance font-serif text-[0.95rem] font-medium leading-relaxed text-[#4a2a22] lg:text-[clamp(1rem,1.45vw,1.3rem)]">
               {g.message}
@@ -102,25 +101,25 @@ export default function SendGift({ invitation }: { invitation: Invitation }) {
       <CornerImage
         src={corners.topLeft}
         y={-20}
-        className={`left-[-1%] top-0 z-[4] ${TOP_CORNER}`}
+        className={`left-[-1%] top-0 z-4 ${TOP_CORNER}`}
         sizes="(min-width: 1024px) 12vw, 22vw"
       />
       <CornerImage
         src={corners.topRight}
         y={-20}
-        className={`right-[-1%] top-0 z-[4] ${TOP_CORNER}`}
+        className={`right-[-1%] top-0 z-4 ${TOP_CORNER}`}
         sizes="(min-width: 1024px) 12vw, 22vw"
       />
       <CornerImage
         src={corners.bottomLeft}
         y={20}
-        className={`bottom-0 left-0 z-[4] ${BOTTOM_CORNER}`}
+        className={`bottom-0 left-0 z-4 ${BOTTOM_CORNER}`}
         sizes="(min-width: 1024px) 22vw, 32vw"
       />
       <CornerImage
         src={corners.bottomRight}
         y={20}
-        className={`bottom-0 -right-5 z-[4] ${BOTTOM_CORNER}`}
+        className={`bottom-0 -right-5 z-4 ${BOTTOM_CORNER}`}
         sizes="(min-width: 1024px) 22vw, 32vw"
       />
     </section>

@@ -49,36 +49,32 @@ export default function Venue({ invitation }: { invitation: Invitation }) {
       <CornerImage
         src={corners.topLeft}
         y={-20}
-        className={`left-0 top-0 z-[1] ${CORNER}`}
+        className={`left-0 top-0 z-1 ${CORNER}`}
         sizes="(min-width: 1024px) 8vw, 16vw"
       />
       <CornerImage
         src={corners.topRight}
         y={-20}
-        className={`right-0 top-0 z-[1] ${CORNER}`}
+        className={`right-0 top-0 z-1 ${CORNER}`}
         sizes="(min-width: 1024px) 8vw, 16vw"
       />
       <CornerImage
         src={corners.bottomLeft}
         y={20}
-        className={`bottom-0 -left-5 z-[1] ${CORNER}`}
+        className={`bottom-0 -left-5 z-1 ${CORNER}`}
         sizes="(min-width: 1024px) 8vw, 16vw"
       />
       <CornerImage
         src={corners.bottomRight}
         y={20}
-        className={`bottom-0 -right-5 z-[1] ${CORNER}`}
+        className={`bottom-0 -right-5 z-1 ${CORNER}`}
         sizes="(min-width: 1024px) 8vw, 16vw"
       />
 
       {/* Phone: text, then the photo centered below it. Desktop: text left, photo right. */}
-      <div className="relative z-[2] mx-auto grid max-w-310 items-center gap-8 px-5 py-12 lg:grid-cols-[minmax(0,0.62fr)_minmax(0,1fr)] lg:gap-10 lg:px-50 lg:py-14">
+      <div className="relative z-2 mx-auto grid max-w-310 items-center gap-8 px-5 py-12 lg:grid-cols-[minmax(0,0.62fr)_minmax(0,1fr)] lg:gap-10 lg:px-50 lg:py-14">
         <div className="flex flex-col items-center text-center">
-          <SectionHeading
-            id="venue-title"
-            title={v.title ?? "The Venue"}
-            lotus={v.lotus}
-          />
+          <SectionHeading id="venue-title" title={v.title ?? "The Venue"} />
 
           <Reveal y={20} delay={0.1} className="mt-6 lg:mt-8">
             <h3 className="font-serif text-[clamp(1.5rem,5vw,2rem)] font-semibold leading-tight text-crimson">
@@ -100,7 +96,7 @@ export default function Venue({ invitation }: { invitation: Invitation }) {
               href={v.mapUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-[#e9c985]/70 bg-[linear-gradient(180deg,#b3121f,#7d0714)] px-8 py-2.5 font-serif text-[1.15rem] font-medium italic text-white shadow-[0_6px_14px_rgba(125,7,20,0.35),inset_0_1px_0_rgba(255,255,255,0.25)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_18px_rgba(125,7,20,0.4),inset_0_1px_0_rgba(255,255,255,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e9c985] focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
+              className="inline-flex items-center gap-2 rounded-full border border-gilt/70 bg-[linear-gradient(180deg,#b3121f,#7d0714)] px-8 py-2.5 font-serif text-[1.15rem] font-medium text-white shadow-[0_6px_14px_rgba(125,7,20,0.35),inset_0_1px_0_rgba(255,255,255,0.25)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_18px_rgba(125,7,20,0.4),inset_0_1px_0_rgba(255,255,255,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gilt focus-visible:ring-offset-2 focus-visible:ring-offset-paper"
             >
               {v.buttonLabel ?? "View on Map"}
               <MapPin className="size-4" strokeWidth={1.8} aria-hidden />
@@ -109,18 +105,14 @@ export default function Venue({ invitation }: { invitation: Invitation }) {
         </div>
 
         {v.image && (
-          <Reveal
-            y={30}
-            delay={0.2}
-            className="mx-auto w-full max-w-75 "
-          >
+          <Reveal y={30} delay={0.2} className="mx-auto w-full max-w-75 ">
             <Image
               src={v.image}
               alt={v.imageAlt ?? v.name}
               width={1400}
               height={760}
               sizes="(min-width: 1024px) 60vw, 92vw"
-              className="h-auto w-full select-none drop-shadow-[0_10px_18px_rgba(70,40,20,0.3)]"
+              className="h-auto w-full select-none rounded-2xl border-4 border-gilt drop-shadow-[0_10px_18px_rgba(70,40,20,0.3)]"
               draggable={false}
             />
           </Reveal>

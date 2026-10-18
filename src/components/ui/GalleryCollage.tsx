@@ -130,13 +130,13 @@ export default function GalleryCollage({
   return (
     <>
       {/* container-type lets captions size themselves from the canvas width (cqw) */}
-      <div className="relative mx-auto aspect-[100/174] w-full max-w-[560px] [container-type:inline-size] lg:aspect-[100/68] lg:max-w-[1100px]">
+      <div className="relative mx-auto aspect-100/174 w-full max-w-140 @container lg:aspect-100/68 lg:max-w-275">
         {BARS.map((bar, i) => (
           <span
             key={i}
             aria-hidden
             style={{ ...vars(bar.m, bar.d), backgroundColor: bar.color }}
-            className="absolute left-[var(--ml)] top-[var(--mt)] h-[var(--mh)] w-[var(--mw)] lg:left-[var(--dl)] lg:top-[var(--dt)] lg:h-[var(--dh)] lg:w-[var(--dw)]"
+            className="absolute left-(--ml) top-(--mt) h-(--mh) w-(--mw) lg:left-(--dl) lg:top-(--dt) lg:h-(--dh) lg:w-(--dw)"
           />
         ))}
 
@@ -146,7 +146,7 @@ export default function GalleryCollage({
             <div
               key={photo.src}
               style={vars(slot.m, slot.d)}
-              className="absolute left-[var(--ml)] top-[var(--mt)] z-[1] w-[var(--mw)] lg:left-[var(--dl)] lg:top-[var(--dt)] lg:w-[var(--dw)]"
+              className="absolute left-(--ml) top-(--mt) z-1 w-(--mw) lg:left-(--dl) lg:top-(--dt) lg:w-(--dw)"
             >
               <Reveal y={30} delay={i * 0.1} className="relative">
                 {photo.caption && <CollageCaption caption={photo.caption} />}

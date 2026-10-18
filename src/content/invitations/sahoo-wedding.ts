@@ -2,14 +2,13 @@ import type { Invitation } from "@/types/invitation";
 
 const venue = {
   name: "Venue name",
-  address: "Address line, Kolkata",
+  address: "Ramnagar, Digha",
   mapUrl: "https://www.google.com/maps/search/?api=1&query=Kolkata",
 };
 
 // Placeholder content. Replace with your own details.
-export const sampleWedding: Invitation = {
-  slug: "sample-wedding",
-
+export const sahooWedding: Invitation = {
+  slug: "sahoo-wedding",
   opening: {
     background: "/opening/bg.webp",
     envelope: "/opening/envelop.webp",
@@ -19,8 +18,8 @@ export const sampleWedding: Invitation = {
 
   hero: {
     background: "/invitations/hero-bg1.webp",
-    couple: "/invitations/hero-couple.webp",
-    ganesha: "/invitations/ganesha.svg",
+    couple: "/invitations/couple/hero-couple.webp",
+    ganesha: "/invitations/arts/ganesha.svg",
     invocation: "|| Shri Ganeshay Namah ||",
     tagline: "Are getting married",
     corners: {
@@ -40,14 +39,64 @@ export const sampleWedding: Invitation = {
       bottomLeft: "/invitations/corners/countdown-bl.webp",
       bottomRight: "/invitations/corners/countdown-br.webp",
     },
-    lotus: "/invitations/lotus.webp",
+    lotus: "/invitations/art/lotus.webp",
     flourish: "/invitations/countdown-flourish.webp",
   },
 
+  brideGroom: {
+    modalFrame: "/invitations/arts/modal-frame.webp",
+    title: "Bride & Groom",
+    subtitle:
+      "Two families, one beautiful journey.\nGet to know the Bride and Groom.",
+    ornament: "/invitations/couple/parvati&shiva.webp",
+    // background: "/invitations/bg-floral.png",
+    button: "/invitations/arts/role-button.webp",
+    borders: {
+      top: "/invitations/arts/bg-border-t.png",
+      bottom: "/invitations/arts/bg-border-b.webp",
+    },
+    corners: {
+      topLeft: "/invitations/corners/bg-tl.webp",
+      topRight: "/invitations/corners/bg-tr.webp",
+      bottomLeft: "/invitations/corners/bg-bl.webp",
+      bottomRight: "/invitations/corners/bg-br.webp",
+    },
+
+    bride: {
+      photo: "/invitations/couple/bride.png",
+      details: {
+        subtitle: "Daughter of Late Ramesh Sahoo & Mrs. Shantilata Sahoo",
+        about:
+          "A kind hearted, cheerful and ambitious person \n who loves music, travel and fuchka (panipuri)",
+        facts: [
+          // { label: "Education", value: "B.A." },
+          // { label: "Profession", value: "Add details" },
+          // { label: "Loves", value: "Add details" },
+          // { label: "Hometown", value: "Digha" },
+        ],
+      },
+    },
+    groom: {
+      photo: "/invitations/couple/groom.png",
+      details: {
+        subtitle: "Son of Mr. Manilal Sahoo & Mrs. Jahnabi Sahoo",
+        about:
+          "A cool, kind, and ambitious person who believes in lifelong learning, \nmeaningful work and creating beautiful memories together.",
+        facts: [
+          // { label: "Education", value: "Add details" },
+          // { label: "Profession", value: "Add details" },
+          // { label: "Loves", value: "Add details" },
+          // { label: "Hometown", value: "Kolkata" },
+        ],
+      },
+    },
+  },
+
   celebrations: {
+    title: "Wedding Events",
     subtitle:
       "Join us for a celebration filled with love, laughter and Bengali traditions.",
-    lotus: "/invitations/events-lotus.webp",
+    lotus: "/invitations/art/events-lotus.webp",
     corners: {
       topLeft: "/invitations/corners/events-tl.webp",
       topRight: "/invitations/corners/events-tr.webp",
@@ -74,7 +123,7 @@ export const sampleWedding: Invitation = {
 
   wedding: {
     date: "2026-11-24T19:00:00+05:30",
-    city: "Kolkata",
+    city: "Ramnagar, WB",
   },
 
   invite: {
@@ -90,7 +139,7 @@ export const sampleWedding: Invitation = {
       startsAt: "2026-11-22T16:00:00+05:30",
       venue,
       description: "A splash of colors,\ntraditions and happiness!",
-      image: "/invitations/gaye-holud.webp",
+      image: "/invitations/events/gaye-holud.webp",
     },
     {
       id: "aashirbaad",
@@ -98,7 +147,7 @@ export const sampleWedding: Invitation = {
       startsAt: "2026-11-23T10:00:00+05:30",
       venue,
       description: "Blessings for\na beautiful future",
-      image: "/invitations/aashirbaad.webp",
+      image: "/invitations/events/aashirbaad.webp",
     },
     {
       id: "wedding",
@@ -106,7 +155,7 @@ export const sampleWedding: Invitation = {
       startsAt: "2026-11-24T19:00:00+05:30",
       venue,
       description: "Two hearts, one promise\nfor a lifetime!",
-      image: "/invitations/wedding.webp",
+      image: "/invitations/events/wedding.webp",
     },
     {
       id: "reception",
@@ -114,61 +163,19 @@ export const sampleWedding: Invitation = {
       startsAt: "2026-11-25T19:00:00+05:30",
       venue,
       description: "An evening of\ncelebration and togetherness!",
-      image: "/invitations/reception.webp",
+      image: "/invitations/events/reception.webp",
     },
   ],
-
-  // OLD Story section. Replaced by the new Story section below.
-  // story: {
-  //   eyebrow: "Our Story",
-  //   title: "Different paths,\none beautiful\nbeginning.",
-  //   intro:
-  //     "From our first conversation to the plans we are making now, it has been the everyday moments that made this feel like us.",
-  //   image: "/invitations/story-couple.webp",
-  //   closing: "Two stories, and so much still to write together.",
-  //   corners: {
-  //     topLeft: "/invitations/story-tl.webp",
-  //     topRight: "/invitations/story-tr.webp",
-  //     bottomLeft: "/invitations/story-bl.webp",
-  //     bottomRight: "/invitations/story-br.webp",
-  //   },
-  //   steps: [
-  //     {
-  //       title: "We Met",
-  //       icon: "cap",
-  //       image: "/invitations/story-we-met.png",
-  //       text: "A college event brought us together. We stayed long after it ended, talking about everything except the reason we had come.",
-  //     },
-  //     {
-  //       title: "We Grew",
-  //       icon: "heart",
-  //       image: "/invitations/story-we-grew.png",
-  //       text: "There were shared playlists, long calls and plenty of coffee. Little by little, we became the first person the other wanted to tell.",
-  //     },
-  //     {
-  //       title: "We Explored",
-  //       icon: "plane",
-  //       image: "/invitations/story-we-explored.png",
-  //       text: "From quiet hill stations to busy city streets, we found new places and new reasons to enjoy doing life together.",
-  //     },
-  //     {
-  //       title: "Now, Forever",
-  //       icon: "rings",
-  //       image: "/invitations/story-now-forever.png",
-  //       text: "One very happy yes, and here we are. Our next adventure begins with our favourite people beside us, and that includes you.",
-  //     },
-  //   ],
-  // },
 
   story: {
     title: "Our Story",
     subtitle: "Two hearts, one beautiful journey.",
     intro:
       "What started as a simple conversation, turned into endless talks, shared dreams and a bond that only grew stronger with time. Through every moment, big or small, we found a home in each other. Now, we're ready to begin our forever, together.",
-    ornament: "/invitations/story-lotus.webp",
+    ornament: "/invitations/arts/story-lotus.webp",
     photos: [
-      { src: "/invitations/couple-l.webp" },
-      { src: "/invitations/couple-r.webp" },
+      { src: "/invitations/couple/couple-l.webp" },
+      { src: "/invitations/couple/couple-r.webp" },
     ],
     corners: {
       topLeft: "/invitations/corners/story-tl.webp",
@@ -176,7 +183,7 @@ export const sampleWedding: Invitation = {
       bottomLeft: "/invitations/corners/countdown-bl.webp",
       bottomRight: "/invitations/corners/countdown-br.webp",
     },
-    bottom: "/invitations/story-bottom.webp",
+    bottom: "/invitations/arts/story-bottom.webp",
     steps: [
       {
         title: "First Conversation",
@@ -203,7 +210,7 @@ export const sampleWedding: Invitation = {
 
   gallery: {
     subtitle: "A few precious moments from our journey...",
-    lotus: "/invitations/events-lotus.png",
+    lotus: "/invitations/arts/events-lotus.png",
     footer: "Moments of our journey",
     corners: {
       topLeft: "/invitations/corners/gallery-tl.webp",
@@ -213,7 +220,7 @@ export const sampleWedding: Invitation = {
     },
     photos: [
       {
-        src: "/invitations/gallery/photo-1.jpg",
+        src: "/invitations/gallery/photo-1.webp",
         caption: { style: "tape", text: "Where it all began", place: "top" },
       },
       {
@@ -225,7 +232,7 @@ export const sampleWedding: Invitation = {
         },
       },
       {
-        src: "/invitations/gallery/photo-3.jpg",
+        src: "/invitations/gallery/photo-3.png",
         caption: { style: "brush", text: "the best day", place: "bl" },
       },
       {
@@ -239,63 +246,15 @@ export const sampleWedding: Invitation = {
     ],
   },
 
-  brideGroom: {
-    modalFrame: "/invitations/modal-frame.webp",
-    title: "Bride & Groom",
-    subtitle:
-      "Two families, one beautiful journey.\nGet to know the Bride and Groom.",
-    ornament: "/invitations/parvati&shiva.webp",
-    // background: "/invitations/bg-floral.png",
-    button: "/invitations/role-button.webp",
-    borders: {
-      top: "/invitations/bg-border-t.png",
-      bottom: "/invitations/bg-border-b.webp",
-    },
-    corners: {
-      topLeft: "/invitations/corners/bg-tl.webp",
-      topRight: "/invitations/corners/bg-tr.webp",
-      bottomLeft: "/invitations/corners/bg-bl.webp",
-      bottomRight: "/invitations/corners/bg-br.webp",
-    },
-
-    bride: {
-      photo: "/invitations/bride.png",
-      details: {
-        subtitle: "Daughter of Mr. Subir Sen & Mrs. Mala Sen",
-        about:
-          "A kind hearted, cheerful and ambitious person \n who loves music, travel and fuchka (panipuri)",
-        facts: [
-          // { label: "Education", value: "Add details" },
-          // { label: "Profession", value: "Add details" },
-          // { label: "Loves", value: "Add details" },
-          // { label: "Hometown", value: "Kolkata" },
-        ],
-      },
-    },
-    groom: {
-      photo: "/invitations/groom.png",
-      details: {
-        subtitle: "Son of Mr. Amit Banerjee & Mrs. Rina Banerjee",
-        about:
-          "A cool, kind, and ambitious person who believes in lifelong learning, \nmeaningful work and creating beautiful memories together.",
-        facts: [
-          // { label: "Education", value: "Add details" },
-          // { label: "Profession", value: "Add details" },
-          // { label: "Loves", value: "Add details" },
-          // { label: "Hometown", value: "Kolkata" },
-        ],
-      },
-    },
-  },
-
   venue: {
     name: "Shiv Mahal Palace",
     address: "23, Old Airport Road,\nBengaluru, Karnataka 560008",
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=Shiv+Mahal+Palace+Bengaluru",
-    lotus: "/invitations/events-lotus.png",
-    image: "/invitations/bedi.webp",
-    imageAlt: "Shiv Mahal Palace lit up at dusk",
+    lotus: "/invitations/arts/events-lotus.png",
+    image: "/invitations/couple/bedi.webp",
+    imageAlt:
+      "A couple sitting together in-front of a fire, with a garden and a fountain in the background.",
     corners: {
       topLeft: "/invitations/corners/venue-tl.webp",
       topRight: "/invitations/corners/venue-tr.webp",
@@ -305,15 +264,17 @@ export const sampleWedding: Invitation = {
   },
 
   gift: {
+    title: "Send a Gift",
+    eyebrow: "A little gift, a lot of love",
     message:
       "Your presence and blessings mean more to us than anything. For those who wish to send a gift, we have included a digital gifting option as a token of your love and support.",
-    lotus: "/invitations/lotus-art.webp",
-    payeeName: "Arindam Das",
-    upiId: "arindamdas@okaxis",
-    // qr: "/invitations/gift-qr.png",
+    lotus: "/invitations/arts/lotus-art.webp",
+    payeeName: "Susovan Sahoo",
+    upiId: "sahoo.611@ptaxis",
+    qr: "/invitations/ptm-qr.webp",
     apps: [
       { name: "PhonePe", icon: "/invitations/payment/p-pe.png" },
-      { name: "G Pay", icon: "/invitations/payment/g-pay.png" },
+      { name: "GPay", icon: "/invitations/payment/g-pay.png" },
       { name: "Paytm", icon: "/invitations/payment/ptm.png" },
       { name: "BHIM", icon: "/invitations/payment/bhim.png" },
     ],
@@ -332,15 +293,15 @@ export const sampleWedding: Invitation = {
     endpoint: "PASTE_YOUR_WEB_APP_URL_HERE",
     // whatsapp: "919876543210",
     art: {
-      left: "/invitations/women.webp",
-      right: "/invitations/dhaki.webp",
+      left: "/invitations/arts/women.webp",
+      right: "/invitations/arts/dhaki.webp",
     },
   },
 
   note: "Your presence and blessings are the greatest gift we could ask for.",
 
   seo: {
-    title: "Ananya & Rishav | Wedding Invitation",
-    description: "You are invited to the wedding of Ananya and Rishav.",
+    title: "Puspalata & Susovan | Wedding Invitation",
+    description: "You are invited to the wedding of Puspalata and Susovan.",
   },
 };
