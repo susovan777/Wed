@@ -138,7 +138,7 @@ export default function UpiCard({
             </p>
 
             <div className="relative mt-2 w-full">
-              <p className="rounded-full border border-[#e3cfa6] bg-[#fbf3df] px-12 py-2.5 text-center font-serif text-[1.05rem] font-medium text-[#3a1f1a] shadow-[inset_0_1px_2px_rgba(120,80,30,0.08)]">
+              <p className="rounded-full border border-[#e3cfa6] bg-[#fbf3df] px-12 py-2.5 text-center font-sans text-[0.90rem] text-[#6e4c46] shadow-[inset_0_1px_2px_rgba(120,80,30,0.08)]">
                 {upiId}
               </p>
               <span className="absolute right-2 top-1/2 -translate-y-1/2">
@@ -148,7 +148,7 @@ export default function UpiCard({
 
             <a
               href={payUrl}
-              className="mt-4 flex w-full items-center justify-center gap-3 rounded-2xl bg-[linear-gradient(180deg,#b3121f,#7d0714)] px-6 py-3 font-serif text-[1.15rem] font-medium text-white shadow-[0_6px_14px_rgba(125,7,20,0.35),inset_0_1px_0_rgba(255,255,255,0.25)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_18px_rgba(125,7,20,0.4),inset_0_1px_0_rgba(255,255,255,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e9c985] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f6e6c6] lg:text-[1.3rem]"
+              className="mt-4 flex w-full items-center justify-center gap-3 rounded-2xl bg-[linear-gradient(180deg,#b3121f,#7d0714)] px-6 py-3 font-serif text-[1.15rem] font-medium text-white shadow-[0_6px_14px_rgba(125,7,20,0.35),inset_0_1px_0_rgba(255,255,255,0.25)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_18px_rgba(125,7,20,0.4),inset_0_1px_0_rgba(255,255,255,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gilt focus-visible:ring-offset-2 focus-visible:ring-offset-[#f6e6c6] lg:text-[1.3rem]"
             >
               <Send className="size-5" strokeWidth={1.6} aria-hidden />
               {buttonLabel}

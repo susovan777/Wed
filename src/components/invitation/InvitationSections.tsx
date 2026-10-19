@@ -9,6 +9,7 @@ import Gallery from "./sections/Gallery";
 import Venue from "./sections/Venue";
 import SendGift from "./sections/SendGift";
 import Rsvp from "./sections/Rsvp";
+import Footer from "./sections/Footer";
 
 type SectionProps = { invitation: Invitation };
 
@@ -23,6 +24,7 @@ const registry: Partial<Record<SectionKey, ComponentType<SectionProps>>> = {
   venue: Venue,
   gift: SendGift,
   rsvp: Rsvp,
+  footer: Footer,
 };
 
 const defaultOrder: SectionKey[] = [

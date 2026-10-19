@@ -110,15 +110,15 @@ export const sahooWedding: Invitation = {
       name: "Puspalata",
       banglaName: "পুষ্পলতা",
       fullName: "Puspalata Sahoo",
-      parents: "Mr. Subir Sahoo & Mrs. Mala Sahoo",
+      parents: "Late Ramesh Sahoo & Smt. Shantilata Sahoo",
     },
     groom: {
       name: "Susovan",
       banglaName: "সুশোভন",
       fullName: "Susovan Sahoo",
-      parents: "Mr. Amit Sahoo & Mrs. Rina Sahoo",
+      parents: "Sr. Manilal Sahoo & Smt. Jahnabi Sahoo",
     },
-    hashtag: "#AnanyaWedsRishav",
+    hashtag: "#PuspalataWedsSusovan",
   },
 
   wedding: {
@@ -264,7 +264,7 @@ export const sahooWedding: Invitation = {
   },
 
   gift: {
-    title: "Send a Gift",
+    title: "Gifts & Blessings",
     eyebrow: "A little gift, a lot of love",
     message:
       "Your presence and blessings mean more to us than anything. For those who wish to send a gift, we have included a digital gifting option as a token of your love and support.",
@@ -295,6 +295,27 @@ export const sahooWedding: Invitation = {
     art: {
       left: "/invitations/arts/women.webp",
       right: "/invitations/arts/dhaki.webp",
+    },
+  },
+
+  footer: {
+    eyebrow: "With love",
+    message:
+      "Thank you for being a part of our story. \nWe can't wait to celebrate with you!",
+    quote: "Here's to love, laughter, and a lifetime together.",
+    // art: {
+    //   left: "/invitations/footer-art-left.png",
+    //   right: "/invitations/footer-art-right.png",
+    // },
+    background: "/invitations/footer-bg.webp",
+    social: {
+      instagram: "https://instagram.com/your-handle",
+      facebook: "https://facebook.com/your-page",
+      whatsapp: "919876543210",
+    },
+    developer: {
+      name: "Susovan",
+      url: "https://your-portfolio.com",
     },
   },
 

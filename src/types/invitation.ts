@@ -365,6 +365,30 @@ export type Invitation = {
     form?: RsvpFormText;
   };
 
+  footer?: {
+    /** Small line at the top. Defaults to "With love". */
+    eyebrow?: string;
+    /** The thank-you line under it. */
+    message?: string;
+    /** Shown in the bottom bar, in quote marks. */
+    quote?: string;
+    /** Faint lotus line art at each side. */
+    art?: { left?: string; right?: string };
+    background?: string;
+    /** Leave a link out and its icon is hidden. WhatsApp can be a full link or just a number with country code. */
+    social?: {
+      instagram?: string;
+      facebook?: string;
+      whatsapp?: string;
+    };
+    /** The credit line at the very bottom, and the portfolio icon beside the social icons. */
+    developer?: {
+      name: string;
+      /** Your portfolio address. Without it, the name shows as plain text and the icon is hidden. */
+      url?: string;
+    };
+  };
+
   note?: string;
 
   music?: {
