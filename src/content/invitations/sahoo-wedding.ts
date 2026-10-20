@@ -319,7 +319,13 @@ export const sahooWedding: Invitation = {
     },
   },
 
-  note: "Your presence and blessings are the greatest gift we could ask for.",
+  music: {
+    src: "/invitations/bgm.mp3",
+    title: "Background music",
+    volume: 0.6,
+  },
+
+  // note: "Your presence and blessings are the greatest gift we could ask for.",
 
   seo: {
     title: "Puspalata & Susovan | Wedding Invitation",

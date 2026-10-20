@@ -392,8 +392,12 @@ export type Invitation = {
   note?: string;
 
   music?: {
+    /** Path to the song, e.g. "/invitations/music.mp3". */
     src: string;
+    /** Shown as a tooltip on the button. */
     title?: string;
+    /** 0 to 1. Defaults to 0.6. */
+    volume?: number;
   };
 
   seo: {

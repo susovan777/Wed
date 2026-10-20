@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "motion/react";
-import type { CSSProperties, ReactNode } from "react";
-import { OpenProvider } from "./OpenContext";
-import OpeningGate from "@/components/opening/OpeningGate";
-import type { Invitation } from "@/types/invitation";
 import PetalFall from "./PetalFall";
+import { OpenProvider } from "./OpenContext";
+import type { Invitation } from "@/types/invitation";
+import type { CSSProperties, ReactNode } from "react";
+import OpeningGate from "@/components/opening/OpeningGate";
+import MusicPlayer, { type MusicHandle } from "./MusicPlayer";
 
 export default function InvitationShell({
   invitation,
@@ -17,6 +18,7 @@ export default function InvitationShell({
 }) {
   const [opened, setOpened] = useState(false);
   const [gateGone, setGateGone] = useState(false);
+  const musicRef = useRef<MusicHandle>(null);
 
   return (
     <div style={invitation.theme as CSSProperties}>
@@ -35,12 +37,25 @@ export default function InvitationShell({
 
         {/* Falling petals animation */}
         <PetalFall />
+
+        {invitation.music?.src && (
+          <MusicPlayer
+            ref={musicRef}
+            src={invitation.music.src}
+            volume={invitation.music.volume}
+            title={invitation.music.title}
+            visible={opened}
+          />
+        )}
       </OpenProvider>
 
       {!gateGone && (
         <OpeningGate
           assets={invitation.opening}
-          onOpen={() => setOpened(true)}
+          onOpen={() => {
+            musicRef.current?.start();
+            setOpened(true);
+          }}
           onOpened={() => setGateGone(true)}
         />
       )}
