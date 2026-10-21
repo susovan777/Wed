@@ -236,7 +236,7 @@ export const sahooWedding: Invitation = {
         caption: { style: "brush", text: "the best day", place: "bl" },
       },
       {
-        src: "/invitations/gallery/photo-4.jpg",
+        src: "/invitations/gallery/photo-4.webp",
         caption: { style: "brush", text: "Favorite moment", place: "br" },
       },
       {
@@ -247,10 +247,10 @@ export const sahooWedding: Invitation = {
   },
 
   venue: {
-    name: "Shiv Mahal Palace",
-    address: "23, Old Airport Road,\nBengaluru, Karnataka 560008",
+    name: "Haraprasad Bhavan, \nDigha, East Midnapur",
+    address: "Bidyadharpur, Chandanpurhat, \nRamnagar, West Bengal, 721446",
     mapUrl:
-      "https://www.google.com/maps/search/?api=1&query=Shiv+Mahal+Palace+Bengaluru",
+      "https://www.google.com/maps/place/BidyadharPur+J.+High+School/@21.7164828,87.5097496,17.25z/data=!4m15!1m8!3m7!1s0x3a1cd3120f9637df:0xcfc9255d4d3349a4!2sBidyadharpur,+West+Bengal+721446!3b1!8m2!3d21.7155224!4d87.5117999!16s%2Fg%2F12hlzbm9x!3m5!1s0x3a1cd30025e8ec1d:0x11acee2212fbf68f!8m2!3d21.7175641!4d87.5113047!16s%2Fg%2F11vpylsg90?entry=ttu&g_ep=EgoyMDI2MTAxNC4wIKXMDSoASAFQAw%3D%3D",
     lotus: "/invitations/arts/events-lotus.png",
     image: "/invitations/couple/bedi.webp",
     imageAlt:
@@ -309,13 +309,13 @@ export const sahooWedding: Invitation = {
     // },
     background: "/invitations/footer-bg.webp",
     social: {
-      instagram: "https://instagram.com/your-handle",
-      facebook: "https://facebook.com/your-page",
+      instagram: "https://www.instagram.com/_sushovan.777_/",
+      facebook: "https://www.facebook.com/susovan.sahoo777",
       whatsapp: "919876543210",
     },
     developer: {
       name: "Susovan",
-      url: "https://your-portfolio.com",
+      url: "https://susovan-sahoo.vercel.app/",
     },
   },
 

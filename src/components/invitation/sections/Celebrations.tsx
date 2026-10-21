@@ -6,6 +6,7 @@ import EventCard from "@/components/ui/EventCard";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { formatEventDate, formatEventTime } from "@/lib/eventDate";
 import type { Invitation } from "@/types/invitation";
+import ScatteredFlowers from "@/components/ui/ScatteredFlowers";
 
 const CORNER_SIZE = "w-[35vw] max-w-[190px] lg:w-[14%] lg:max-w-[240px]";
 
@@ -34,6 +35,8 @@ export default function Celebrations({
           className="-z-10 select-none object-cover object-center"
         />
       )}
+
+      <ScatteredFlowers />
 
       {/* Corner art */}
       <CornerImage

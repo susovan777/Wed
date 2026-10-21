@@ -5,6 +5,7 @@ import OrnamentDivider from "@/components/ui/OrnamentDivider";
 import { formatWeddingDate } from "@/lib/date";
 import type { Invitation } from "@/types/invitation";
 import BlurText from "@/components/motion/BlurText";
+import ScatteredFlowers from "@/components/ui/ScatteredFlowers";
 
 const NAME_SIZE =
   "text-[clamp(3.25rem,15vw,5rem)] lg:text-[clamp(3.5rem,6.2vw,6.25rem)]";
@@ -76,6 +77,9 @@ export default function Hero({ invitation }: { invitation: Invitation }) {
         }`}
         aria-hidden="true"
       />
+
+      <ScatteredFlowers />
+      
       {/* Corner decorations */}
       <Corner
         src={corners.topLeft}

@@ -1,11 +1,13 @@
 import Image from "next/image";
-import type { CSSProperties } from "react";
 import Reveal from "@/components/motion/Reveal";
 import CornerImage from "@/components/ui/CornerImage";
 import FleurDivider from "@/components/ui/FleurDivider";
 import StoryIcon from "@/components/ui/StoryIcon";
 import type { Invitation, StoryStep } from "@/types/invitation";
 import SectionHeading from "@/components/ui/SectionHeading";
+import ScatteredFlowers, {
+  type FlowerSpec,
+} from "@/components/ui/ScatteredFlowers";
 
 const CORNER = "w-[30%] max-w-[170px] lg:w-[15%] lg:max-w-[260px]";
 
@@ -19,48 +21,48 @@ const FADE =
 
 // Small flowers: [left %, top %, size px, rotation deg, blur px, opacity]
 // Big, soft ones (blur above 0) look out of focus, like flowers close to the camera.
-const FLOWERS: [number, number, number, number, number, number][] = [
-  [30, 17, 16, 25, 0, 0.95],
-  [72, 28, 14, -15, 0, 0.9],
-  [3, 43, 15, 60, 0, 0.9],
-  [98, 42, 13, 20, 0, 0.85],
-  [37, 77, 16, 35, 0, 0.95],
-  [85, 58, 14, 50, 0, 0.9],
-  [33, 31, 30, -30, 3, 0.6],
-  [71, 18, 34, 40, 4, 0.55],
-  [8, 65, 36, -40, 4, 0.5],
-  [61, 76, 28, -20, 3, 0.6],
-  [94, 61, 32, 10, 3.5, 0.55],
+const FLOWERS: FlowerSpec[] = [
+  [30, 17, 16, 25, 0, 0.95, "blue"],
+  [72, 28, 14, -15, 0, 0.9, "yellow"],
+  [3, 43, 15, 60, 0, 0.9, "green"],
+  [98, 42, 13, 20, 0, 0.85, "yellow"],
+  [37, 77, 16, 35, 0, 0.95, "blue"],
+  [85, 58, 14, 50, 0, 0.9, "green"],
+  [33, 31, 30, -30, 3, 0.6, "green"],
+  [71, 18, 34, 40, 4, 0.55, "blue"],
+  [8, 65, 36, -40, 4, 0.5, "yellow"],
+  [61, 76, 28, -20, 3, 0.6, "yellow"],
+  [94, 61, 32, 10, 3.5, 0.55, "green"],
 ];
 
-function Flower({
-  className = "",
-  style,
-}: {
-  className?: string;
-  style?: CSSProperties;
-}) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden className={className} style={style}>
-      {[0, 72, 144, 216, 288].map((angle) => (
-        <ellipse
-          key={angle}
-          cx="12"
-          cy="6.4"
-          rx="3.9"
-          ry="5.3"
-          fill="url(#story-flower-grad)"
-          stroke="#e8a317"
-          strokeOpacity="0.35"
-          strokeWidth="0.4"
-          transform={`rotate(${angle} 12 12)`}
-        />
-      ))}
-      <circle cx="12" cy="12" r="2.3" fill="#e98a0e" />
-      <circle cx="11.3" cy="11.3" r="0.8" fill="#ffd98a" />
-    </svg>
-  );
-}
+// function Flower({
+//   className = "",
+//   style,
+// }: {
+//   className?: string;
+//   style?: CSSProperties;
+// }) {
+//   return (
+//     <svg viewBox="0 0 24 24" aria-hidden className={className} style={style}>
+//       {[0, 72, 144, 216, 288].map((angle) => (
+//         <ellipse
+//           key={angle}
+//           cx="12"
+//           cy="6.4"
+//           rx="3.9"
+//           ry="5.3"
+//           fill="url(#story-flower-grad)"
+//           stroke="#e8a317"
+//           strokeOpacity="0.35"
+//           strokeWidth="0.4"
+//           transform={`rotate(${angle} 12 12)`}
+//         />
+//       ))}
+//       <circle cx="12" cy="12" r="2.3" fill="#e98a0e" />
+//       <circle cx="11.3" cy="11.3" r="0.8" fill="#ffd98a" />
+//     </svg>
+//   );
+// }
 
 function Blossom({ className = "size-4" }: { className?: string }) {
   return (
@@ -137,23 +139,6 @@ export default function Story({ invitation }: { invitation: Invitation }) {
       className="relative isolate overflow-hidden"
       // bg-[linear-gradient(180deg,#fdf1cd,#f9e3ae)]
     >
-      {/* Shared yellow gradient used by every flower */}
-      <svg aria-hidden width="0" height="0" className="absolute">
-        <defs>
-          <radialGradient
-            id="story-flower-grad"
-            gradientUnits="userSpaceOnUse"
-            cx="12"
-            cy="12"
-            r="11"
-          >
-            <stop offset="0.15" stopColor="#f6b422" />
-            <stop offset="0.6" stopColor="#fbd95c" />
-            <stop offset="1" stopColor="#fff3b4" />
-          </radialGradient>
-        </defs>
-      </svg>
-
       {s.background && (
         <Image
           src={s.background}
@@ -163,7 +148,6 @@ export default function Story({ invitation }: { invitation: Invitation }) {
           className="-z-10 select-none object-cover object-center"
         />
       )}
-
       {/* Gold frame (set frame: false in the content to turn it off) */}
       {s.frame !== false && (
         <>
@@ -177,23 +161,7 @@ export default function Story({ invitation }: { invitation: Invitation }) {
           />
         </>
       )}
-
-      {/* Scattered flowers: a few sharp, a few soft */}
-      {FLOWERS.map(([left, top, size, rotate, blur, opacity], i) => (
-        <Flower
-          key={i}
-          className="pointer-events-none absolute z-1"
-          style={{
-            left: `${left}%`,
-            top: `${top}%`,
-            width: size,
-            height: size,
-            transform: `rotate(${rotate}deg)`,
-            opacity,
-            filter: blur ? `blur(${blur}px)` : undefined,
-          }}
-        />
-      ))}
+      <ScatteredFlowers flowers={FLOWERS} />
 
       {/* Corner art: flower garlands on top, frame corners below */}
       <CornerImage
@@ -216,7 +184,6 @@ export default function Story({ invitation }: { invitation: Invitation }) {
         y={20}
         className={`bottom-0 right-0 z-5 ${CORNER}`}
       />
-
       {/* Desktop photos, either side of the text */}
       {photoA && (
         <Reveal
@@ -254,7 +221,6 @@ export default function Story({ invitation }: { invitation: Invitation }) {
           />
         </Reveal>
       )}
-
       <div className="relative z-3 px-6 pb-8 pt-10 lg:px-0 lg:pb-12 lg:pt-14">
         {/* Ornament, title, divider, subtitle, paragraph */}
         <Reveal className="mx-auto flex max-w-[24rem] flex-col items-center text-center lg:max-w-[min(42vw,40rem)]">
@@ -268,10 +234,7 @@ export default function Story({ invitation }: { invitation: Invitation }) {
               draggable={false}
             />
           )}
-          <SectionHeading
-            id="celebrations-title"
-            title={s.title ?? "Our Story"}
-          />
+          <SectionHeading id="story-title" title={s.title ?? "Our Story"} />
           {s.subtitle && (
             <p className="mt-3 font-serif text-base font-medium italic text-crimson lg:text-[clamp(1.1rem,2vw,1.7rem)]">
               {s.subtitle}
@@ -312,7 +275,6 @@ export default function Story({ invitation }: { invitation: Invitation }) {
           ))}
         </div>
       </div>
-
       {/* River scene at the bottom, fading into the page above it */}
       {(s.bottom || s.bottomMobile) && (
         <div aria-hidden className="relative z-1 -mt-8 lg:mt-[-5vw]">

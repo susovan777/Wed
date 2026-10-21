@@ -63,29 +63,6 @@ export default function MusicPlayer({
   const resumeRef = useRef(false);
   const [playing, setPlaying] = useState(false);
 
-  // const fadeTo = useCallback(
-  //   (target: number, ms: number, done?: () => void) => {
-  //     const audio = audioRef.current;
-  //     if (!audio) return;
-  //     if (fadeRef.current) cancelAnimationFrame(fadeRef.current);
-
-  //     const from = audio.volume;
-  //     const startedAt = performance.now();
-  //     const step = (now: number) => {
-  //       const t = Math.min(1, (now - startedAt) / ms);
-  //       audio.volume = from + (target - from) * t; // iPhones ignore volume changes, which is harmless
-  //       if (t < 1) {
-  //         fadeRef.current = requestAnimationFrame(step);
-  //       } else {
-  //         fadeRef.current = null;
-  //         done?.();
-  //       }
-  //     };
-  //     fadeRef.current = requestAnimationFrame(step);
-  //   },
-  //   [],
-  // );
-
   const fadeTo = useCallback(
     (target: number, ms: number, done?: () => void) => {
       const audio = audioRef.current;

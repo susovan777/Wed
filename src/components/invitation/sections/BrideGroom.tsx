@@ -7,6 +7,8 @@ import type { Invitation } from "@/types/invitation";
 import PersonColumn from "@/components/ui/PersonColumn";
 import OrnamentDivider from "@/components/ui/OrnamentDivider";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { Scada } from "next/font/google";
+import ScatteredFlowers from "@/components/ui/ScatteredFlowers";
 
 const TOP_CORNER = "w-[30vw] max-w-[180px] lg:w-[11%] lg:max-w-[260px]";
 const BOTTOM_CORNER = "w-[26vw] max-w-[160px] lg:w-[11%] lg:max-w-[280px]";
@@ -63,6 +65,8 @@ export default function BrideGroom({ invitation }: { invitation: Invitation }) {
           className={`z-1 ${BOTTOM_BORDER}`}
         />
       )}
+
+      <ScatteredFlowers />
 
       {/* Garlands (top) and banana leaves with kalash (bottom) */}
       <CornerImage

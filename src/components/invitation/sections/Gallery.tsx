@@ -4,6 +4,7 @@ import CornerImage from "@/components/ui/CornerImage";
 import SectionHeading from "@/components/ui/SectionHeading";
 import type { Invitation } from "@/types/invitation";
 import GalleryCollage from "@/components/ui/GalleryCollage";
+import ScatteredFlowers from "@/components/ui/ScatteredFlowers";
 
 // Line-art corners on top, lotus corners at the bottom
 const TOP_CORNER = "w-[30vw] max-w-[110px] lg:w-[14%] lg:max-w-[220px]";
@@ -30,6 +31,8 @@ export default function Gallery({ invitation }: { invitation: Invitation }) {
           className="-z-10 select-none object-cover object-center"
         />
       )}
+
+      <ScatteredFlowers />
 
       <CornerImage
         src={corners.topLeft}
@@ -64,7 +67,10 @@ export default function Gallery({ invitation }: { invitation: Invitation }) {
         />
 
         <div className="mt-8 lg:mt-10">
-          <GalleryCollage photos={g.photos} butterflies={g.butterflies !== false} />
+          <GalleryCollage
+            photos={g.photos}
+            butterflies={g.butterflies !== false}
+          />
         </div>
 
         {g.footer && (
