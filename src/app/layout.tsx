@@ -22,7 +22,7 @@ const mono = Space_Mono({
 const fancy = MonteCarlo({
   weight: "400",
   subsets: ["latin"],
-  variable: "--nf-script",
+  variable: "--nf-fancy",
 });
 
 const script = Great_Vibes({
@@ -52,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${script.variable} ${serif.variable} ${sans.variable} ${hand.variable} ${mono.variable} font-sans antialiased`}
+        className={`${script.variable} ${serif.variable} ${sans.variable} ${hand.variable} ${mono.variable} ${fancy.variable} font-sans antialiased`}
       >
         {children}
       </body>

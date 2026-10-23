@@ -140,7 +140,7 @@ export default function GiftFrame({
   bodyClassName?: string;
 }) {
   return (
-    <div className="relative bg-[#9a0c1a] bg-[radial-gradient(ellipse_at_50%_0%,rgba(190,24,40,0.55),transparent_65%),repeating-linear-gradient(45deg,rgba(255,255,255,0.03)_0_2px,transparent_2px_16px)] pb-[6%] pt-[6%] lg:pb-[3.2%] lg:pt-[3.2%]">
+    <div className="relative bg-[#9a0c1a] bg-[radial-gradient(ellipse_at_50%_0%,rgba(190,24,40,0.55),transparent_65%),repeating-linear-gradient(45deg,rgba(255,255,255,0.03)_0_2px,transparent_2px_16px)] pb-[6%] pt-[6%] lg:pb-[3.2%] lg:pt-[1.2%]">
       {/* <GoldOrnament id="gift-lotus-top" className="top-1 lg:top-2" /> */}
 
       <PanelCap variant="mobile" className="lg:hidden" />
@@ -148,7 +148,7 @@ export default function GiftFrame({
 
       {/* Straight middle part. The side margins are the red strips with a gold edge.
           --l2 is where the second border runs: the strip's inset minus the gap. */}
-      <div className="relative [--l2:6.2%] lg:[--l2:1.6%]">
+      <div className="relative -my-0.5 [--l2:6.2%] lg:[--l2:1.6%]">
         <span
           aria-hidden
           className="pointer-events-none absolute inset-y-0 left-(--l2) right-(--l2) border-x border-[#e3b85c]/80"

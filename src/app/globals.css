@@ -13,6 +13,7 @@
   --font-sans: var(--nf-sans);
   --font-hand: var(--nf-hand);
   --font-mono: var(--nf-mono);
+  --font-fancy: var(--nf-fancy);
 }
 
 @theme {

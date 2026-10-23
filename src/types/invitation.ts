@@ -4,6 +4,7 @@ import type { OpeningAssets } from "@/components/opening/OpeningGate";
 export type SectionKey =
   | "hero"
   | "countdown"
+  | "letter"
   | "details"
   | "celebrations"
   | "story"
@@ -170,6 +171,33 @@ export type Invitation = {
     flourish?: string;
   };
 
+  letter?: {
+    /** Maroon banner at the top, e.g. "॥ With the Divine Blessings of Lord Prajapati ॥". */
+    invocation: string;
+    /** Defaults to "A Humble Invitation". */
+    title?: string;
+    salutation?: string;
+    /** One item per paragraph. Text between **double stars** is shown bold and red.
+     *  An item that is just "---" draws a lotus divider. */
+    paragraphs: string[];
+    /** e.g. "With warm regards,". */
+    closing?: string;
+    signature?: string;
+    contact?: string;
+    /** Small lotus above the banner. */
+    ornament?: string;
+    /** Small lotus in the dividers. */
+    lotus?: string;
+    /** Left-side illustration (desktop only), like the temple and kalash in your design. */
+    art?: string;
+    corners?: {
+      topLeft?: string;
+      topRight?: string;
+      bottomLeft?: string;
+      bottomRight?: string;
+    };
+  };
+
   celebrations?: {
     /** Defaults to "The Wedding Events". */
     title?: string;
@@ -193,27 +221,6 @@ export type Invitation = {
   };
 
   events: InvitationEvent[];
-
-  /* OLD Story */
-  // story?: {
-  //   /** Small label above the heading. Defaults to "Our Story". */
-  //   eyebrow?: string;
-  //   /** Use \n for line breaks. */
-  //   title: string;
-  //   intro?: string;
-  //   /** Couple illustration beside the heading. */
-  //   image?: string;
-  //   /** Text on the closing ribbon. */
-  //   closing?: string;
-  //   background?: string;
-  //   corners?: {
-  //     topLeft?: string;
-  //     topRight?: string;
-  //     bottomLeft?: string;
-  //     bottomRight?: string;
-  //   };
-  //   steps: StoryStep[];
-  // };
 
   story?: {
     /** Defaults to "Our Story". */

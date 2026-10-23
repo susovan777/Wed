@@ -263,6 +263,32 @@ export const sahooWedding: Invitation = {
     },
   },
 
+  letter: {
+    invocation: "॥ With the Divine Blessings of Lord Prajapati ॥",
+    title: "A Humble Invitation",
+    salutation: "Respected Sir / Madam,",
+    paragraphs: [
+      "With the divine blessings of Lord Prajapati, we are delighted to announce the auspicious wedding of **Ishita**, beloved daughter of Shri Tapas Ghosh and Smt. Ilabati Ghosh, with **Sayan**, cherished son of Shri Sujoy Bhowmik and Smt. Ruma Bhowmik, residents of Anand Banerjee Road, Barrackpore-1.",
+      "The wedding ceremony will take place on **Thursday, 25 December 2026** (8th Poush, 1433 Bengali calendar) at the auspicious time of the wedding lagna.",
+      "---",
+      "On this joyous occasion, we cordially invite you and your family to join us for the wedding and the accompanying celebratory feast on **Thursday evening**.",
+      "Your gracious presence and heartfelt blessings will make this special occasion even more memorable for the newlyweds.",
+      "We humbly request you to overlook any shortcomings in this invitation and honour us with your presence.",
+    ],
+    closing: "With warm regards,",
+    signature: "Shri Tapas Ghosh",
+    contact: "Contact: [Mobile Number]",
+    ornament: "/invitations/arts/bg-lotus.webp",
+    lotus: "/invitations/arts/lotus-art.webp",
+    art: "/invitations/arts/temple.webp",
+    corners: {
+      topLeft: "/invitations/corners/gallery-tl.webp",
+      topRight: "/invitations/corners/gallery-tr.webp",
+      bottomLeft: "/invitations/corners/invite-bl.webp",
+      bottomRight: "/invitations/corners/invite-br.webp",
+    },
+  },
+
   gift: {
     title: "Gifts & Blessings",
     eyebrow: "A little gift, a lot of love",
