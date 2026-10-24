@@ -60,8 +60,7 @@ export default function Footer({ invitation }: { invitation: Invitation }) {
 
       {/* Top part: message, names, divider, skyline and the side lotus art */}
       <div className="relative">
-
-        <Reveal className="relative z-2 mx-auto flex max-w-176 flex-col items-center px-5 pb-[clamp(3rem,10vw,8.5rem)] pt-10 text-center lg:pt-12">
+        <Reveal className="relative z-2 mx-auto flex max-w-176 flex-col items-center px-5 pb-[clamp(1rem,5vw,8.5rem)] pt-10 text-center lg:pt-12">
           <p className="font-serif text-base font-medium uppercase tracking-[0.2em] text-[#b0653a] lg:text-[1.15rem]">
             {f.eyebrow ?? "With love"}
           </p>
@@ -79,6 +78,17 @@ export default function Footer({ invitation }: { invitation: Invitation }) {
             <Heart className="size-4 fill-current text-[#8f2d2d]" />
             <span className="h-px w-20 bg-[#b0653a]/50 lg:w-28" />
           </div>
+
+          {f.logo && (
+            <Image
+              src={f.logo}
+              alt=""
+              width={100}
+              height={200}
+              className="mt-6 h-auto select-none lg:mt-8"
+              draggable={false}
+            />
+          )}
         </Reveal>
       </div>
 

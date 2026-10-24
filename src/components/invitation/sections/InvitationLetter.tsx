@@ -39,7 +39,7 @@ export default function InvitationLetter({
 
   const corners = l.corners ?? {};
   const BODY =
-    "font-fancy text-[1rem] font-bold leading-[1.65] text-[#694a4ae6] lg:text-[clamp(1.5rem,1.3vw,1.18rem)]";
+    "font-serif text-[1rem] font-bold leading-[1.65] text-[#271d1de6] lg:text-[clamp(1.2rem,1.3vw,1.18rem)]";
 
   return (
     <section
@@ -47,7 +47,7 @@ export default function InvitationLetter({
       aria-labelledby="letter-title"
       className="relative isolate overflow-hidden"
     >
-      <GiftFrame bodyClassName="px-[5%] pb-[10vw] pt-8 lg:pl-[34%] lg:pr-[9%] lg:pb-0 lg:pt-0">
+      <GiftFrame bodyClassName="px-[5%] pb-[10vw] lg:pl-[34%] lg:pr-[9%]">
         {/* Ornament, banner and heading */}
         <Reveal className="mx-auto flex max-w-136 flex-col items-center text-center lg:max-w-3xl">
           {l.ornament && (
@@ -62,7 +62,7 @@ export default function InvitationLetter({
           )}
 
           {/* Maroon banner, drawn in code */}
-          <div className="relative rounded-2xl border border-gilt bg-[linear-gradient(180deg,#8f0f1f,#5c0813)] px-6 py-2.5 shadow-[0_6px_14px_rgba(92,8,19,0.35)] lg:px-10 lg:py-3">
+          <div className="relative rounded-2xl border border-gilt bg-[linear-gradient(180deg,#8f0f1f,#5c0813)] mb-3 px-6 py-2.5 shadow-[0_6px_14px_rgba(92,8,19,0.35)] lg:px-10 lg:py-3">
             <span
               aria-hidden
               className="pointer-events-none absolute inset-1 rounded-xl border border-gilt/50"

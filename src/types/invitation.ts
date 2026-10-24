@@ -384,6 +384,7 @@ export type Invitation = {
     /** Faint lotus line art at each side. */
     art?: { left?: string; right?: string };
     background?: string;
+    logo?: string;
     /** Leave a link out and its icon is hidden. WhatsApp can be a full link or just a number with country code. */
     social?: {
       instagram?: string;
