@@ -340,6 +340,8 @@ export type Invitation = {
     note?: { title: string; text: string };
     /** Defaults to "Open in UPI App". */
     buttonLabel?: string;
+    /** Text on the button that opens the QR card. Defaults to "Send a Gift". */
+    openLabel?: string;
     /** Optional. By default the button link is built from upiId and payeeName. */
     payUrl?: string;
     /** App tiles under the UPI ID. A tile shows the app's first letter if it has no icon. */

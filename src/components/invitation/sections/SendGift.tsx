@@ -4,6 +4,7 @@ import CornerImage from "@/components/ui/CornerImage";
 import GiftFrame from "@/components/ui/GiftFrame";
 import LotusRule from "@/components/ui/LotusRule";
 import UpiCard from "@/components/ui/UpiCard";
+import SendGiftDialog from "@/components/ui/SendGiftDialog";
 import type { Invitation } from "@/types/invitation";
 import SectionHeading from "@/components/ui/SectionHeading";
 
@@ -60,18 +61,20 @@ export default function SendGift({ invitation }: { invitation: Invitation }) {
           )}
         </Reveal>
 
-        {/* UPI card */}
+        {/* Send a Gift button. The UPI card opens in a popup when it is clicked. */}
         <Reveal y={30} delay={0.15} className="mt-8 lg:mt-10">
-          <UpiCard
-            scanTitle={g.scanTitle ?? "Scan to Pay"}
-            scanNote={g.scanNote ?? "UPI · Google Pay · PhonePe · Paytm"}
-            payeeName={g.payeeName}
-            upiId={g.upiId}
-            qr={g.qr}
-            apps={g.apps ?? DEFAULT_APPS}
-            buttonLabel={g.buttonLabel ?? "Pay Now"}
-            payUrl={payUrl}
-          />
+          <SendGiftDialog label={g.openLabel ?? "Send a Gift"}>
+            <UpiCard
+              scanTitle={g.scanTitle ?? "Scan to Pay"}
+              scanNote={g.scanNote ?? "UPI · Google Pay · PhonePe · Paytm"}
+              payeeName={g.payeeName}
+              upiId={g.upiId}
+              qr={g.qr}
+              apps={g.apps ?? DEFAULT_APPS}
+              buttonLabel={g.buttonLabel ?? "Pay Now"}
+              payUrl={payUrl}
+            />
+          </SendGiftDialog>
         </Reveal>
 
         {/* Optional-gift note: line, gift icon, line, then two lines of text */}

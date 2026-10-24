@@ -39,7 +39,7 @@ export default function InvitationLetter({
 
   const corners = l.corners ?? {};
   const BODY =
-    "font-fancy text-[1rem] font-bold leading-[1.65] text-[#694a4ae6] lg:text-[clamp(1.25rem,1.3vw,1.18rem)]";
+    "font-fancy text-[1rem] font-bold leading-[1.65] text-[#694a4ae6] lg:text-[clamp(1.5rem,1.3vw,1.18rem)]";
 
   return (
     <section
@@ -113,9 +113,6 @@ export default function InvitationLetter({
             <p className="font-serif text-[1.1rem] font-semibold text-crimson lg:text-[clamp(1.1rem,1.6vw,1.4rem)]">
               {l.signature}
             </p>
-          )}
-          {l.contact && (
-            <p className={`${BODY} mt-4 text-center`}>{l.contact}</p>
           )}
         </Reveal>
       </GiftFrame>
