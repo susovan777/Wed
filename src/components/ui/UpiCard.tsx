@@ -83,9 +83,9 @@ export default function UpiCard({
   payUrl: string;
 }) {
   return (
-    <div className="mx-auto w-full max-w-[26rem] lg:max-w-[46rem]">
+    <div className="mx-auto w-full max-w-104 lg:max-w-184">
       {/* container-type lets the QR size itself from the card width (cqw) */}
-      <div className="relative border border-[#e0b96a] bg-[linear-gradient(180deg,#fbf0d9,#f6e6c6)] px-5 py-6 shadow-[0_4px_16px_rgba(120,70,20,0.15)] [container-type:inline-size] lg:px-8 lg:py-8">
+      <div className="relative border border-[#e0b96a] bg-[linear-gradient(180deg,#fbf0d9,#f6e6c6)] px-5 py-6 shadow-[0_4px_16px_rgba(120,70,20,0.15)] @container lg:px-8 lg:py-8">
         <Notch at="0 0" className="-left-px -top-px" />
         <Notch at="100% 0" className="-right-px -top-px" />
         <Notch at="0 100%" className="-bottom-px -left-px" />
@@ -95,7 +95,7 @@ export default function UpiCard({
         <div className="grid justify-items-center gap-y-5 lg:grid-cols-[1fr_auto_1fr] lg:items-center lg:gap-x-8">
           {/* Scan */}
           <div className="flex flex-col items-center text-center">
-            <div className="w-[56cqw] max-w-[220px] bg-white p-[3%] shadow-[0_2px_8px_rgba(120,70,20,0.18)] lg:w-[min(24cqw,200px)]">
+            <div className="w-[56cqw] max-w-55 bg-white p-[3%] shadow-[0_2px_8px_rgba(120,70,20,0.18)] lg:w-[min(24cqw,200px)]">
               <div className="relative aspect-square w-full">
                 {qr ? (
                   <Image

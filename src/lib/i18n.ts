@@ -47,3 +47,13 @@ export function localize(
 ): Invitation {
   return override ? (merge(base, override) as Invitation) : base;
 }
+
+const BN_DIGITS = "০১২৩৪৫৬৭৮৯";
+
+/** Turns 0-9 into ০-৯ when the page is in Bengali. Any other text is left as it is. */
+export function localizeDigits(value: string | number, lang?: Lang): string {
+  const text = String(value);
+  return lang === "bn"
+    ? text.replace(/\d/g, (d) => BN_DIGITS[Number(d)])
+    : text;
+}

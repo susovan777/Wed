@@ -317,10 +317,9 @@ export type Invitation = {
   };
 
   gift?: {
-    /** Small line above the title. Defaults to "A little gift, a lot of love". */
-    eyebrow?: string;
-    /** Defaults to "Send a Gift". */
-    title?: string;
+    /** Small line above the title. */
+    eyebrow: string;
+    title: string;
     message?: string;
     /** Small lotus used in the dividers. */
     lotus?: string;
@@ -328,21 +327,22 @@ export type Invitation = {
     upiId: string;
     /** QR code image. A placeholder shows until you add it. */
     qr?: string;
-    /** Under the QR code. Defaults to "Scan to Pay". */
-    scanTitle?: string;
-    /** Small line under that. Defaults to "UPI · Google Pay · PhonePe · Paytm". */
-    scanNote?: string;
-    /** The two lines at the bottom. Defaults to the wording in your design. */
-    note?: { title: string; text: string };
-    /** Defaults to "Open in UPI App". */
-    buttonLabel?: string;
-    /** Text on the button that opens the QR card. Defaults to "Send a Gift". */
-    openLabel?: string;
+    /** Text on the button that opens the QR card. */
+    openLabel: string;
+    /** Label of the popup's close button (screen readers). */
+    closeLabel: string;
+    /** Under the QR code. */
+    scanTitle: string;
+    /** Small line under that. */
+    scanNote: string;
+    /** Text on the pay button inside the QR card. */
+    buttonLabel: string;
+    /** The two lines at the bottom. */
+    note: { title: string; text: string };
     /** Optional. By default the button link is built from upiId and payeeName. */
     payUrl?: string;
     /** App tiles under the UPI ID. A tile shows the app's first letter if it has no icon. */
     apps?: { name: string; icon?: string }[];
-    /** The three points at the bottom. The wording from your design is used if you leave this out. */
     corners?: {
       topLeft?: string;
       topRight?: string;

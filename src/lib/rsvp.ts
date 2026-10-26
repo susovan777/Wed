@@ -19,10 +19,9 @@ export type StoredReply = {
 
 /**
  * "ok": the script confirmed it saved.
- * "sent": it was delivered but the browser would not let us read the answer, so it is unconfirmed.
- * "error": it could not be sent.
+ * "error": it could not be sent, or the script did not confirm it.
  */
-export type SubmitResult = "ok" | "sent" | "error";
+export type SubmitResult = "ok" | "error";
 
 // A "simple" request (plain text, no custom headers) avoids the browser's preflight check,
 // which Google Apps Script does not answer.
@@ -53,21 +52,15 @@ export async function submitRsvp(
   endpoint: string,
   payload: RsvpPayload,
 ): Promise<SubmitResult> {
-  const body = JSON.stringify(payload);
-
   let response: Response;
+  
   try {
-    response = await post(endpoint, body);
-  } catch {
-    // The reply may have arrived even though the browser blocked reading the answer.
-    // Send once more without reading it. The script updates by id, so this
-    // never creates a duplicate row.
-    try {
-      await post(endpoint, body, { mode: "no-cors" });
-      return "sent";
-    } catch {
-      return "error";
-    }
+    response = await post(endpoint, JSON.stringify(payload));
+  } catch (error) {
+    // Usually the web app is not open to everyone ("Who has access" must be Anyone),
+    // or there is no connection. Never pretend the reply was saved.
+    console.error("RSVP could not be sent:", error);
+    return "error";
   }
 
   try {

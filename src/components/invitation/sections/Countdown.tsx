@@ -1,7 +1,7 @@
 import Reveal from "@/components/motion/Reveal";
 import CornerImage from "@/components/ui/CornerImage";
 import CountdownCards from "@/components/ui/CountdownCards";
-import LotusDivider from "@/components/ui/LotusDivider";
+import FloralLineArt from "@/components/ui/FloralLineArt";
 import OrnamentDivider from "@/components/ui/OrnamentDivider";
 import type { Invitation } from "@/types/invitation";
 
@@ -48,6 +48,12 @@ export default function Countdown({ invitation }: { invitation: Invitation }) {
         className={`bottom-0 right-0 hidden md:block z-1 ${CORNER_SIZE}`}
       />
 
+      <FloralLineArt className="left-[11%] top-1/2 hidden w-[18%] -translate-y-1/2 lg:block" />
+      <FloralLineArt
+        flip
+        className="right-[11%] top-1/2 hidden w-[18%] -translate-y-1/2 lg:block"
+      />
+
       <div className="relative z-2 mx-auto max-w-295 px-4 pb-8 pt-10 lg:px-8 lg:pb-10 lg:pt-12">
         {/* Heading, divider, subtitle */}
         <Reveal className="flex flex-col items-center text-center">
@@ -72,14 +78,10 @@ export default function Countdown({ invitation }: { invitation: Invitation }) {
           <CountdownCards
             target={invitation.wedding.date}
             labels={c.labels ?? DEFAULT_LABELS}
+            lang={invitation.lang}
           />
         </div>
       </div>
-
-      {/* Full-width divider with the lotus at the center, closing the section */}
-      {/* <Reveal y={20} className="relative z-2">
-        <LotusDivider src={c.lotus} />
-      </Reveal> */}
     </section>
   );
 }

@@ -3,6 +3,7 @@
 import Reveal from "@/components/motion/Reveal";
 import { useCountdown } from "@/hooks/useCountdown";
 import CountCard from "./CountCard";
+import { localizeDigits, type Lang } from "@/lib/i18n";
 
 export type CountdownLabels = {
   days: string;
@@ -11,17 +12,21 @@ export type CountdownLabels = {
   seconds: string;
 };
 
-const pad = (n: number) => String(n).padStart(2, "0");
-
 export default function CountdownCards({
   target,
   labels,
+  lang,
 }: {
   /** ISO date with offset, e.g. "2027-01-24T19:00:00+05:30". */
   target: string;
   labels: CountdownLabels;
+  /** "bn" shows the numbers in Bengali digits. */
+  lang?: Lang;
 }) {
   const time = useCountdown(target);
+
+  // Two digits, in Bengali numerals when the page is in Bengali
+  const pad = (n: number) => localizeDigits(String(n).padStart(2, "0"), lang);
 
   const items = [
     { label: labels.days, value: pad(time.days) },

@@ -10,24 +10,11 @@ import SectionHeading from "@/components/ui/SectionHeading";
 const TOP_CORNER = "w-[30vw] max-w-[250px] lg:w-[20%] lg:max-w-[300px]";
 const BOTTOM_CORNER = "w-[32vw] max-w-[160px] lg:w-[22%] lg:max-w-[360px]";
 
-const DEFAULT_APPS = [
-  { name: "Google Pay" },
-  { name: "PhonePe" },
-  { name: "Paytm" },
-  { name: "BHIM" },
-];
-
-const DEFAULT_NOTE = {
-  title: "Gifting is completely optional.",
-  text: "Your presence and blessings are our greatest gift.",
-};
-
 export default function SendGift({ invitation }: { invitation: Invitation }) {
   const g = invitation.gift;
   if (!g) return null;
 
   const corners = g.corners ?? {};
-  const note = g.note ?? DEFAULT_NOTE;
   const payUrl =
     g.payUrl ??
     `upi://pay?pa=${encodeURIComponent(g.upiId)}&pn=${encodeURIComponent(g.payeeName)}&cu=INR`;
@@ -42,12 +29,9 @@ export default function SendGift({ invitation }: { invitation: Invitation }) {
         {/* Heading and message */}
         <Reveal className="mx-auto flex max-w-136 flex-col items-center text-center lg:max-w-3xl">
           <p className="mb-3 font-serif text-[0.7rem] font-medium uppercase tracking-[0.32em] text-[#4a2a22] lg:text-[clamp(0.8rem,1.15vw,1rem)]">
-            {g.eyebrow ?? "A little gift, a lot of love"}
+            {g.eyebrow}
           </p>
-          <SectionHeading
-            id="celebrations-title"
-            title={g.title ?? "Send a Gift"}
-          />
+          <SectionHeading id="celebrations-title" title={g.title} />
           {g.message && (
             <p className="mt-5 text-balance font-serif text-[0.95rem] font-medium leading-relaxed text-[#4a2a22] lg:text-[clamp(1rem,1.45vw,1.3rem)]">
               {g.message}
@@ -57,15 +41,15 @@ export default function SendGift({ invitation }: { invitation: Invitation }) {
 
         {/* Send a Gift button. The UPI card opens in a popup when it is clicked. */}
         <Reveal y={30} delay={0.15} className="mt-8 lg:mt-10">
-          <SendGiftDialog label={g.openLabel ?? "Send a Gift"}>
+          <SendGiftDialog label={g.openLabel} closeLabel={g.closeLabel}>
             <UpiCard
-              scanTitle={g.scanTitle ?? "Scan to Pay"}
-              scanNote={g.scanNote ?? "UPI · Google Pay · PhonePe · Paytm"}
+              scanTitle={g.scanTitle}
+              scanNote={g.scanNote}
               payeeName={g.payeeName}
               upiId={g.upiId}
               qr={g.qr}
-              apps={g.apps ?? DEFAULT_APPS}
-              buttonLabel={g.buttonLabel ?? "Pay Now"}
+              apps={g.apps ?? []}
+              buttonLabel={g.buttonLabel}
               payUrl={payUrl}
             />
           </SendGiftDialog>
@@ -86,10 +70,10 @@ export default function SendGift({ invitation }: { invitation: Invitation }) {
             <span className="h-px flex-1 bg-[linear-gradient(to_left,transparent,var(--color-crimson))]" />
           </div>
           <p className="mt-3 font-serif text-[1.15rem] font-medium text-crimson lg:text-[1.5rem]">
-            {note.title}
+            {g.note.title}
           </p>
           <p className="mt-1 font-serif text-[0.8rem] font-medium text-[#4a2a22] lg:text-[1.1rem]">
-            {note.text}
+            {g.note.text}
           </p>
         </Reveal>
       </GiftFrame>

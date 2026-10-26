@@ -3,7 +3,8 @@ import type { Invitation } from "@/types/invitation";
 const venue = {
   name: "Venue name",
   address: "Ramnagar, Digha",
-  mapUrl: "https://www.google.com/maps/search/?api=1&query=Kolkata",
+  mapUrl:
+    "https://www.google.com/maps/search/?api=1&query=Digha,+West+Bengal,+India",
 };
 
 // Placeholder content. Replace with your own details.
@@ -41,6 +42,33 @@ export const sahooWedding: Invitation = {
     },
     lotus: "/invitations/art/lotus.webp",
     flourish: "/invitations/countdown-flourish.webp",
+  },
+
+  letter: {
+    // invocation: "॥ With the Divine Blessings of Lord Prajapati ॥",
+    invocation: "॥ Sri Sri Prajapataye Namah ॥",
+    title: "A Humble Invitation",
+    salutation: "Respected Sir / Madam,",
+    paragraphs: [
+      "With the divine blessings of Lord Prajapati, we are delighted to announce the auspicious wedding of **Puspalata**, beloved daughter of Late Ramesh Sahoo and Smt. Shantilata Sahoo, with **Susovan**, son of Shri Manilal Sahoo and Smt. Jahnabi Sahoo.",
+      "The wedding ceremony will take place on **Tuesday, 24 November 2026** (7th Agrahayana, 1433 Bengali calendar) at the auspicious time of the wedding lagna.",
+      "---",
+      "On this joyous occasion, we cordially invite you and your family to join us for the wedding and the accompanying celebratory feast on **Wednesday afternoon**.",
+      "Your gracious presence and heartfelt blessings will make this special occasion even more memorable for the newlyweds.",
+      // "We humbly request you to overlook any shortcomings in this invitation and honour us with your presence.",
+    ],
+    closing: "With warm regards,",
+    signature: "The Sahoo Family",
+    // contact: "Contact: [Mobile Number]",
+    ornament: "/invitations/arts/bg-lotus.webp",
+    lotus: "/invitations/arts/lotus-art.webp",
+    art: "/invitations/arts/temple.png",
+    corners: {
+      topLeft: "/invitations/corners/gallery-tl.webp",
+      topRight: "/invitations/corners/gallery-tr.webp",
+      bottomLeft: "/invitations/corners/invite-bl.webp",
+      bottomRight: "/invitations/corners/invite-br.webp",
+    },
   },
 
   brideGroom: {
@@ -121,7 +149,7 @@ export const sahooWedding: Invitation = {
 
   wedding: {
     date: "2026-11-24T19:00:00+05:30",
-    city: "Ramnagar, WB",
+    city: "Ramnagar, East Midnapur, WB",
   },
 
   invite: {
@@ -133,16 +161,16 @@ export const sahooWedding: Invitation = {
   events: [
     {
       id: "gaye-holud",
-      title: "Gaye Holud",
-      startsAt: "2026-11-23T10:00:00+05:30",
+      title: "Haldi",
+      startsAt: "2026-11-24T10:00:00+05:30",
       venue,
       description: "A splash of colors,\ntraditions and happiness!",
       image: "/invitations/events/gaye-holud.webp",
     },
     {
       id: "aashirbaad",
-      title: "Aashirbaad",
-      startsAt: "2026-11-23T16:00:00+05:30",
+      title: "Blessings",
+      startsAt: "2026-11-24T16:00:00+05:30",
       venue,
       description: "Blessings for\na beautiful future",
       image: "/invitations/events/aashirbaad.webp",
@@ -167,9 +195,13 @@ export const sahooWedding: Invitation = {
 
   story: {
     title: "Our Story",
-    subtitle: "Two hearts, one beautiful journey.",
+    // subtitle: "Two hearts, one beautiful journey.",
+    subtitle:
+      "Two families united, touched by destiny, beginning a new journey.",
+    // intro:
+    //   "What started as a simple conversation, turned into endless talks, shared dreams and a bond that only grew stronger with time. Through every moment, big or small, we found a home in each other. Now, we're ready to begin our forever, together.",
     intro:
-      "What started as a simple conversation, turned into endless talks, shared dreams and a bond that only grew stronger with time. Through every moment, big or small, we found a home in each other. Now, we're ready to begin our forever, together.",
+      "We began as strangers, brought together by an unseen hand of destiny. What started with our families introducing us soon blossomed into mutual respect, trust, and a genuine bond. With the warmth, blessings, and unanimous joy of both our families, the date for our forever was set.",
     ornament: "/invitations/arts/story-lotus.webp",
     photos: [
       { src: "/invitations/couple/couple-l.webp" },
@@ -182,26 +214,48 @@ export const sahooWedding: Invitation = {
       bottomRight: "/invitations/corners/countdown-br.webp",
     },
     bottom: "/invitations/arts/story-bottom.webp",
+    // steps: [
+    //   {
+    //     title: "First Conversation",
+    //     icon: "chat",
+    //     text: "A simple hello sparked a beautiful connection.",
+    //   },
+    //   {
+    //     title: "Growing Together",
+    //     icon: "heart",
+    //     text: "With every moment, we found more reasons to stay.",
+    //   },
+    //   {
+    //     title: "The Proposal",
+    //     icon: "ring",
+    //     text: "A special moment that made it all real.",
+    //   },
+    //   {
+    //     title: "Our Forever",
+    //     icon: "hearts",
+    //     text: "Now, we begin a new chapter, hand in hand.",
+    //   },
+    // ],
     steps: [
       {
-        title: "First Conversation",
+        title: "Crossed Paths",
         icon: "chat",
-        text: "A simple hello sparked a beautiful connection.",
+        text: "Two unfamiliar lives brought together by divine timing and shared values.",
       },
       {
-        title: "Growing Together",
+        title: "Family First",
         icon: "heart",
-        text: "With every moment, we found more reasons to stay.",
+        text: "Warm visits and conversations between both our families laid the foundation of a lasting bond.",
       },
       {
-        title: "The Proposal",
+        title: "Date Fixed",
         icon: "ring",
-        text: "A special moment that made it all real.",
+        text: "With the heartfelt blessings of our elders, our wedding day was joyfully finalized.",
       },
       {
         title: "Our Forever",
         icon: "hearts",
-        text: "Now, we begin a new chapter, hand in hand.",
+        text: "Stepping forward hand in hand to begin our married life, surrounded by the love of family.",
       },
     ],
   },
@@ -261,42 +315,24 @@ export const sahooWedding: Invitation = {
     },
   },
 
-  letter: {
-    // invocation: "॥ With the Divine Blessings of Lord Prajapati ॥",
-    invocation: "॥ Sri Sri Prajapataye Namah ॥",
-    title: "A Humble Invitation",
-    salutation: "Respected Sir / Madam,",
-    paragraphs: [
-      "With the divine blessings of Lord Prajapati, we are delighted to announce the auspicious wedding of **Puspalata**, beloved daughter of Late Ramesh Sahoo and Smt. Shantilata Sahoo, with **Susovan**, son of Shri Manilal Sahoo and Smt. Jahnabi Sahoo.",
-      // "The wedding ceremony will take place on **Thursday, 25 December 2026** (8th Poush, 1433 Bengali calendar) at the auspicious time of the wedding lagna.",
-      "---",
-      "On this joyous occasion, we cordially invite you and your family to join us for the wedding and the accompanying celebratory feast on **Wednesday evening**.",
-      "Your gracious presence and heartfelt blessings will make this special occasion even more memorable for the newlyweds.",
-      // "We humbly request you to overlook any shortcomings in this invitation and honour us with your presence.",
-    ],
-    closing: "With warm regards,",
-    signature: "The Sahoo Family",
-    // contact: "Contact: [Mobile Number]",
-    ornament: "/invitations/arts/bg-lotus.webp",
-    lotus: "/invitations/arts/lotus-art.webp",
-    art: "/invitations/arts/temple.png",
-    corners: {
-      topLeft: "/invitations/corners/gallery-tl.webp",
-      topRight: "/invitations/corners/gallery-tr.webp",
-      bottomLeft: "/invitations/corners/invite-bl.webp",
-      bottomRight: "/invitations/corners/invite-br.webp",
-    },
-  },
-
   gift: {
     title: "Gifts & Blessings",
     eyebrow: "A little gift, a lot of love",
     message:
       "Your presence and blessings mean more to us than anything. For those who wish to send a gift, we have included a digital gifting option as a token of your love and support.",
+    openLabel: "Send a Gift",
+    closeLabel: "Close",
     lotus: "/invitations/arts/lotus-art.webp",
     payeeName: "Susovan Sahoo",
     upiId: "sahoo.611@ptaxis",
     qr: "/invitations/ptm-qr.webp",
+    scanTitle: "Scan to Pay",
+    scanNote: "UPI · Google Pay · PhonePe · Paytm",
+    buttonLabel: "Pay Now",
+    note: {
+      title: "Gifting is completely optional.",
+      text: "Your presence and blessings are our greatest gift.",
+    },
     apps: [
       { name: "PhonePe", icon: "/invitations/payment/p-pe.png" },
       { name: "GPay", icon: "/invitations/payment/g-pay.png" },
@@ -315,8 +351,9 @@ export const sahooWedding: Invitation = {
     title: "Kindly RSVP",
     message:
       "Your presence will make our celebration even more special.\nPlease let us know if you'll be joining us.",
-    endpoint: "PASTE_YOUR_WEB_APP_URL_HERE",
-    // whatsapp: "919876543210",
+    endpoint:
+      "https://script.google.com/macros/s/AKfycbyQ57zL41bC8k_o7KSyCPaH8XVyZOwoQS_TVAaZshvI4yilwL65hUEtjtza3aEkBv8_/exec",
+    whatsapp: "+918535961611",
     art: {
       left: "/invitations/arts/women.webp",
       right: "/invitations/arts/dhaki.webp",
@@ -350,8 +387,6 @@ export const sahooWedding: Invitation = {
     title: "Background music",
     volume: 0.6,
   },
-
-  // note: "Your presence and blessings are the greatest gift we could ask for.",
 
   seo: {
     title: "Puspalata & Susovan | Wedding Invitation",

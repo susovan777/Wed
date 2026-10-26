@@ -38,11 +38,11 @@ function Flourish({ flip = false }: { flip?: boolean }) {
  */
 export default function SendGiftDialog({
   label,
-  closeLabel = "Close",
+  closeLabel,
   children,
 }: {
   label: string;
-  closeLabel?: string;
+  closeLabel: string;
   children: ReactNode;
 }) {
   const [open, setOpen] = useState(false);

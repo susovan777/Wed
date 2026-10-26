@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Reveal from "@/components/motion/Reveal";
 import CornerImage from "@/components/ui/CornerImage";
-import FleurDivider from "@/components/ui/FleurDivider";
 import StoryIcon from "@/components/ui/StoryIcon";
 import type { Invitation, StoryStep } from "@/types/invitation";
 import SectionHeading from "@/components/ui/SectionHeading";
