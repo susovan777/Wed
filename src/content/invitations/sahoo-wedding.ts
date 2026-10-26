@@ -108,13 +108,11 @@ export const sahooWedding: Invitation = {
   couple: {
     bride: {
       name: "Puspalata",
-      banglaName: "পুষ্পলতা",
       fullName: "Puspalata Sahoo",
       parents: "Late Ramesh Sahoo & Smt. Shantilata Sahoo",
     },
     groom: {
       name: "Susovan",
-      banglaName: "সুশোভন",
       fullName: "Susovan Sahoo",
       parents: "Sr. Manilal Sahoo & Smt. Jahnabi Sahoo",
     },
@@ -136,7 +134,7 @@ export const sahooWedding: Invitation = {
     {
       id: "gaye-holud",
       title: "Gaye Holud",
-      startsAt: "2026-11-23T16:00:00+05:30",
+      startsAt: "2026-11-23T10:00:00+05:30",
       venue,
       description: "A splash of colors,\ntraditions and happiness!",
       image: "/invitations/events/gaye-holud.webp",
@@ -144,7 +142,7 @@ export const sahooWedding: Invitation = {
     {
       id: "aashirbaad",
       title: "Aashirbaad",
-      startsAt: "2026-11-23T10:00:00+05:30",
+      startsAt: "2026-11-23T16:00:00+05:30",
       venue,
       description: "Blessings for\na beautiful future",
       image: "/invitations/events/aashirbaad.webp",

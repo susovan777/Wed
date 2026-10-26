@@ -2,7 +2,7 @@ import Image from "next/image";
 import { CalendarDays, MapPin } from "lucide-react";
 import Reveal from "@/components/motion/Reveal";
 import OrnamentDivider from "@/components/ui/OrnamentDivider";
-import { formatWeddingDate } from "@/lib/date";
+import { weddingDateText } from "@/lib/date";
 import type { Invitation } from "@/types/invitation";
 import BlurText from "@/components/motion/BlurText";
 import ScatteredFlowers from "@/components/ui/ScatteredFlowers";
@@ -79,7 +79,7 @@ export default function Hero({ invitation }: { invitation: Invitation }) {
       />
 
       <ScatteredFlowers />
-      
+
       {/* Corner decorations */}
       <Corner
         src={corners.topLeft}
@@ -171,7 +171,7 @@ export default function Hero({ invitation }: { invitation: Invitation }) {
           <Reveal
             trigger="open"
             delay={1.15}
-            className="mt-6 font-sans text-xs font-semibold uppercase tracking-[0.3em] text-ink lg:mt-10 lg:text-sm"
+            className=" mt-6 font-sans text-sm font-semibold uppercase tracking-[0.3em] text-ink lg:mt-10 lg:text-[clamp(1rem,1.2vw,1rem)]"
           >
             {hero.tagline}
           </Reveal>
@@ -185,16 +185,16 @@ export default function Hero({ invitation }: { invitation: Invitation }) {
             delay={1.45}
             className="mt-5 flex flex-col items-center gap-2 font-sans text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-ink lg:mt-6 lg:flex-row lg:gap-4 lg:text-sm"
           >
-            <span className="flex items-center gap-2">
+            <span className="hero-bn flex items-center gap-2">
               <CalendarDays
                 className="size-4 shrink-0"
                 strokeWidth={1.5}
                 aria-hidden
               />
-              {formatWeddingDate(wedding.date)}
+              {weddingDateText(invitation.wedding, invitation.lang)}
             </span>
             <span aria-hidden className="hidden h-5 w-px bg-ink/30 lg:block" />
-            <span className="flex items-center gap-2">
+            <span className="hero-bn flex items-center gap-2">
               <MapPin
                 className="size-4 shrink-0"
                 strokeWidth={1.5}

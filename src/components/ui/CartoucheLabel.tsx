@@ -39,7 +39,7 @@ export default function CartoucheLabel({
         <span className="block aspect-1000/211 w-full rounded-lg bg-crimson" />
       )}
 
-      <span className="absolute inset-0 flex items-center justify-center font-serif font-medium italic leading-none text-white text-[11cqw] [text-shadow:0_1px_2px_rgba(60,0,0,0.55)]">
+      <span className="absolute inset-0 flex items-center justify-center font-serif font-medium leading-none text-white text-[11cqw] [text-shadow:0_1px_2px_rgba(60,0,0,0.55)]">
         {children}
       </span>
     </span>

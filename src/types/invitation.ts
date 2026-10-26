@@ -39,6 +39,8 @@ export type InvitationEvent = {
   title: string;
   /** ISO 8601 with offset, e.g. "2027-01-23T11:00:00+05:30". */
   startsAt: string;
+  /** Text shown instead of the formatted date, e.g. the Bengali calendar date. */
+  dateLabel?: string;
   endsAt?: string;
   venue: Venue;
   description?: string;
@@ -46,16 +48,6 @@ export type InvitationEvent = {
   /** Illustration shown on the event card. */
   image?: string;
 };
-
-/* OLD Story Types */
-// export type StoryIcon = "cap" | "heart" | "plane" | "rings";
-// export type StoryStep = {
-//   title: string;
-//   text: string;
-//   /** Round photo for this chapter. */
-//   image?: string;
-//   icon?: StoryIcon;
-// };
 
 export type StoryIcon = "chat" | "heart" | "ring" | "hearts";
 
@@ -114,6 +106,8 @@ export type RsvpFormText = {
 export type Invitation = {
   /** Matches the URL: /<slug>. */
   slug: string;
+  /** Set by a translation, so sections can format dates and numbers in the right language. */
+  lang?: "en" | "bn";
 
   /** CSS variable overrides applied to the page wrapper, e.g. { "--color-primary": "#8a0b10" }. */
   theme?: Record<`--${string}`, string>;
@@ -129,6 +123,8 @@ export type Invitation = {
   wedding: {
     /** ISO 8601 with offset. Drives the countdown. */
     date: string;
+    /** Text shown instead of the formatted date (hero), e.g. the Bengali calendar date. */
+    dateLabel?: string;
     city: string;
   };
 
@@ -396,6 +392,8 @@ export type Invitation = {
       name: string;
       /** Your portfolio address. Without it, the name shows as plain text and the icon is hidden. */
       url?: string;
+      /** Text before the name at the very bottom. Defaults to "Designed and developed by". */
+      credit?: string;
     };
   };
 

@@ -4,16 +4,19 @@ import Reveal from "@/components/motion/Reveal";
 import CornerImage from "@/components/ui/CornerImage";
 import EventCard from "@/components/ui/EventCard";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { formatEventDate, formatEventTime } from "@/lib/eventDate";
+import { eventDateText, formatEventTime } from "@/lib/eventDate";
 import type { Invitation } from "@/types/invitation";
 import ScatteredFlowers from "@/components/ui/ScatteredFlowers";
+import { Lang } from "@/lib/i18n";
 
 const CORNER_SIZE = "w-[35vw] max-w-[190px] lg:w-[14%] lg:max-w-[240px]";
 
 export default function Celebrations({
   invitation,
+  lang = invitation.lang ?? "en",
 }: {
   invitation: Invitation;
+  lang?: Lang;
 }) {
   const c = invitation.celebrations ?? {};
   const corners = c.corners ?? {};
@@ -81,11 +84,11 @@ export default function Celebrations({
             >
               <EventCard
                 title={event.title}
-                date={formatEventDate(event.startsAt)}
+                date={eventDateText(event, lang)}
                 time={
                   event.endsAt
-                    ? `${formatEventTime(event.startsAt)} – ${formatEventTime(event.endsAt)}`
-                    : `${formatEventTime(event.startsAt)} ${onwards}`
+                    ? `${formatEventTime(event.startsAt, lang)} - ${formatEventTime(event.endsAt, lang)}`
+                    : `${formatEventTime(event.startsAt, lang)} ${onwards}`
                 }
                 description={event.description}
                 image={event.image}

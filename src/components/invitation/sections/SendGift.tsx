@@ -2,7 +2,6 @@ import { Gift } from "lucide-react";
 import Reveal from "@/components/motion/Reveal";
 import CornerImage from "@/components/ui/CornerImage";
 import GiftFrame from "@/components/ui/GiftFrame";
-import LotusRule from "@/components/ui/LotusRule";
 import UpiCard from "@/components/ui/UpiCard";
 import SendGiftDialog from "@/components/ui/SendGiftDialog";
 import type { Invitation } from "@/types/invitation";
@@ -49,11 +48,6 @@ export default function SendGift({ invitation }: { invitation: Invitation }) {
             id="celebrations-title"
             title={g.title ?? "Send a Gift"}
           />
-          {/* <LotusRule
-            lotus={g.lotus}
-            className="mt-3 lg:mt-4"
-            lineClass="w-14 lg:w-28"
-          /> */}
           {g.message && (
             <p className="mt-5 text-balance font-serif text-[0.95rem] font-medium leading-relaxed text-[#4a2a22] lg:text-[clamp(1rem,1.45vw,1.3rem)]">
               {g.message}

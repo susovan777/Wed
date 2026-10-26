@@ -47,7 +47,7 @@ export default function InvitationLetter({
       aria-labelledby="letter-title"
       className="relative isolate overflow-hidden"
     >
-      <GiftFrame bodyClassName="px-[5%] pb-[10vw] lg:pl-[34%] lg:pr-[9%]">
+      <GiftFrame bodyClassName="px-[5%] pb-[10vw] lg:pl-[34%] lg:pr-[9%] lg:pb-0">
         {/* Ornament, banner and heading */}
         <Reveal className="mx-auto flex max-w-136 flex-col items-center text-center lg:max-w-3xl">
           {l.ornament && (

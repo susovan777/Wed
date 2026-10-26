@@ -17,6 +17,16 @@ type BlurTextProps = {
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
+/*
+ * Bengali (and the other Indian scripts) join their letters: vowel signs and
+ * conjuncts only draw correctly when they stay in one piece. So for these
+ * scripts the animation runs per word instead of per letter.
+ */
+const JOINED_SCRIPT = /[\u0900-\u0DFF]/;
+
+/** In word mode, one word waits this many "stagger" steps after the one before it. */
+const WORD_STEPS = 5;
+
 export default function BlurText({
   text,
   delay = 0,
@@ -26,8 +36,9 @@ export default function BlurText({
 }: BlurTextProps) {
   const opened = useOpened();
   const reduce = useReducedMotion();
+  const byWord = JOINED_SCRIPT.test(text);
 
-  // Each letter starts blurred, stretched and slightly to the left,
+  // Each letter (or word) starts blurred, stretched and slightly to the left,
   // then slides into place and sharpens: a motion-blur streak.
   const letter: Variants = reduce
     ? {
@@ -61,18 +72,28 @@ export default function BlurText({
       {words.map((word, w) => (
         <Fragment key={w}>
           {w > 0 && " "}
-          <span className="inline-block whitespace-nowrap">
-            {Array.from(word).map((char, c) => (
-              <motion.span
-                key={c}
-                custom={index++}
-                variants={letter}
-                className="inline-block origin-left"
-              >
-                {char}
-              </motion.span>
-            ))}
-          </span>
+          {byWord ? (
+            <motion.span
+              custom={index++ * WORD_STEPS}
+              variants={letter}
+              className="inline-block origin-left whitespace-nowrap"
+            >
+              {word}
+            </motion.span>
+          ) : (
+            <span className="inline-block whitespace-nowrap">
+              {Array.from(word).map((char, c) => (
+                <motion.span
+                  key={c}
+                  custom={index++}
+                  variants={letter}
+                  className="inline-block origin-left"
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </span>
+          )}
         </Fragment>
       ))}
     </motion.span>

@@ -43,3 +43,27 @@ body {
   background: var(--background);
   color: var(--foreground);
 }
+
+/* Bengali: swap the font variables, so every font-serif / font-script / font-sans class follows */
+html[data-lang="bn"] body {
+  --nf-serif: var(--nf-bn-serif);
+  --nf-sans: var(--nf-bn-sans);
+  --nf-script: var(--nf-bn-script);
+  --nf-hand: var(--nf-bn-script);
+  --nf-mono: var(--nf-bn-sans);
+}
+
+/* Bengali has no italics, and letter-spacing breaks its joined letters */
+html[data-lang="bn"] .italic {
+  font-style: normal;
+}
+html[data-lang="bn"] body * {
+  letter-spacing: normal !important;
+}
+
+/* Hero invocation and tagline: Noto Serif Bengali, Bengali only */
+html[data-lang="bn"] .hero-bn {
+  font-family: var(--nf-bn-serif), serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+}

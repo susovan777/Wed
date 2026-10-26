@@ -44,56 +44,69 @@ export default function Footer({ invitation }: { invitation: Invitation }) {
   ].filter((link) => Boolean(link.href));
 
   return (
-    <footer
-      id="footer"
-      className="relative isolate overflow-hidden bg-[linear-gradient(180deg,#f8f0e8,#f2e4d8)]"
-    >
+    <footer id="footer" className="relative overflow-hidden bg-[#1a120b]">
+      {/* ── Background Layer & Dark Overlay Mask ── */}
       {f.background && (
-        <Image
-          src={f.background}
-          alt=""
-          fill
-          sizes="100vw"
-          className="-z-10 w-[80%] md:w-full select-none object-cover object-center"
-        />
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={f.background}
+            alt=""
+            fill
+            sizes="100vw"
+            className="w-full select-none object-cover object-center"
+            priority={false}
+          />
+          {/* Dark gradient mask: darker in the middle to emphasize the text */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-linear-to-b from-black/55 via-black/45 to-black/70"
+          />
+        </div>
       )}
 
-      {/* Top part: message, names, divider, skyline and the side lotus art */}
-      <div className="relative">
-        <Reveal className="relative z-2 mx-auto flex max-w-176 flex-col items-center px-5 pb-[clamp(1rem,5vw,8.5rem)] pt-10 text-center lg:pt-12">
-          <p className="font-serif text-base font-medium uppercase tracking-[0.2em] text-[#b0653a] lg:text-[1.15rem]">
+      {/* ── Foreground Content Area (Guaranteed above background via z-10) ── */}
+      <div className="relative z-10">
+        <Reveal className="mx-auto flex max-w-176 flex-col items-center px-5 pb-[clamp(2rem,6vw,9rem)] pt-12 text-center lg:pt-16">
+          {/* Eyebrow: Bright warm gold */}
+          <p className="font-serif text-base font-semibold uppercase tracking-[0.25em] text-[#e8c37c] drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] lg:text-[1.15rem]">
             {f.eyebrow ?? "With love"}
           </p>
+
+          {/* Message: Crisp warm cream / white text for high contrast */}
           {f.message && (
-            <p className="mt-3 max-w-xl text-balance font-serif text-[1.15rem] leading-relaxed text-[#3f3a36] lg:text-base">
+            <p className="mt-3.5 max-w-xl text-balance font-serif text-[1.15rem] leading-relaxed text-[#fcf8f2] drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] lg:text-base">
               {f.message}
             </p>
           )}
-          <p className="mt-4 font-script leading-tight text-[#a23b3a] text-[clamp(2.2rem,7vw,3rem)]">
+
+          {/* Names: Luminous gold/rose calligraphy tone matching the monogram */}
+          <p className="mt-4 font-script leading-tight text-[#ffc896] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] text-[clamp(2.5rem,8vw,3.6rem)]">
             {bride.name} &amp; {groom.name}
           </p>
 
+          {/* Divider: Golden lines with red-gold heart */}
           <div aria-hidden className="mt-3 flex items-center gap-3">
-            <span className="h-px w-20 bg-[#b0653a]/50 lg:w-28" />
-            <Heart className="size-4 fill-current text-[#8f2d2d]" />
-            <span className="h-px w-20 bg-[#b0653a]/50 lg:w-28" />
+            <span className="h-px w-20 bg-[#e8c37c]/60 lg:w-28" />
+            <Heart className="size-4 fill-current text-[#e63946] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]" />
+            <span className="h-px w-20 bg-[#e8c37c]/60 lg:w-28" />
           </div>
 
+          {/* Monogram Logo */}
           {f.logo && (
             <Image
               src={f.logo}
               alt=""
-              width={100}
-              height={200}
-              className="mt-6 h-auto select-none lg:mt-8"
+              width={110}
+              height={220}
+              className="mt-6 h-auto select-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] lg:mt-8"
               draggable={false}
             />
           )}
         </Reveal>
       </div>
 
-      {/* Bottom bar: quote, social links, hashtag, then the developer credit */}
-      <div className="relative z-2 bg-[#ede0d3]">
+      {/* ── Bottom Bar: Quote, social links, hashtag, and credits ── */}
+      <div className="relative z-10 bg-[#ede0d3]">
         <div className="mx-auto grid max-w-310 items-center gap-4 px-6 py-5 lg:grid-cols-3 lg:gap-6 lg:px-10">
           <ul className="order-1 flex items-center justify-center gap-3 lg:order-2">
             {links.map(({ label, href, Icon }) => (

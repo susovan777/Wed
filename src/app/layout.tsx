@@ -5,9 +5,14 @@ import {
   MonteCarlo,
   Cormorant_Garamond,
   Inter,
+  Mrs_Saint_Delafield,
+  Space_Mono,
+  Noto_Serif_Bengali,
+  Hind_Siliguri,
+  Galada,
 } from "next/font/google";
-import { Mrs_Saint_Delafield, Space_Mono } from "next/font/google";
 
+// English fonts //
 const hand = Mrs_Saint_Delafield({
   weight: "400",
   subsets: ["latin"],
@@ -38,6 +43,24 @@ const serif = Cormorant_Garamond({
 });
 const sans = Inter({ subsets: ["latin"], variable: "--nf-sans" });
 
+// Bengali fonts //
+const bnSerif = Noto_Serif_Bengali({
+  subsets: ["bengali", "latin"],
+  weight: ["500", "600"],
+  variable: "--nf-bn-serif",
+});
+const bnSans = Hind_Siliguri({
+  subsets: ["bengali", "latin"],
+  weight: ["400", "500"],
+  variable: "--nf-bn-sans",
+});
+// Calligraphic Bengali, replaces the script and handwriting fonts
+const bnScript = Galada({
+  subsets: ["bengali", "latin"],
+  weight: "400",
+  variable: "--nf-bn-script",
+});
+
 export const metadata: Metadata = {
   title: "Our Wedding",
   description:
@@ -52,7 +75,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${script.variable} ${serif.variable} ${sans.variable} ${hand.variable} ${mono.variable} ${fancy.variable} font-sans antialiased`}
+        className={`${script.variable} ${serif.variable} ${sans.variable} ${hand.variable} ${mono.variable} ${bnSerif.variable} ${bnSans.variable} ${bnScript.variable} font-sans antialiased`}
       >
         {children}
       </body>
