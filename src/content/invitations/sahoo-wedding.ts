@@ -2,12 +2,12 @@ import type { Invitation } from "@/types/invitation";
 
 const venue = {
   name: "Venue name",
-  address: "Ramnagar, Digha",
+  address: "Ramnagar, East Midnapur",
   mapUrl:
     "https://www.google.com/maps/search/?api=1&query=Digha,+West+Bengal,+India",
 };
 
-// Placeholder content. Replace with your own details.
+// Placeholder content. Replace with own details.
 export const sahooWedding: Invitation = {
   slug: "sahoo-wedding",
   opening: {
@@ -15,6 +15,25 @@ export const sahooWedding: Invitation = {
     envelope: "/opening/envelop.webp",
     flowerBorder: "/opening/flower-border.webp",
     subhoBibaha: "/opening/subho-bibaha.webp",
+  },
+
+  couple: {
+    bride: {
+      name: "Puspalata",
+      fullName: "Puspalata Sahoo",
+      parents: "Late Ramesh Sahoo & Smt. Shantilata Sahoo",
+    },
+    groom: {
+      name: "Susovan",
+      fullName: "Susovan Sahoo",
+      parents: "Sr. Manilal Sahoo & Smt. Jahnabi Sahoo",
+    },
+    hashtag: "#PuspalataWedsSusovan",
+  },
+
+  wedding: {
+    date: "2026-11-24T19:00:00+05:30",
+    city: "Ramnagar, East Midnapur, WB",
   },
 
   hero: {
@@ -28,6 +47,21 @@ export const sahooWedding: Invitation = {
       topRight: "/invitations/corners/hero-tr.webp",
       bottomLeft: "/invitations/corners/hero-bl.webp",
       bottomRight: "/invitations/corners/hero-br.webp",
+    },
+  },
+
+  blessing: {
+    sloka: [
+      "मङ्गलं भगवान् विष्णुः मङ्गलं गरुडध्वजः ।",
+      "मङ्गलं पुण्डरीकाक्षः मङ्गलायतनो हरिः ॥",
+    ],
+    meaning:
+      "May this union be blessed with auspiciousness, joy and everlasting love.",
+    art: "/invitations/couple/lord-love.webp",
+    corners: {
+      topLeft: "/invitations/corners/sloka-tl.webp",
+      topRight: "/invitations/corners/sloka-tr.webp",
+      bottomRight: "/invitations/corners/gallery-br.webp",
     },
   },
 
@@ -131,25 +165,6 @@ export const sahooWedding: Invitation = {
       bottomLeft: "/invitations/corners/events-bl.webp",
       bottomRight: "/invitations/corners/events-br.webp",
     },
-  },
-
-  couple: {
-    bride: {
-      name: "Puspalata",
-      fullName: "Puspalata Sahoo",
-      parents: "Late Ramesh Sahoo & Smt. Shantilata Sahoo",
-    },
-    groom: {
-      name: "Susovan",
-      fullName: "Susovan Sahoo",
-      parents: "Sr. Manilal Sahoo & Smt. Jahnabi Sahoo",
-    },
-    hashtag: "#PuspalataWedsSusovan",
-  },
-
-  wedding: {
-    date: "2026-11-24T19:00:00+05:30",
-    city: "Ramnagar, East Midnapur, WB",
   },
 
   invite: {

@@ -8,6 +8,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --font-sloka: var(--nf-sloka);
   --font-script: var(--nf-script);
   --font-serif: var(--nf-serif);
   --font-sans: var(--nf-sans);
@@ -46,6 +47,7 @@ body {
 
 /* Bengali: swap the font variables, so every font-serif / font-script / font-sans class follows */
 html[data-lang="bn"] body {
+  --nf-sloka: var(--nf-bn-serif);
   --nf-serif: var(--nf-bn-serif);
   --nf-sans: var(--nf-bn-sans);
   --nf-script: var(--nf-bn-script);

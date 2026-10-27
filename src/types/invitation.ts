@@ -3,6 +3,7 @@ import type { OpeningAssets } from "@/components/opening/OpeningGate";
 /** Sections the main page can render, in the order they appear. */
 export type SectionKey =
   | "hero"
+  | "blessing"
   | "countdown"
   | "letter"
   | "details"
@@ -146,6 +147,22 @@ export type Invitation = {
       bottomLeft?: string;
       bottomRight?: string;
     };
+  };
+
+  blessing?: {
+    /** The verse, one item per line. */
+    sloka: string[];
+    /** The meaning, in your language. */
+    meaning: string;
+    /** Big illustration on the left: temple, flowers, butterflies (transparent WebP). */
+    art?: string;
+    corners?: {
+      topLeft?: string;
+      topRight?: string;
+      bottomRight?: string;
+    };
+    /** Falling petals. On by default; set false to turn them off. */
+    petals?: boolean;
   };
 
   countdown?: {

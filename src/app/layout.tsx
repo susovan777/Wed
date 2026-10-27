@@ -10,7 +10,15 @@ import {
   Noto_Serif_Bengali,
   Hind_Siliguri,
   Galada,
+  Tiro_Devanagari_Sanskrit,
 } from "next/font/google";
+
+// Made for Sanskrit: correct joined letters. Used by the blessing section.
+const sloka = Tiro_Devanagari_Sanskrit({
+  subsets: ["devanagari", "latin"],
+  weight: "400",
+  variable: "--nf-sloka",
+});
 
 // English fonts //
 const hand = Mrs_Saint_Delafield({
@@ -75,7 +83,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${script.variable} ${serif.variable} ${sans.variable} ${hand.variable} ${mono.variable} ${bnSerif.variable} ${bnSans.variable} ${bnScript.variable} font-sans antialiased`}
+        className={`${sloka.variable} ${script.variable} ${serif.variable} ${sans.variable} ${hand.variable} ${mono.variable} ${bnSerif.variable} ${bnSans.variable} ${bnScript.variable} font-sans antialiased`}
       >
         {children}
       </body>

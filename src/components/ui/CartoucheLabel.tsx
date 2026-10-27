@@ -62,7 +62,7 @@ export default function CartoucheLabel({
           }}
         >
           <motion.span
-            className="absolute inset-y-0 left-0 block w-1/4 -skew-x-[20deg] bg-linear-to-r from-transparent via-white/45 to-transparent"
+            className="absolute inset-y-0 left-0 block w-1/4 skew-x-[-20deg] bg-linear-to-r from-transparent via-white/45 to-transparent"
             initial={{ x: "-150%" }}
             animate={{ x: "500%" }}
             transition={{

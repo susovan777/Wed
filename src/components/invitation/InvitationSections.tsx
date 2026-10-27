@@ -11,12 +11,14 @@ import SendGift from "./sections/SendGift";
 import Rsvp from "./sections/Rsvp";
 import Footer from "./sections/Footer";
 import InvitationLetter from "./sections/InvitationLetter";
+import Blessing from "./sections/Blessing";
 
 type SectionProps = { invitation: Invitation };
 
 // Add each new section here as it gets built.
 const registry: Partial<Record<SectionKey, ComponentType<SectionProps>>> = {
   hero: Hero,
+  blessing: Blessing,
   countdown: Countdown,
   letter: InvitationLetter,
   brideGroom: BrideGroom,
@@ -31,6 +33,7 @@ const registry: Partial<Record<SectionKey, ComponentType<SectionProps>>> = {
 
 const defaultOrder: SectionKey[] = [
   "hero",
+  "blessing",
   "countdown",
   "letter",
   "brideGroom",
