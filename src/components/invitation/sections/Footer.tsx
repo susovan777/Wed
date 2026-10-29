@@ -8,8 +8,8 @@ import {
 } from "@/components/ui/FooterIcons";
 import type { Invitation } from "@/types/invitation";
 
-const ICON_CIRCLE =
-  "grid size-9 place-items-center rounded-full bg-[#2d3b29] text-white transition duration-200 hover:-translate-y-0.5 hover:bg-[#3d4f38] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2d3b29] focus-visible:ring-offset-2 focus-visible:ring-offset-[#ede0d3]";
+const ICON_LINK =
+  "block size-9 shrink-0 rounded-full shadow-[0_2px_6px_rgba(60,40,20,0.25)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_5px_10px_rgba(60,40,20,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2d3b29] focus-visible:ring-offset-2 focus-visible:ring-offset-[#ede0d3]";
 
 /** A full web address is used as is. Digits become a wa.me link. */
 function whatsappHref(value: string) {
@@ -95,10 +95,10 @@ export default function Footer({ invitation }: { invitation: Invitation }) {
           {f.logo && (
             <Image
               src={f.logo}
-              alt=""
+              alt="S & P Logo"
               width={110}
               height={220}
-              className="mt-6 h-auto select-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] lg:mt-8"
+              className="mt-6 w-auto h-auto select-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] lg:mt-8"
               draggable={false}
             />
           )}
@@ -110,15 +110,15 @@ export default function Footer({ invitation }: { invitation: Invitation }) {
         <div className="mx-auto grid max-w-310 items-center gap-4 px-6 py-5 lg:grid-cols-3 lg:gap-6 lg:px-10">
           <ul className="order-1 flex items-center justify-center gap-3 lg:order-2">
             {links.map(({ label, href, Icon }) => (
-              <li key={label}>
+              <li key={label} className="shrink-0 leading-none">
                 <a
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className={ICON_CIRCLE}
+                  className={ICON_LINK}
                 >
-                  <Icon className="size-[1.15rem]" />
+                  <Icon className="block size-9" />
                 </a>
               </li>
             ))}
@@ -133,7 +133,7 @@ export default function Footer({ invitation }: { invitation: Invitation }) {
                     rel="noopener noreferrer"
                     aria-label={`Developer portfolio: ${developer.name}`}
                     title="Developer portfolio"
-                    className="grid size-9 place-items-center rounded-full border-[1.5px] border-[#2d3b29] text-[#2d3b29] transition duration-200 hover:-translate-y-0.5 hover:bg-[#2d3b29] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2d3b29] focus-visible:ring-offset-2 focus-visible:ring-offset-[#ede0d3]"
+                    className="grid size-9 place-items-center rounded-full bg-crimson text-white shadow-[0_2px_6px_rgba(60,40,20,0.25)] transition duration-200 hover:-translate-y-0.5 hover:bg-maroon hover:shadow-[0_5px_10px_rgba(60,40,20,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crimson focus-visible:ring-offset-2 focus-visible:ring-offset-[#ede0d3]"
                   >
                     <Globe
                       className="size-[1.15rem]"

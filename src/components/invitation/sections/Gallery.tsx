@@ -32,7 +32,7 @@ export default function Gallery({ invitation }: { invitation: Invitation }) {
         />
       )}
 
-      <ScatteredFlowers />
+      <ScatteredFlowers animated />
 
       <CornerImage
         src={corners.topLeft}

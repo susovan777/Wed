@@ -8,6 +8,7 @@ import { eventDateText, formatEventTime } from "@/lib/eventDate";
 import type { Invitation } from "@/types/invitation";
 import ScatteredFlowers from "@/components/ui/ScatteredFlowers";
 import { Lang } from "@/lib/i18n";
+import GlowDots from "@/components/ui/GlowDots";
 
 const CORNER_SIZE = "w-[35vw] max-w-[190px] lg:w-[14%] lg:max-w-[240px]";
 
@@ -40,6 +41,8 @@ export default function Celebrations({
       )}
 
       <ScatteredFlowers />
+
+      <GlowDots />
 
       {/* Corner art */}
       <CornerImage

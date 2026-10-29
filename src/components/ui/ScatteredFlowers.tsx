@@ -1,4 +1,7 @@
+"use client";
+
 import { useId } from "react";
+import { motion, useReducedMotion } from "motion/react";
 
 export type FlowerColor = "yellow" | "blue" | "green";
 
@@ -67,15 +70,22 @@ export const DEFAULT_FLOWERS: FlowerSpec[] = [
  * Scattered flowers, placed as a share of the parent section.
  * The parent must be `relative` (your sections already are).
  * Keep `className` z-index below the text and above the background.
+ *
+ * `animated`: every flower slowly fades in, drifts and turns a little, then fades out.
+ * Each one has its own speed and start time. Off by default. Stays still when the
+ * visitor has "reduce motion" turned on.
  */
 export default function ScatteredFlowers({
   flowers = DEFAULT_FLOWERS,
   className = "z-1",
+  animated = false,
 }: {
   flowers?: FlowerSpec[];
   className?: string;
+  animated?: boolean;
 }) {
   const gid = `flower-${useId().replace(/:/g, "")}`;
+  const reduce = useReducedMotion();
 
   return (
     <>
@@ -102,22 +112,9 @@ export default function ScatteredFlowers({
       {flowers.map(
         ([left, top, size, rotate, blur, opacity, color = "yellow"], i) => {
           const p = PALETTE[color];
-          return (
-            <svg
-              key={i}
-              viewBox="0 0 24 24"
-              aria-hidden
-              className={`pointer-events-none absolute ${className}`}
-              style={{
-                left: `${left}%`,
-                top: `${top}%`,
-                width: size,
-                height: size,
-                transform: `rotate(${rotate}deg)`,
-                opacity,
-                filter: blur ? `blur(${blur}px)` : undefined,
-              }}
-            >
+
+          const shape = (
+            <>
               {[0, 72, 144, 216, 288].map((angle) => (
                 <ellipse
                   key={angle}
@@ -134,7 +131,72 @@ export default function ScatteredFlowers({
               ))}
               <circle cx="12" cy="12" r="2.3" fill={p.center} />
               <circle cx="11.3" cy="11.3" r="0.8" fill={p.glint} />
-            </svg>
+            </>
+          );
+
+          const box = {
+            left: `${left}%`,
+            top: `${top}%`,
+            width: size,
+            height: size,
+            filter: blur ? `blur(${blur}px)` : undefined,
+          };
+          const cls = `pointer-events-none absolute ${className}`;
+
+          // Still flowers
+          if (!animated || reduce) {
+            return (
+              <svg
+                key={i}
+                viewBox="0 0 24 24"
+                aria-hidden
+                className={cls}
+                style={{ ...box, transform: `rotate(${rotate}deg)`, opacity }}
+              >
+                {shape}
+              </svg>
+            );
+          }
+
+          // Moving flowers: each one gets its own drift, turn, speed and start time
+          const dx = (((i * 7) % 5) - 2) * 7; // -14 to 14 px sideways
+          const dy = -(12 + ((i * 5) % 4) * 6); // 12 to 30 px upward
+          const spin = i % 2 ? 10 : -10; // degrees
+          const duration = 11 + ((i * 3) % 6); // 11 to 16 seconds
+          const delay = (i * 1.7) % 7;
+
+          return (
+            <motion.svg
+              key={i}
+              viewBox="0 0 24 24"
+              aria-hidden
+              className={cls}
+              style={box}
+              initial={{ opacity: 0, rotate }}
+              animate={{
+                // fade in, stay, fade out
+                opacity: [0, opacity, opacity, 0],
+                x: [0, dx],
+                y: [0, dy],
+                rotate: [rotate, rotate + spin],
+              }}
+              // Each property needs its own duration, delay and repeat. A property that has
+              // its own settings does not inherit them from the top level.
+              transition={{
+                opacity: {
+                  duration,
+                  delay,
+                  repeat: Infinity,
+                  times: [0, 0.3, 0.7, 1],
+                  ease: "easeInOut",
+                },
+                x: { duration, delay, repeat: Infinity, ease: "linear" },
+                y: { duration, delay, repeat: Infinity, ease: "linear" },
+                rotate: { duration, delay, repeat: Infinity, ease: "linear" },
+              }}
+            >
+              {shape}
+            </motion.svg>
           );
         },
       )}

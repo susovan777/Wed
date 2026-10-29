@@ -50,6 +50,20 @@ export default function BrideGroom({ invitation }: { invitation: Invitation }) {
         />
       )}
 
+      {/* Colour glow: soft rose and amber washes, same as the Blessing section */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-20 top-0 -z-10 h-72 w-72 rounded-full bg-rose-300/30 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-24 -right-16 -z-10 h-96 w-96 rounded-full bg-rose-400/30 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-1/4 top-0 -z-10 h-56 w-56 rounded-full bg-amber-200/50 blur-3xl"
+      />
+
       {/* Patterned red borders: tiled across the full width, never scaled to fit */}
       {borders.top && (
         <RepeatBorder
