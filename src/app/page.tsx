@@ -14,11 +14,35 @@ export function generateMetadata(): Metadata {
   if (!invitation) return {};
 
   return {
+    // Needed so the image link becomes a full https address
+    metadataBase: new URL("https://wedinvite-ps.vercel.app"),
     title: invitation.seo.title,
     description: invitation.seo.description,
     robots: { index: false, follow: false },
     icons: {
       icon: "/favicon.png", // Points to public/favicon.png
+    },
+    openGraph: {
+      type: "website",
+      siteName: invitation.seo.title,
+      title: invitation.seo.title,
+      description: invitation.seo.description,
+      images: invitation.seo.image
+        ? [
+            {
+              url: invitation.seo.image,
+              width: 1200,
+              height: 630,
+              alt: invitation.seo.title,
+            },
+          ]
+        : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: invitation.seo.title,
+      description: invitation.seo.description,
+      images: invitation.seo.image ? [invitation.seo.image] : undefined,
     },
   };
 }

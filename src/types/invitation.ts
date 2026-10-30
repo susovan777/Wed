@@ -428,6 +428,8 @@ export type Invitation = {
   seo: {
     title: string;
     description: string;
+    /** Preview image for WhatsApp and social sharing. */
+    image?: string;
   };
 
   /** Optional per-invitation order and visibility. Defaults to every section. */

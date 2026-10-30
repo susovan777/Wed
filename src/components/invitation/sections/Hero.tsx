@@ -78,7 +78,7 @@ export default function Hero({ invitation }: { invitation: Invitation }) {
         aria-hidden="true"
       />
 
-      <ScatteredFlowers />
+      <ScatteredFlowers animated />
 
       {/* Corner decorations */}
       <Corner
@@ -123,9 +123,9 @@ export default function Hero({ invitation }: { invitation: Invitation }) {
         </Reveal>
       </header>
 
-      <div className="relative z-10 flex flex-1 flex-col lg:grid lg:grid-cols-2">
+      <div className="relative z-20 flex flex-1 flex-col lg:grid lg:grid-cols-3">
         {/* Text column */}
-        <div className="flex flex-col items-center px-6 pt-4 text-center lg:self-center lg:pb-12 xl:pl-40 lg:pr-0 lg:pt-0">
+        <div className="flex min-w-0 flex-col items-center px-6 pt-14 text-center lg:col-span-2 lg:self-center lg:px-10 lg:pb-12 lg:pt-0">
           <h1 className="sr-only">
             {bride.fullName ?? bride.name} and {groom.fullName ?? groom.name}
           </h1>
@@ -206,13 +206,13 @@ export default function Hero({ invitation }: { invitation: Invitation }) {
         </div>
 
         {/* Couple illustration: bottom on mobile, bottom-right on desktop */}
-        <div className="mt-auto flex justify-center pt-8 lg:justify-end lg:self-end xl:pr-25 lg:pt-0">
+        <div className="mt-auto flex min-w-0 justify-center pt-8 lg:col-span-1 lg:justify-end lg:self-end lg:pr-6 lg:pt-0 xl:pr-10">
           <Reveal
             trigger="open"
             y={90}
             delay={0.8}
             duration={1.3}
-            className="w-[82%] max-w-115 lg:w-auto lg:max-w-none"
+            className="w-[82%] max-w-115 lg:w-full lg:max-w-none"
           >
             <Image
               src={hero.couple}
@@ -220,7 +220,7 @@ export default function Hero({ invitation }: { invitation: Invitation }) {
               width={1000}
               height={1350}
               sizes="(min-width: 1024px) 40vw, 82vw"
-              className="h-auto w-full select-none lg:h-[74dvh] lg:max-h-215 lg:w-auto mask-b-from-90%"
+              className="h-auto w-full select-none lg:h-[74dvh] lg:max-h-215 lg:object-contain lg:object-bottom-right mask-b-from-90%"
               draggable={false}
             />
           </Reveal>
