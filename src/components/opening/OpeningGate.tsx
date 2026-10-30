@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion, type Transition } from "motion/react";
+import SideOrnaments from "../ui/SideOrnaments";
 
 export type OpeningAssets = {
   /** Portrait 9:16 artwork WITHOUT the envelope and seal. */
@@ -85,6 +86,8 @@ export default function OpeningGate({
         quality={90}
         className="hidden scale-110 object-cover opacity-50 blur-2xl md:block"
       />
+
+      <SideOrnaments leftImage="/opening/alpana.webp" />
 
       {/* Stage: 9:16 on desktop, full width on phones */}
       <motion.div
