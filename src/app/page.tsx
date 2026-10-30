@@ -31,8 +31,8 @@ export function generateMetadata(): Metadata {
         ? [
             {
               url: invitation.seo.image,
-              width: 1200,
-              height: 630,
+              width: 860,
+              height: 450,
               alt: invitation.seo.title,
             },
           ]

@@ -406,5 +406,6 @@ export const sahooWedding: Invitation = {
   seo: {
     title: "Puspalata & Susovan | Wedding Invitation",
     description: "You are invited to the wedding of Puspalata and Susovan.",
+    image: "/og.jpg",
   },
 };
