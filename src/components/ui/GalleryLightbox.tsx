@@ -151,7 +151,7 @@ export default function GalleryLightbox({
           role="dialog"
           aria-modal="true"
           aria-label="Photo viewer"
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-[#1d0709]/55 p-4 backdrop-blur-md"
+          className="fixed inset-0 z-60 flex items-center justify-center bg-[#1d0709]/55 p-4 backdrop-blur-md"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

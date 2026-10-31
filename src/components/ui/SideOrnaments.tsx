@@ -176,7 +176,7 @@ function Side({
       transition={{ duration: 1.1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
     >
       <div
-        className="relative h-[84%] w-full max-w-[220px]"
+        className="relative h-[84%] w-full max-w-55"
         style={{ transform: mirror ? "scaleX(-1)" : undefined }}
       >
         {image ? (

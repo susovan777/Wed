@@ -287,7 +287,7 @@ export const sahooWedding: Invitation = {
     },
     photos: [
       {
-        src: "/invitations/gallery/photo-1.webp",
+        src: "/invitations/gallery/photo-1.jpg",
         caption: { style: "tape", text: "Where it all began", place: "top" },
       },
       {
@@ -299,7 +299,7 @@ export const sahooWedding: Invitation = {
         },
       },
       {
-        src: "/invitations/gallery/photo-3.png",
+        src: "/invitations/gallery/photo-3.jpg",
         caption: { style: "brush", text: "the best day", place: "bl" },
       },
       {
