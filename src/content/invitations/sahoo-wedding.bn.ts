@@ -73,7 +73,7 @@ export const sahooWeddingBn: DeepPartial<Invitation> = {
   },
 
   brideGroom: {
-    title: "পাত্র এবং পাত্রী",
+    title: "পরিচিতি",
     subtitle: "দুই পরিবার, একটি সুন্দর যাত্রা।\nকনে ও বরের সঙ্গে পরিচিত হোন।",
     bride: {
       label: "পাত্রী",

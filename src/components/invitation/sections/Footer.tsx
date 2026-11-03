@@ -53,7 +53,8 @@ export default function Footer({ invitation }: { invitation: Invitation }) {
             alt=""
             fill
             sizes="100vw"
-            className="w-full select-none object-cover object-center"
+            // className="w-full select-none object-cover object-center"
+            className="w-full select-none object-cover object-[80%_center] lg:object-center"
             priority={false}
           />
           {/* Dark gradient mask: darker in the middle to emphasize the text */}

@@ -107,7 +107,7 @@ export const sahooWedding: Invitation = {
 
   brideGroom: {
     modalFrame: "/invitations/arts/modal-frame.webp",
-    title: "Bride & Groom",
+    title: "Meet the Couple",
     subtitle:
       "Two families, one beautiful journey.\nGet to know the Bride and Groom.",
     ornament: "/invitations/couple/parvati&shiva.webp",
