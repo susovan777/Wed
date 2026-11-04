@@ -330,6 +330,76 @@ export const sahooWedding: Invitation = {
     },
   },
 
+  routeMap: {
+    title: "Route Map",
+    subtitle: "How to Reach Our Wedding Venue",
+    icon: "/invitations/route/map-pin.webp",
+    routes: [
+      {
+        title: "Train Route",
+        subtitle: "(Bangalore to Venue)",
+        icon: "/invitations/route/badge-train.webp",
+        steps: [
+          {
+            text: "SMVT, Bangalore → Balasore",
+            mode: "Train",
+            note: "Major Trains Available",
+            image: "/invitations/route/station.webp",
+          },
+          {
+            text: "Balasore → Jaleswar",
+            mode: "Local Train",
+            image: "/invitations/route/train.webp",
+          },
+          {
+            text: "Jaleswar → Our Place",
+            note: "(Reserved Cab Available)",
+            image: "/invitations/route/taxi.webp",
+          },
+        ],
+      },
+      {
+        title: "Flight Route",
+        subtitle: "(Bangalore to Venue)",
+        icon: "/invitations/route/badge-plane.webp",
+        steps: [
+          {
+            text: "Bangalore (BLR) → Kolkata (CCU)",
+            mode: "Flight",
+            image: "/invitations/route/plane.webp",
+          },
+          {
+            text: "Kolkata Airport (CCU) → Howrah St.",
+            mode: "Airport Bus",
+            image: "/invitations/route/bus.webp",
+          },
+          {
+            text: "Howrah St. → Digha",
+            mode: "Local Train",
+            image: "/invitations/route/train.webp",
+          },
+          {
+            text: "Digha → Our Place",
+            note: "(Reserved Cab Available)",
+            image: "/invitations/route/taxi.webp",
+          },
+        ],
+      },
+    ],
+
+    venue: {
+      title: "Wedding Venue",
+      address: "Bidyadharpur,\nRamanagar-1,\nEast Midnapur",
+    },
+    scene: "/invitations/route/scene.webp",
+    corners: {
+      // topLeft: "/invitations/corners/route-tl.webp",
+      // topRight: "/invitations/corners/route-tr.webp",
+      bottomLeft: "/invitations/corners/events-bl.webp",
+      bottomRight: "/invitations/corners/events-br.webp",
+    },
+  },
+
   gift: {
     title: "Gifts & Blessings",
     eyebrow: "A little gift, a lot of love",

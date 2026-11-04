@@ -12,6 +12,7 @@ export type SectionKey =
   | "brideGroom"
   | "gallery"
   | "venue"
+  | "routeMap"
   | "gift"
   | "rsvp"
   | "note"
@@ -102,6 +103,27 @@ export type RsvpFormText = {
   submitLabel?: string;
   thanksYes?: { title: string; text: string };
   thanksNo?: { title: string; text: string };
+};
+
+export type RouteStep = {
+  /** The line itself, e.g. "SMVT, Bangalore → Balasore". */
+  text: string;
+  /** How you travel, shown in red under the line, e.g. "Train". */
+  mode?: string;
+  /** Small pill under it, e.g. "Major Trains Available". */
+  note?: string;
+  /** Picture on the left: station, train, taxi (transparent WebP). */
+  image?: string;
+};
+
+export type RouteGroup = {
+  /** e.g. "Train Route". */
+  title: string;
+  /** e.g. "(Bangalore to Venue)". */
+  subtitle?: string;
+  /** Icon inside the round badge (white or gold on transparent). A plain route icon shows if you leave it out. */
+  icon?: string;
+  steps: RouteStep[];
 };
 
 export type Invitation = {
@@ -324,6 +346,25 @@ export type Invitation = {
     /** The venue photo. Transparent PNG/WebP if it has torn paper edges. */
     image?: string;
     imageAlt?: string;
+    background?: string;
+    corners?: {
+      topLeft?: string;
+      topRight?: string;
+      bottomLeft?: string;
+      bottomRight?: string;
+    };
+  };
+
+  routeMap?: {
+    title: string;
+    subtitle?: string;
+    /** Map pin icon above the title. */
+    icon?: string;
+    routes: RouteGroup[];
+    /** The wooden signboard at the bottom. Use \n in the address for line breaks. */
+    venue: { title: string; address: string };
+    /** Scenery along the bottom (bridge, river, village). */
+    scene?: string;
     background?: string;
     corners?: {
       topLeft?: string;
