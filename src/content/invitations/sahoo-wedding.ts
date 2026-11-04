@@ -11,6 +11,7 @@ const venue = {
 export const sahooWedding: Invitation = {
   slug: "sahoo-wedding",
   opening: {
+    // hint: "Tap to open\nখুলতে ট্যাপ করুন",
     background: "/opening/bg.webp",
     envelope: "/opening/envelop.webp",
     flowerBorder: "/opening/flower-border.webp",

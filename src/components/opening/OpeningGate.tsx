@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion, type Transition } from "motion/react";
 import SideOrnaments from "../ui/SideOrnaments";
+import TapHint from "./TapHint";
 
 export type OpeningAssets = {
   /** Portrait 9:16 artwork WITHOUT the envelope and seal. */
@@ -14,6 +15,7 @@ export type OpeningAssets = {
   flowerBorder: string;
   /** Image of the Subho Bibaha ceremony. */
   subhoBibaha: string;
+  hint?: string;
 };
 
 type OpeningGateProps = {
@@ -227,6 +229,12 @@ export default function OpeningGate({
                 </div>
               </motion.div>
             </motion.button>
+
+            <TapHint
+              text={assets.hint}
+              iconSize={40}
+              className="absolute left-1/2 top-[68%] -translate-x-1/2"
+            />
           </div>
         </div>
       </motion.div>
